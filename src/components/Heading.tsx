@@ -2,7 +2,7 @@
    return (
       <nav className="sticky top-0 z-50 flex items-center justify-between  pr-40 mx-auto w-full">
              <div 
-        className="w-32 h-22 mt-4 ml-10 "
+        className="w-36 h-22 mt-4 ml-10 "
         style={{
           backgroundImage: 'url("/logos/Amaca_Thera_Logo_PNG.png")',
           backgroundSize: 'cover',

@@ -4,14 +4,14 @@
              <div 
         className="w-32 h-22 mt-4 ml-10 "
         style={{
-          backgroundImage: 'url("/images/Logo.png")',
+          backgroundImage: 'url("/logos/Amaca_Thera_Logo_PNG.png")',
           backgroundSize: 'cover',
           backgroundPosition: 'center left',
         }}
       /> 
 
       <div className="flex gap-10 items-center">
-        {["About", "News", "Publication", "Technology", "Pipeline", "Partners", "Contact Us"].map(
+        {["About", "News", "Publication", "Technology", "Pipeline", "Contact Us"].map(
           (item) => (
             <button
               key={item}

@@ -1,3 +1,8 @@
+import { Montserrat } from "next/font/google";
+const montserrat = Montserrat({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'], // choose weights you need
+});
 export default function Hero() {
   return (
     <div className="min-h-screen w-full -mt-[7%] bg-gradient-to-br from-blue-50 via-slate-100 to-blue-100 relative overflow-hidden">
@@ -16,7 +21,7 @@ export default function Hero() {
 
         {/* Hero Section */}
         <div className="max-w-7xl mx-auto px-8 py-20 pt-[15%]">
-          <div className="grid grid-cols-2 gap-16 items-center">
+          <div className="grid grid-cols-2 items-center">
             {/* Left Side - Image Area */}
             <div className="flex items-center justify-center">
             </div>
@@ -24,10 +29,10 @@ export default function Hero() {
             {/* Right Side - Content */}
             <div className="flex flex-col gap-8">
               <div className="">
-                <h1 className="text-5xl font-bold text-blue-900 mb-4 leading-tight">
+                <h1 className={`text-4xl font-bold whitespace-nowrap text-blue-900 mb-4 leading-tight ${montserrat.className}`}>
                   Transforming Therapeutics.
                 </h1>
-                <h2 className="text-5xl font-bold text-blue-900 leading-tight">
+                <h2 className="text-4xl font-bold text-blue-900 leading-tight">
                   One Injection at a Time.
                 </h2>
               </div>

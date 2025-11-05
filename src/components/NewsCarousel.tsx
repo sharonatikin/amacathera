@@ -64,7 +64,7 @@ export default function NewsSection() {
   ];
 
   return (
-    <div className="min-h-screen w-full bg-gradient-to-br from-gray-50 via-white to-slate-100 relative overflow-hidden">
+    <div className="min-h-screen backdrop-blur-xs bg-white/10 w-full relative overflow-hidden">
       {/* Decorative Corner Lines */}
       <div className="absolute top-0 left-0 w-32 h-32">
         <div className="absolute top-12 left-0 w-24 h-px bg-blue-300" />
@@ -96,7 +96,7 @@ export default function NewsSection() {
 
         {/* News Card */}
         <div className="max-w-5xl w-full mb-16">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center bg-white/40 backdrop-blur-sm rounded-3xl p-8 lg:p-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center rounded-3xl p-8 lg:p-12">
             {/* Image */}
             <div className="flex items-center justify-center">
               <div className="relative w-full max-w-md">

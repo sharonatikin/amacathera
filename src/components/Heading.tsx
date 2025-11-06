@@ -13,7 +13,7 @@ import Link from "next/link";
       /> 
 
       <div className="flex gap-10 items-center">
-        {["About", "News", "Publication", "Technology", "Pipeline", "Contact Us"].map(
+        {["About", "News", "Team", "Publication", "Technology", "Pipeline", "Contact Us"].map(
           (item) => (
             <Link
               href={item === "Home" ? "/" : `/${item.toLowerCase().replace(/\s+/g, '-')}`}

@@ -5,7 +5,7 @@ interface Publication {
   publishedInfo: string;
 }
 
-export const publications: [Publication[]] = [
+export const publications: Publication[][] = [
   [
     {
       date: "2019-03-01",

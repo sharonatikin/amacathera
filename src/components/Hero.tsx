@@ -5,7 +5,7 @@ const montserrat = Montserrat({
 });
 export default function Hero() {
   return (
-    <div className="min-h-screen w-full -mt-[7%] bg-gradient-to-br from-blue-50 via-slate-100 to-blue-100 relative overflow-hidden">
+    <div className="min-h-screen w-full bg-gradient-to-br from-blue-50 via-slate-100 to-blue-100 relative overflow-hidden">
       {/* Background Image Overlay */}
       <div 
         className="absolute inset-0"

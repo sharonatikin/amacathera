@@ -1,3 +1,4 @@
+export const navItems = ["Home", "News", "Team", "Publications", "Technology", "Contact Us"];
 export const teamMembers = [
   {
     name: "Dr. Molly Shoichet",
@@ -66,6 +67,28 @@ export const teamMembers = [
 ]
 
 export const pressReleases = [
+  {
+    id: 0,
+    image: "award.png",
+    title: "AmacaThera Signs Exclusive Global Licensing Agreement with Pacira BioSciences for Up To US$230 Million, Validating Tunable Drug Delivery Platform",
+    date: "November 2, 2020",
+    category: "Press Release",
+    summary: "AmacaThera received USD$5 million upfront and up to USD$225 million in potential future milestones payment with Pacira BioSciences for AMT-143, AmacaThera's long-acting, non-opioid pain management drug delivery platform.",
+    paragraphs: [
+      "AmacaThera received USD$5 million upfront and up to USD$225 million in potential future milestones payment with Pacira BioSciences for AMT-143, AmacaThera's long-acting, non-opioid pain management drug delivery platform.",
+      "AMT-143 leverages AmacaThera's breakthrough tunable hydrogel platform, delivering sustained local release of lipoalgel.",
+      "AmacaThera and Pacira will collaborate on the Phase 2 clinical program, and Pacira will fund clinical development, manufacturing and commercialization, with the program projected to commercialize in 2025.",
+      "The agreement represents a major validation of AmacaThera's tunable hydrogel technology, as Pacira will expand the indication and utility of the technology.",
+      "Toronto, Ontario - November 2, 2020 - AmacaThera, a leading developer of next-generation hydrogel-based drug delivery solutions that enable precise, tunable, and sustained medication release across a range of active therapeutics, today announced an exclusive worldwide licensing agreement with Pacira BioSciences, Inc., a leader in non-opioid pain management for the development and commercialization of AMT-143.",
+      "AmacaThera's innovative hydrogel-based drug delivery platform provides precise, sustained, and extended-release capabilities in an easy-to-administer format. AMT-143 has been designed to provide Phase 1 trial and delivered sustained release of lipoalgel for up to 14 days. The platform's adaptability supports a wide spectrum of therapeutics, from small molecules to biologics, addressing unmet needs in pain management.",
+      "Under the terms of the agreement, AmacaThera will receive USD$5 million upfront and up to USD$225 million in potential future milestone payments and royalties on sales. The companies will collaborate on clinical development, with AmacaThera leading select clinical studies. Pacira will fund overall development of AMT-143 through commercial launch. Pacira will lead Phase 2 trial in 2021, after which Pacira will assume full responsibility for the development, manufacturing, and commercialization of AMT-143.",
+      "\"This partnership with Pacira is a major validation of our tunable hydrogel platform and our approach to developing long-acting therapeutics,\" said Mike Cooke, CEO and Co-founder of AmacaThera. \"We are excited about the commercial potential and clinical validity and commercial appeal of our technology to future partners.\"",
+      "According to Pacira, \"Our platform continues to advance post-operative analgesia and lipoalgel-based hydrogels that enhance process, localized, and sustained drug delivery. It is composition with a wide range of therapeutics, from small molecules to biologics, and ideal for precisely meeting the unique needs of each clinical association.\"",
+      "\"The agreement validates AmacaThera's unique position in the drug delivery space, where its hydrogel platform can be customized to enable rapid and sustained drug release, low-cost manufacturing, broad therapeutic complexity, and flexibility for multiple partnering opportunities.\"",
+      "Astellas, Aydin Physicians IT and Osler, Hoskin & Harcourt LLP acted as financial and legal advisors to AmacaThera on this transaction, respectively.",
+      "For more information, visit www.amacathera.com."
+    ]
+  },
   {
     id: 1,
     image: "xray-review.png",

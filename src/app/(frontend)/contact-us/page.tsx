@@ -33,7 +33,7 @@ export default function ContactUsSection() {
     >
 
       {/* Left side - Contact Form */}
-      <div className="relative z-10 w-full lg:w-1/2 min-h-screen flex flex-col justify-center px-10 lg:px-26 py-20">
+      <div className="relative z-10 w-full lg:w-1/2 min-h-screen flex flex-col justify-center pt-[10%] px-16 lg:px-30 py-20">
         <div className="max-w-md">
           {/* Title */}
           <h1 className="text-5xl lg:text-6xl font-bold text-[#0f3a66] mb-12">
@@ -95,7 +95,7 @@ export default function ContactUsSection() {
             </div>
 
             {/* Submit Button */}
-            <div className="pt-4">
+            <div className="">
               <button
                 type="submit"
                 className="bg-[#1dd1a1] hover:bg-[#10ac84] text-white px-8 py-3 rounded-lg font-semibold transition-colors duration-300 text-base"
@@ -105,15 +105,6 @@ export default function ContactUsSection() {
             </div>
           </form>
         </div>
-      </div>
-
-      {/* Decorative background elements */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        {/* Top right glow */}
-        <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-blue-200 to-transparent opacity-10 rounded-full blur-3xl"></div>
-        
-        {/* Bottom left glow */}
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-blue-100 to-transparent opacity-10 rounded-full blur-3xl"></div>
       </div>
     </div>
   );

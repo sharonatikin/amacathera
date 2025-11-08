@@ -29,9 +29,9 @@ const TeamLeadershipPage: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-100 to-gray-200">
+    <div className="min-h-screen  bg-gradient-to-b from-gray-100 to-gray-200">
       {/* Hero Section */}
-      <div className="bg-gradient-to-br from-gray-200 via-blue-50 to-gray-100 py-16 px-4">
+      <div className="bg-gradient-to-br pt-[10%] from-gray-200 via-blue-50 to-gray-100 py-16 px-4">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-4xl md:text-5xl font-bold text-blue-900 mb-6">
             Our Team & Leadership

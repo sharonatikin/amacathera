@@ -1,7 +1,5 @@
-import Footer from "@/components/Footer";
 import FAQSection from "@/components/FAQSection";
 import GetInTouch from "@/components/GetInTouch";
-import Heading from "@/components/Heading";
 import Hero from "@/components/Hero";
 import NewsSection from "@/components/NewsCarousel";
 import Partners from "@/components/Partners";

@@ -1,15 +1,23 @@
-
 export default function ShowcaseSection() {
   return (
     <div className="w-full min-h-screen bg-gradient-to-b from-gray-50 to-white px-6 py-20">
       {/* Main container */}
       <div className="max-w-7xl mx-auto">
-        {/* Card Section */}
+        {/* Video Section */}
         <div className="mb-24">
           <div className="flex justify-center">
-
-                  <img src='/logos/Logo_BG_Blue.png' alt="AmacaThera Logo" className="rounded-3xl  shadow-2xl" />
-
+            <div className="w-full max-w-4xl aspect-video rounded-3xl shadow-2xl overflow-hidden">
+              <iframe
+                width="100%"
+                height="100%"
+                src="https://www.youtube.com/embed/aFTugjM95Xc?autoplay=1"
+                title="AmacaThera Video"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="w-full h-full"
+              />
+            </div>
           </div>
         </div>
 
@@ -23,7 +31,7 @@ export default function ShowcaseSection() {
           </div>
 
           {/* Divider line - hidden on mobile */}
-          <div className="hidden lg:block  left-1/2 top-96 transform -translate-x-1/2 h-40 w-px bg-gradient-to-b from-transparent via-[#004d7a] to-transparent"></div>
+          <div className="hidden lg:block left-1/2 top-96 transform -translate-x-1/2 h-40 w-px bg-gradient-to-b from-transparent via-[#004d7a] to-transparent"></div>
 
           {/* Right Column */}
           <div className="flex flex-col">
@@ -33,21 +41,6 @@ export default function ShowcaseSection() {
           </div>
         </div>
       </div>
-
-      {/* Background decoration elements */}
-      {/* <div className="fixed inset-0 pointer-events-none overflow-hidden"> */}
-        {/* Top left wave */}
-        {/* <svg className="absolute -top-24 -left-12 w-96 h-96 opacity-10" viewBox="0 0 200 200">
-          <path d="M 50,100 Q 80,50 150,100 T 250,100" stroke="#004d7a" strokeWidth="2" fill="none" />
-          <path d="M 50,120 Q 80,70 150,120 T 250,120" stroke="#004d7a" strokeWidth="2" fill="none" />
-        </svg> */}
-
-        {/* Top right wave */}
-        {/* <svg className="absolute -top-32 -right-24 w-96 h-96 opacity-10 rotate-180" viewBox="0 0 200 200">
-          <path d="M 50,100 Q 80,50 150,100 T 250,100" stroke="#004d7a" strokeWidth="2" fill="none" />
-          <path d="M 50,120 Q 80,70 150,120 T 250,120" stroke="#004d7a" strokeWidth="2" fill="none" />
-        </svg>
-      </div> */}
     </div>
   );
 }

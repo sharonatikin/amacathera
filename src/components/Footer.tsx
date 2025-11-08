@@ -1,15 +1,8 @@
+import { navItems } from '@/const';
 import { Facebook, Twitter, Linkedin, Instagram, MapPin } from 'lucide-react';
+import Link from 'next/link';
 
 export default function Footer() {
-  const navLinks = [
-    'About',
-    'Service',
-    'Industries',
-    'Client',
-    'Blog',
-    'Case study',
-    'Career'
-  ];
 
   return (
     <footer className="w-full bg-[#003d6b] text-white relative overflow-hidden">
@@ -30,42 +23,45 @@ export default function Footer() {
 
               {/* Social Icons */}
               <div className="flex gap-4 sm:gap-6">
-                <button className="hover:opacity-70 transition">
+                {/* <button className="hover:opacity-70 transition">
                   <Facebook className="w-4 h-4 sm:w-5 sm:h-5" fill='white' />
                 </button>
                 <button className="hover:opacity-70 transition">
                   <Twitter className="w-4 h-4 sm:w-5 sm:h-5" fill='white' />
                 </button>
                 <button className="hover:opacity-70 transition">
-                  <Linkedin className="w-4 h-4 sm:w-5 sm:h-5" fill='white' />
-                </button>
-                <button className="hover:opacity-70 transition">
                   <Instagram className="w-4 h-4 sm:w-5 sm:h-5" />
-                </button>
+                </button> */}
+                <Link href='https://www.linkedin.com/company/amacathera/' className="hover:opacity-70 transition">
+                  <Linkedin className="w-4 h-4 sm:w-5 sm:h-5" fill='white' />
+                </Link>
               </div>
             </div>
 
             {/* Navigation Links */}
             <nav className="flex flex-wrap gap-x-4 sm:gap-x-6 gap-y-2 mb-6">
-              {navLinks.map((link, index) => (
-                <span key={index} className="flex items-center gap-3 sm:gap-4">
-                  <button className="text-white hover:text-white/70 transition font-normal text-sm">
-                    {link}
-                  </button>
-                  {index < navLinks.length - 1 && (
-                    <span className="text-white/40 hidden sm:inline">|</span>
-                  )}
-                </span>
-              ))}
+              {navItems.map(
+                (item, index) => (
+                  <>
+                    <Link
+                      href={item === "Home" ? "/" : `/${item.toLowerCase().replace(/\s+/g, '-')}`}
+                      key={item}
+                      className="text-white font-medium transition"
+                    >
+                      {item}
+                    </Link>
+                    {index < navItems.length - 1 && (
+                      <span className="text-white/40 hidden sm:inline">|</span>
+                    )}
+                  </>
+                )
+              )}
             </nav>
 
             {/* Description Text */}
             <div className="space-y-2 text-white/90 text-xs sm:text-sm leading-relaxed max-w-3xl mb-6">
               <p>
-                Lörem ipsum od ohet dilagi. Bell trabel, samuligt, ohöbel utom diska. Jinesade bel när feras redorade i belogi.
-              </p>
-              <p>
-                FAR paratyp i muväning, och pesask vyfisat. Viktiga poddradio har un mad och inde.
+                AmacaThera is a clinical-stage biotechnology company transforming therapeutics to make a difference in patient health. Our unique, injectable hydrogel platform provides localized, sustained drug delivery to improve patient outcomes across multiple therapeutic areas, including post‑surgical pain management, cancer and other hard‑to‑reach target areas.
               </p>
             </div>
 

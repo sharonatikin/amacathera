@@ -56,3 +56,4 @@ export const pipelineData = [
       phase1:false,
     },
   ]
+export const navItems = ["Home", "News", "Team", "Publications", "Technology", "Contact Us"];

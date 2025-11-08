@@ -1,44 +1,11 @@
 'use client';
 import { Plus, Minus } from 'lucide-react';
 import { useState } from 'react';
+import {faqData} from '@/const/qna';
 
 export default function FAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
-  const faqs = [
-    {
-      question: "Lörem ipsum od ohet dilagi. Bell trabel, samuligt, ohöbel utom diska.",
-      answer: "Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat aute irure dolor"
-    },
-    {
-      question: "Lörem ipsum od ohet dilagi. Bell trabel, samuligt, ohöbel utom diska.",
-      answer: "Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat aute irure dolor"
-    },
-    {
-      question: "Lörem ipsum od ohet dilagi. Bell trabel, samuligt, ohöbel utom diska.",
-      answer: "Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat aute irure dolor"
-    },
-    {
-      question: "Lörem ipsum od ohet dilagi. Bell trabel, samuligt, ohöbel utom diska.",
-      answer: "Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat aute irure dolor"
-    },
-    {
-      question: "Lörem ipsum od ohet dilagi. Bell trabel, samuligt, ohöbel utom diska.",
-      answer: "Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat aute irure dolor"
-    },
-    {
-      question: "Lörem ipsum od ohet dilagi. Bell trabel, samuligt, ohöbel utom diska.",
-      answer: "Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat aute irure dolor"
-    },
-    {
-      question: "Lörem ipsum od ohet dilagi. Bell trabel, samuligt, ohöbel utom diska.",
-      answer: "Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat aute irure dolor"
-    },
-    {
-      question: "Lörem ipsum od ohet dilagi. Bell trabel, samuligt, ohöbel utom diska.",
-      answer: "Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat aute irure dolor"
-    }
-  ];
 
   const toggleAccordion = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
@@ -55,7 +22,7 @@ export default function FAQSection() {
         {/* FAQ Grid Container */}
         <div className="border-2 border-blue-400 rounded-2xl p-8 bg-white/50">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            {faqs.map((faq, index) => (
+            {faqData.map((faq, index) => (
               <div
                 key={index}
                 className="bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow"

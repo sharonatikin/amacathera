@@ -3,6 +3,7 @@ import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { useState, useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { pressReleases } from '@/const';
+import Link from 'next/link';
 
 export default function NewsSection() {
   const [activeSlide, setActiveSlide] = useState(0);
@@ -154,9 +155,9 @@ export default function NewsSection() {
                   <span className="text-[#1e3a5f] mr-1">
                     {pressReleases[activeSlide].date}
                   </span>
-                  <button className="text-[#1e3a5f] font-bold underline hover:text-[#2d5a8f] transition">
+                  <Link href={`/news/${pressReleases[activeSlide].id}`} className="text-[#1e3a5f] font-bold underline hover:text-[#2d5a8f] transition">
                     Press Release
-                  </button>
+                  </Link>
                 </div>
               </div>
             </div>

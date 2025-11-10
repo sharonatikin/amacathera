@@ -58,9 +58,9 @@ export default function TechnologyHighlights() {
               </p>
 
               {/* Arrow */}
-              <div className="mt-auto">
+              {/* <div className="mt-auto">
                 <ArrowRight className="w-12 h-6 text-white  " strokeWidth={2} />
-              </div>
+              </div> */}
             </div>
           ))}
         </div>

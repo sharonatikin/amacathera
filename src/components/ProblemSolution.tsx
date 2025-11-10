@@ -54,7 +54,7 @@ export default function ProblemSolution() {
         </div>
 
         {/* Navigation */}
-        <div className="flex justify-around items-center mt-12">
+        {/* <div className="flex justify-around items-center mt-12">
           <button className="flex items-center gap-3 text-[#003366] font-semibold text-lg hover:gap-2 transition-all duration-300 group">
             <ArrowLeft className="w-8 h-8 group-hover:-translate-x-1 transition-transform" strokeWidth={2.5} />
             <span>Previous</span>
@@ -64,7 +64,7 @@ export default function ProblemSolution() {
             <span>Next</span>
             <ArrowRight className="w-8 h-8 group-hover:translate-x-1 transition-transform" strokeWidth={2.5} />
           </button>
-        </div>
+        </div> */}
       </div>
     </div>
   );

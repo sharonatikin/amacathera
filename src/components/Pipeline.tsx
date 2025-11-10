@@ -89,12 +89,12 @@ export default function Pipeline() {
             className={`flex-1 transition-opacity duration-300 ${isAnimating ? 'opacity-0' : 'opacity-100'}`}
           >
             <div className="max-w-5xl mx-auto">
-              <div className="bg-white rounded-2xl sm:rounded-3xl shadow-2xl overflow-hidden">
+              <div className="bg-white max-w-4xl rounded-2xl sm:rounded-3xl shadow-2xl overflow-hidden">
                 {/* Desktop Table View (hidden on mobile) */}
                 <div className="hidden md:block">
                   {/* Table Header */}
-                  <div className="grid grid-cols-4 bg-[#003d6b] text-white">
-                    <div className="px-4 lg:px-6 py-4 lg:py-5 font-bold text-sm lg:text-base border-r border-white/20">
+                  <div className="grid grid-cols-5 bg-[#003d6b] text-white">
+                    <div className="px-4 col-span-2 lg:px-6 py-4 lg:py-5 font-bold text-sm lg:text-base border-r border-white/20">
                       Product / Platform
                     </div>
                     <div className="px-4 lg:px-6 py-4 lg:py-5 font-bold text-sm lg:text-base text-center border-r border-white/20">
@@ -109,9 +109,9 @@ export default function Pipeline() {
                   </div>
 
                   {/* Table Row */}
-                  <div className="grid grid-cols-4 border-t border-gray-200">
+                  <div className="grid grid-cols-5 border-t border-gray-200">
                     {/* Product Info */}
-                    <div className="px-4 lg:px-6 py-5 lg:py-6 border-r border-gray-200">
+                    <div className="px-4 col-span-2 lg:px-6 py-5 lg:py-6 border-r border-gray-200">
                       <div>
                         <h3 className="text-base lg:text-lg font-bold text-[#1e3a5f] mb-2">
                           {currentItem.product}

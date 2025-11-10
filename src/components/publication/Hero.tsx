@@ -9,7 +9,7 @@ const BioEngineeringFounder: React.FC = () => {
         backgroundImage: 'url("/images/publication-bg.png")',
       }}
     >
-      <div className="max-w-7xl relative pt-[10%] w-full">
+      <div className="max-w-7xl relative w-full">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Left Content Section */}
           <div className="space-y-2 ml-20">

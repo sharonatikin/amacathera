@@ -109,7 +109,7 @@ export default function NewsSection() {
   };
 
   return (
-    <div className="h-screen backdrop-blur-xs bg-white/10 w-full relative overflow-hidden">
+    <div className="min-h-screen backdrop-blur-xs bg-white/10 w-full relative overflow-hidden">
       <div className="z-10 flex flex-col items-center  min-h-screen px-8 py-16">
         <h1 className="text-6xl lg:text-7xl font-bold text-[#1e3a5f] mb-20">
           News
@@ -170,7 +170,7 @@ export default function NewsSection() {
           </div>
         </div>
 
-        <div className="flex items-center gap-3">
+        <div className="flex  items-center gap-2 lg:gap-4 w-[80vw] ">
           {pressReleases.map((_, index) => (
             <button
               key={index}

@@ -15,9 +15,7 @@ export default function RootLayout({
   return (
     <>
         <Heading/>
-        <div className="min-h-screen w-full -mt-[7%] bg-gradient-to-br from-blue-50 via-slate-100 to-blue-100 relative overflow-hidden">
         {children}
-        </div>
         <Footer/>
     </>
   );

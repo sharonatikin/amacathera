@@ -44,7 +44,7 @@ export default function WhatWeDo() {
           {cards.map((card, index) => (
             <div
               key={index}
-              className={` bg-[#003366] text-white hover:text-[#003366] hover:bg-white rounded-2xl p-8 flex flex-col justify-between min-h-[380px] shadow-lg hover:shadow-2xl transition-shadow duration-300`}
+              className={` bg-[#003366] text-white hover:text-[#003366] hover:bg-white rounded-2xl p-8 flex flex-col justify-between lg:h-96 shadow-lg hover:shadow-2xl transition-shadow duration-300`}
             >
               <div>
                 <h3 className="text-2xl font-bold mb-6 leading-tight">

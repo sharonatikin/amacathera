@@ -12,7 +12,7 @@ const BioEngineeringFounder: React.FC = () => {
       <div className="max-w-7xl relative w-full">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Left Content Section */}
-          <div className="space-y-2 ml-20">
+          <div className="space-y-2 ml-20 pt-[15vh]">
             <h1 className="text-4xl md:text-5xl font-bold text-slate-800 leading-tight">
               Co-founded by a<br />
               <span className="text-blue-900">Bioengineering Pioneer</span>

@@ -88,13 +88,13 @@ export default function Hero() {
                 <div className="flex flex-col sm:flex-row gap-3 sm:gap-0 pt-2 sm:pt-4">
                   <a 
                     href="/technology"
-                    className="px-6 sm:px-10 md:px-12 lg:px-16 py-2.5 sm:py-3 bg-blue-900 text-white font-semibold rounded hover:bg-blue-800 transition-all duration-300 shadow-lg text-sm sm:text-base text-center hover:shadow-xl"
+                    className="px-6 sm:px-10 md:px-12 lg:px-14 py-2.5 sm:py-3 bg-blue-900 text-white font-semibold rounded hover:bg-blue-800 transition-all duration-300 shadow-lg text-sm sm:text-base text-center hover:shadow-xl"
                   >
                     Explore Our Technology
                   </a>
                   <button 
                     onClick={scrollToPipeline}
-                    className="px-6 sm:px-10 md:px-12 lg:px-16 py-2.5 sm:py-3 border-2 border-blue-900 text-blue-900 font-semibold rounded hover:bg-blue-50 transition-all duration-300 text-sm sm:text-base"
+                    className="px-6 sm:px-10 md:px-12 lg:px-14 py-2.5 sm:py-3 border-2 border-blue-900 text-blue-900 font-semibold rounded hover:bg-blue-50 transition-all duration-300 text-sm sm:text-base"
                   >
                     View Clinical Pipeline
                   </button>

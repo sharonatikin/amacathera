@@ -63,7 +63,7 @@ export default function Hero() {
         {/* Content */}
         <div className="relative z-10">
           {/* Hero Section */}
-          <div className="max-w-7xl mx-auto px-6 sm:px-8 md:px-20 py-12 sm:py-16 md:py-20 pt-[30%] sm:pt-[20%] md:pt-[16%] lg:pt-[15%]">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 py-12 sm:py-16 md:py-20 pt-[30%] sm:pt-[20%] md:pt-[16%] lg:pt-[15%]">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
               {/* Left Side - Image Area (hidden on mobile/tablet) */}
               <div className="hidden lg:flex items-center justify-center">

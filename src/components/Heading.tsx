@@ -2,9 +2,9 @@
 
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
+import { navItems } from "@/const";
 
 // Sample navigation items
-const navItems = ["Home", "About Us", "Technology", "Pipeline", "Contact"];
 
 export default function Heading() {
   const [isScrolled, setIsScrolled] = useState(false);

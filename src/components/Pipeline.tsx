@@ -1,34 +1,7 @@
 'use client';
+import { pipelineData } from '@/const/pipeling';
 import { ArrowRight, Check, ArrowLeft } from 'lucide-react';
 import { useState, useEffect, useRef } from 'react';
-
-// Sample pipeline data
-const pipelineData = [
-  {
-    product: "AMC-101",
-    type: "Hydrogel Platform",
-    description: "Injectable hydrogel for sustained localized delivery in oncology applications.",
-    discovery: true,
-    preClinical: true,
-    phase1: true
-  },
-  {
-    product: "AMC-202",
-    type: "Ophthalmic Solution",
-    description: "Long-acting hydrogel depot for treatment of retinal diseases.",
-    discovery: true,
-    preClinical: true,
-    phase1: false
-  },
-  {
-    product: "AMC-303",
-    type: "Inflammatory",
-    description: "Localized anti-inflammatory therapy using sustained-release hydrogel technology.",
-    discovery: true,
-    preClinical: false,
-    phase1: false
-  }
-];
 
 export default function Pipeline() {
   const [activeSlide, setActiveSlide] = useState(0);

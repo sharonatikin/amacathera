@@ -44,6 +44,13 @@ export default function Heading() {
     }
   }, [isMobileMenuOpen]);
 
+    const scrollToPipeline = () => {
+    const pipelineSection = document.getElementById('pipeline-section');
+    if (pipelineSection) {
+      pipelineSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
   return (
     <>
       <nav className={`fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-4 sm:px-6 md:px-8 lg:pl-10 lg:pr-40 mx-auto w-full transition-all duration-300 ${
@@ -75,7 +82,9 @@ export default function Heading() {
               {item}
             </a>
           ))}
+          <button onClick={scrollToPipeline} className="text-slate-700 hover:text-blue-900 font-medium transition">Pipeline</button>
         </div>
+
 
         {/* Mobile Menu Button */}
         <button

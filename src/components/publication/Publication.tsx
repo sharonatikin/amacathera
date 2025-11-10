@@ -1,7 +1,7 @@
 import React from 'react'
 import { FileText, ArrowRight } from 'lucide-react';
 
-const Publication = ({pub, index}) => {
+const Publication = ({pub, index}:{pub:{date:string, title: string, authors: string, publishedInfo: string},index: number}) => {
   
   return (
     <div className="relative mx-8 md:mx-30">

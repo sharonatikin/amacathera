@@ -1,6 +1,6 @@
 import React from 'react'
 
-const PublicationHero = ({image, title}) => {
+const PublicationHero = ({image, title}:{image: string, title: string}) => {
   return (
     <div 
       className=" flex items-center justify-center w-full h-[50vh] bg-cover bg-center bg-no-repeat"

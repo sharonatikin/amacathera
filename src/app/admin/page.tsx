@@ -1,6 +1,7 @@
 'use client';
 import { Users, BookOpen, Newspaper, LogOut, Home, Menu, X } from 'lucide-react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import React from 'react';
 
 const chartData = [
   { time: '00:00', requests: 300, visitors: 0 },
@@ -17,7 +18,14 @@ const chartData = [
   { time: '22:00', requests: 150, visitors: 0 },
 ];
 
-const StatCard = ({ icon: Icon, title, value, color }) => (
+type StatCardProps = {
+  icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+  title: string;
+  value: string | number;
+  color?: string;
+};
+
+const StatCard: React.FC<StatCardProps> = ({ icon: Icon, title, value, color = 'bg-gray-200' }) => (
   <div className="bg-white rounded-2xl p-8 shadow-md hover:shadow-lg transition-shadow">
     <div className="flex items-center gap-4 mb-4">
       <div className={`p-3 rounded-lg ${color}`}>

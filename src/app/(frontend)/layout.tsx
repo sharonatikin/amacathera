@@ -13,7 +13,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div className="bg-white">
+    <div className="bg-white  overflow-hidden">
         <Heading/>
         {children}
         <Footer/>

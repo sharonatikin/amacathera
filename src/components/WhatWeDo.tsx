@@ -55,9 +55,9 @@ export default function WhatWeDo() {
                 </p>
               </div>
 
-              <div className="mt-8 flex justify-start">
+              {/* <div className="mt-8 flex justify-start">
                 <ArrowRight className="w-12 h-6" strokeWidth={2} />
-              </div>
+              </div> */}
             </div>
           ))}
         </div>

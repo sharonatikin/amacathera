@@ -320,5 +320,29 @@ export const pressReleases = [
       "Toronto, ON — AmacaThera, a leader in the development of novel injectable, localized therapeutics based upon its AmacaGel delivery platform, announced the closing of a CAD$4.0 million financing round, with a new lead investor, supported by existing investors; BDC Capital's Women in Technology Venture Fund, Inveready, Lumira Ventures, StandUp Ventures, and MaRS IAF. The proceeds will be used to accelerate the clinical development of the lead clinical candidate, AMT-143, and also to advance multiple pipeline programs targeting the local, injectable, localized administration of therapeutics.",
       "Despite the continuing opioid epidemic, which results in ~80,000 deaths annually in the US alone, the treatment of pain continues to be frequently managed through opioid-based medications. This includes in post-surgical settings, where it can be a gateway to addiction for some and an abuse of prescription pain medicines and illicit narcotics. Leveraging the Am"
     ]
+  },
+
+{
+    id: 14,
+    image: "meeting.png",
+    title: "AmacaThera and Merck Animal Health Announce Collaboration in Animal Health",
+    date: "May 1, 2025",
+    category: "Press Release",
+    summary: "AmacaThera, a clinical-stage biotechnology company specializing in drug delivery, announced it has signed a binding evaluation and option agreement with Merck Animal Health to develop long-acting formulations for use in animal health.",
+    paragraphs: [
+      "AmacaThera, a clinical-stage biotechnology company specializing in drug delivery, announced it has signed a binding evaluation and option agreement with Merck Animal Health to develop long-acting formulations for use in animal health.",
+      "Built upon AmacaThera's unique hydrogel platform technology, AmacaGel™, products developed by AmacaThera are designed to enhance the sustained delivery of therapeutic agents with a single injection, potentially revolutionizing animal care and welfare in veterinary medicine.",
+      "Mike Cooke, Ph.D., CEO of AmacaThera, expressed his enthusiasm about the partnership: \"We are thrilled to be collaborating with Merck Animal Health, a global leader in animal health. Together, we see immense value in leveraging each other's expertise to explore new frontiers in animal health. This partnership reinforces our commitment to leverage our innovative technology to address important unmet needs in human and now veterinary medicine.\"",
+      "Chad Brown, Ph.D., Global Head, Pharmaceutical Sciences and Clinical Supply, and Associate Vice President of Merck Animal Health, added: \"We look forward to collaborating with AmacaThera as we continue to broaden our existing product portfolio of veterinary medicines and technology solutions. It is our hope to leverage our research knowledge and scientific expertise along with the hydrogel platform developed by AmacaThera, which may provide benefits for animal health and welfare.\"",
+      "Cooke stated, \"This collaboration builds on our manufacturing know-how and in-human data collected from our hydrogel platform, enabling us to rapidly develop effective solutions for injectable delivery challenges.\" He added, \"What sets our hydrogel apart is its broad compatibility with different drug modalities and that our manufacturing process is defined, fully scalable, and cost-effective.\"",
+      "Both companies anticipate a fruitful collaboration, with the shared goal of advancing innovative animal health solutions, thereby enabling veterinarians to provide better care.",
+      "About AmacaThera",
+      "AmacaThera is a clinical-stage biotechnology company focused on advanced sustained-release hydrogel formulations designed to address critical challenges in therapeutic drug delivery. The Company's flagship platform, AmacaGel™, enables the development of long-acting therapies that enhance patient outcomes while minimizing systemic side effects. AmacaThera is driving innovation in key therapeutic areas, including pain management and oncology.",
+      "The Company's lead product, AMT-143, is currently advancing into Phase 2 clinical trials. It has demonstrated best-in-class pharmacokinetics, showing strong potential as an alternative to opioid-based solutions in post-operative pain management.",
+      "AmacaThera's proprietary AmacaGel™ platform is a fast-gelling physical hydrogel composed of two well-established polymers. Designed to liquefy under shear force, AmacaGel can be delivered via a conventional syringe and rapidly forms a depot as it warms to body temperature. The platform's lead asset, AMT-143, is a slow-release, non-opioid local anesthetic that leverages the AmacaGel™ technology to provide long-acting post-operative pain relief.",
+      "About Merck Animal Health",
+      "At Merck, known as MSD outside of the United States and Canada, we are unified around our purpose: We use the power of leading-edge science to save and improve lives around the world. For more than a century, we've been at the forefront of research, bringing forward medicines, vaccines and innovative health solutions for the world's most challenging diseases. Merck Animal Health, a division of Merck & Co., Inc., Rahway, N.J., USA, is the global animal health business of Merck. Through its commitment to The Science of Healthier Animals®, Merck Animal Health offers veterinarians, farmers, producers, pet owners and governments one of the widest ranges of veterinary pharmaceuticals, vaccines and health management solutions and services as well as an extensive suite of connected technology that includes identification, traceability and monitoring products. Merck Animal Health is dedicated to preserving and improving the health, well-being and performance of animals and the people who care for them.",
+      "For more information, visit www.amacathera.com."
+    ]
   }
 ]

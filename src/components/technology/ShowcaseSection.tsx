@@ -25,7 +25,7 @@ export default function ShowcaseSection() {
         <div className="flex items-center gap-12 max-w-6xl mx-auto">
           {/* Left Column */}
           <div className="flex flex-col">
-            <p className="text-lg text-[#004d7a] leading-relaxed font-light">
+            <p className="lg:text-lg text-[#004d7a] leading-relaxed font-light">
               AmacaThera's proprietary, injectable hydrogel platform can be used with a variety of therapeutics to deliver long-lasting treatment where and when it's needed most—including underserved therapeutic target areas within the body.
             </p>
           </div>
@@ -35,7 +35,7 @@ export default function ShowcaseSection() {
 
           {/* Right Column */}
           <div className="flex flex-col">
-            <p className="text-lg text-[#004d7a] leading-relaxed font-light">
+            <p className="lg:text-lg text-[#004d7a] leading-relaxed font-light">
               Our localized drug delivery solution can be adapted to multiple applications to improve drug delivery for a myriad of indications. AmacaGel may be combined with small molecules, growth factors, antibodies, stem cells and enzymes. See the publications section for a list of citations.
             </p>
           </div>

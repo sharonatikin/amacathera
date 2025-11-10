@@ -13,7 +13,7 @@ export default function TestimonialSection() {
               {/* Shadow effect */}
               <div className="absolute -inset-4 bg-gradient-to-br from-gray-200 to-gray-300 rounded-3xl opacity-40 blur-lg"></div>
               
-                <img src="/images/team/peter.png" className='relative w-100 h-100 top-15 left-20 rounded-3xl overflow-hidden' alt="" />
+                <img src="/images/team/peter.png" className='relative w-100 h-100 lg:top-15 lg:left-20 rounded-3xl overflow-hidden' alt="" />
             </div>
           </div>
 
@@ -21,7 +21,7 @@ export default function TestimonialSection() {
           <div className="flex flex-col justify-center lg:justify-start">
             {/* Quote Section */}
             <div className="mb-12">
-              <p className="text-2xl lg:text-3xl w-2xl text-[#0f3a66] font-light leading-relaxed mb-8">
+              <p className="text-2xl w-md lg:2xl lg:text-3xl text-[#0f3a66] font-light leading-relaxed mb-8">
                 "The work out of that lab is truly transformative and she's a leader in the space. We thought there was an opportunity to build an interesting platform company based on her core technology."
               </p>
                 

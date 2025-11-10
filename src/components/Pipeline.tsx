@@ -3,6 +3,8 @@ import { pipelineData } from '@/const/pipeling';
 import { ArrowRight, Check, ArrowLeft } from 'lucide-react';
 import { useState, useEffect, useRef } from 'react';
 
+
+
 export default function Pipeline() {
   const [activeSlide, setActiveSlide] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
@@ -72,7 +74,7 @@ export default function Pipeline() {
       />
 
       {/* Content */}
-      <div className="relative z-10 px-4 sm:px-6 md:px-8 lg:px-20 py-12 sm:py-14 md:py-16 lg:right-10">
+      <div className="relative z-10 px-4 sm:px-6 md:px-8 lg:px-16 py-12 sm:py-14 md:py-16 lg:right-20 ">
         {/* Pipeline Title */}
         <div className="max-w-7xl mx-auto mb-8 sm:mb-10 md:mb-12">
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-[#2d5a7f]">
@@ -92,16 +94,16 @@ export default function Pipeline() {
                 <div className="hidden md:block">
                   {/* Table Header */}
                   <div className="grid grid-cols-4 bg-[#003d6b] text-white">
-                    <div className="px-4 lg:px-8 py-4 lg:py-6 font-bold text-sm lg:text-lg border-r border-white/20">
+                    <div className="px-4 lg:px-6 py-4 lg:py-5 font-bold text-sm lg:text-base border-r border-white/20">
                       Product / Platform
                     </div>
-                    <div className="px-4 lg:px-8 py-4 lg:py-6 font-bold text-sm lg:text-lg text-center border-r border-white/20">
+                    <div className="px-4 lg:px-6 py-4 lg:py-5 font-bold text-sm lg:text-base text-center border-r border-white/20">
                       Discovery
                     </div>
-                    <div className="px-4 lg:px-8 py-4 lg:py-6 font-bold text-sm lg:text-lg text-center border-r border-white/20">
+                    <div className="px-4 lg:px-6 py-4 lg:py-5 font-bold text-sm lg:text-base text-center border-r border-white/20">
                       Pre-Clinical
                     </div>
-                    <div className="px-4 lg:px-8 py-4 lg:py-6 font-bold text-sm lg:text-lg text-center">
+                    <div className="px-4 lg:px-6 py-4 lg:py-5 font-bold text-sm lg:text-base text-center">
                       Phase 1
                     </div>
                   </div>
@@ -109,9 +111,9 @@ export default function Pipeline() {
                   {/* Table Row */}
                   <div className="grid grid-cols-4 border-t border-gray-200">
                     {/* Product Info */}
-                    <div className="px-4 lg:px-8 py-6 lg:py-8 border-r border-gray-200">
+                    <div className="px-4 lg:px-6 py-5 lg:py-6 border-r border-gray-200">
                       <div>
-                        <h3 className="text-lg lg:text-xl font-bold text-[#1e3a5f] mb-2 lg:mb-3">
+                        <h3 className="text-base lg:text-lg font-bold text-[#1e3a5f] mb-2">
                           {currentItem.product}
                           <span className='text-[#1e3a5f] ml-1 font-extralight text-xs'>/{currentItem.type}</span>
                         </h3>
@@ -122,28 +124,28 @@ export default function Pipeline() {
                     </div>
 
                     {/* Discovery */}
-                    <div className="px-4 lg:px-8 py-6 lg:py-8 flex items-center justify-center border-r border-gray-200">
+                    <div className="px-4 lg:px-6 py-5 lg:py-6 flex items-center justify-center border-r border-gray-200">
                       {currentItem.discovery && (
-                        <div className="w-10 h-10 lg:w-14 lg:h-14 rounded-full bg-[#003d6b] flex items-center justify-center">
-                          <Check className="w-6 h-6 lg:w-8 lg:h-8 text-white" strokeWidth={3} />
+                        <div className="w-10 h-10 lg:w-12 lg:h-12 rounded-full bg-[#003d6b] flex items-center justify-center">
+                          <Check className="w-6 h-6 lg:w-7 lg:h-7 text-white" strokeWidth={3} />
                         </div>
                       )}
                     </div>
 
                     {/* Pre-Clinical */}
-                    <div className="px-4 lg:px-8 py-6 lg:py-8 flex items-center justify-center border-r border-gray-200">
+                    <div className="px-4 lg:px-6 py-5 lg:py-6 flex items-center justify-center border-r border-gray-200">
                       {currentItem.preClinical && (
-                        <div className="w-10 h-10 lg:w-14 lg:h-14 rounded-full bg-[#003d6b] flex items-center justify-center">
-                          <Check className="w-6 h-6 lg:w-8 lg:h-8 text-white" strokeWidth={3} />
+                        <div className="w-10 h-10 lg:w-12 lg:h-12 rounded-full bg-[#003d6b] flex items-center justify-center">
+                          <Check className="w-6 h-6 lg:w-7 lg:h-7 text-white" strokeWidth={3} />
                         </div>
                       )}
                     </div>
 
                     {/* Phase 1 */}
-                    <div className="px-4 lg:px-8 py-6 lg:py-8 flex items-center justify-center">
+                    <div className="px-4 lg:px-6 py-5 lg:py-6 flex items-center justify-center">
                       {currentItem.phase1 && (
-                        <div className="w-10 h-10 lg:w-14 lg:h-14 rounded-full bg-[#003d6b] flex items-center justify-center">
-                          <Check className="w-6 h-6 lg:w-8 lg:h-8 text-white" strokeWidth={3} />
+                        <div className="w-10 h-10 lg:w-12 lg:h-12 rounded-full bg-[#003d6b] flex items-center justify-center">
+                          <Check className="w-6 h-6 lg:w-7 lg:h-7 text-white" strokeWidth={3} />
                         </div>
                       )}
                     </div>

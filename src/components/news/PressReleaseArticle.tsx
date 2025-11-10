@@ -8,8 +8,8 @@ const PressReleaseArticle: React.FC = () => {
     const urlSegment = path.split('/').pop();
     const article = pressReleases.find(a => a?.id == Number(urlSegment));
   return (
-    <div className="min-h-screen mt-20 bg-[#EAF3F5] ">
-      <div className="max-w-6xl mx-auto px-6 py-12">
+    <div className="min-h-screen  bg-[#EAF3F5] ">
+      <div className="max-w-6xl mx-auto px-6 pt-32 py-12">
         {/* Header Section */}
         <div className="grid md:grid-cols-2 gap-12 mb-12">
           {/* Image */}

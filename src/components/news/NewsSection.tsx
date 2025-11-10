@@ -116,7 +116,7 @@ export default function NewsSection() {
         </h1>
 
         <div className="flex items-center w-full mb-10 overflow-hidden">
-          <div>
+          <div className='hidden'>
             <button onClick={goToPrevSlide}>
               <ArrowLeft
                 className="w-8 h-8 text-[#1e3a5f] hover:text-[#2d5a8f] cursor-pointer"
@@ -161,10 +161,10 @@ export default function NewsSection() {
               </div>
             </div>
           </div>
-          <div>
+          <div className='hidden'>
             <button onClick={goToNextSlide}>
               <ArrowRight
-                className="w-8 h-8 text-[#1e3a5f] hover:text-[#2d5a8f] cursor-pointer"
+                className="w-8 h-8  text-[#1e3a5f] hover:text-[#2d5a8f] cursor-pointer"
               />
             </button>
           </div>

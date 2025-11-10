@@ -1,6 +1,14 @@
+'use client';
 import { ArrowRight, Droplet } from 'lucide-react';
 
 export default function TechnologySection() {
+
+    const scrollToPipeline = () => {
+    const pipelineSection = document.getElementById('next-section');
+    if (pipelineSection) {
+      pipelineSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
   return (
     <div className="relative min-h-screen bg-gradient-to-br from-blue-50 via-blue-100 to-blue-50 overflow-hidden">
       {/* Background decorative elements */}
@@ -30,15 +38,15 @@ export default function TechnologySection() {
 
           {/* Buttons */}
           <div className="flex flex-col sm:flex-row gap-6 items-start">
-            <button className="bg-[#0f3a66] hover:bg-[#1a4f7f] text-white px-8 py-4 rounded-lg font-semibold transition-colors duration-300 flex items-center gap-2 text-base">
+            <button onClick={scrollToPipeline} className="bg-[#0f3a66] hover:bg-[#1a4f7f] text-white px-8 py-4 rounded-lg font-semibold transition-colors duration-300 flex items-center gap-2 text-base">
               Explore Our Technology
               <ArrowRight className="w-5 h-5" />
             </button>
             
-            <button className="border-2 border-[#0f3a66] text-[#0f3a66] hover:bg-[#0f3a66] hover:text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 flex items-center gap-2 text-base">
+            {/* <button className="border-2 border-[#0f3a66] text-[#0f3a66] hover:bg-[#0f3a66] hover:text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 flex items-center gap-2 text-base">
               View Clinical Pipeline
               <ArrowRight className="w-5 h-5" />
-            </button>
+            </button> */}
           </div>
         </div>
       </div>

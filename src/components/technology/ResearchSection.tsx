@@ -1,4 +1,5 @@
 import { Grid2X2, ArrowRight } from 'lucide-react';
+import Link from 'next/link';
 
 export default function ResearchSection() {
   return (
@@ -30,15 +31,15 @@ export default function ResearchSection() {
 
           {/* Buttons */}
           <div className="flex flex-col sm:flex-row gap-6 items-start">
-            <button className="bg-[#0f3a66] hover:bg-[#1a4f7f] text-white px-8 py-4 rounded-lg font-semibold transition-colors duration-300 flex items-center gap-2 text-base whitespace-nowrap">
+            <Link href={'/team/molly-shoichet'} className="bg-[#0f3a66] hover:bg-[#1a4f7f] text-white px-8 py-4 rounded-lg font-semibold transition-colors duration-300 flex items-center gap-2 text-base whitespace-nowrap">
               Meet our CSO
               <ArrowRight className="w-5 h-5" />
-            </button>
+            </Link>
 
-            <button className="border-2 border-[#0f3a66] text-[#0f3a66] hover:bg-[#0f3a66] hover:text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 flex items-center gap-2 text-base whitespace-nowrap">
+            <Link href={'/publications'} className="border-2 border-[#0f3a66] text-[#0f3a66] hover:bg-[#0f3a66] hover:text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 flex items-center gap-2 text-base whitespace-nowrap">
               Research Publications
               <ArrowRight className="w-5 h-5" />
-            </button>
+            </Link>
           </div>
         </div>
       </div>

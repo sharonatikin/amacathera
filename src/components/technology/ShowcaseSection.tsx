@@ -1,6 +1,6 @@
 export default function ShowcaseSection() {
   return (
-    <div className="w-full min-h-screen bg-gradient-to-b from-gray-50 to-white px-6 py-20">
+    <div id="next-section" className="w-full min-h-screen bg-gradient-to-b from-gray-50 to-white px-6 py-20">
       {/* Main container */}
       <div className="max-w-7xl mx-auto">
         {/* Video Section */}

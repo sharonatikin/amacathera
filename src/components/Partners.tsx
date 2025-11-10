@@ -5,7 +5,8 @@ export default function Partners() {
     "/logos/Toronto.png",
     "/logos/UTEST.png",
     "/logos/Venture Labs.png",
-    "/logos/CREATIVE.png",]
+    "/logos/CREATIVE.png",
+  "https://cdn-ildphco.nitrocdn.com/gRWXCDvJsjpRlGXdktAdTZFkhaknUDDR/assets/images/source/rev-e934a65/www.pacira.com/wp-content/themes/pacira/img/logo-b.svg"]
   return (
     <div className="min-h-screen w-full relative overflow-hidden bg-gradient-to-br from-g via-white to-gray-100">
       {/* Bottom Water Wave Image */}
@@ -38,7 +39,7 @@ export default function Partners() {
               key={index}
               src={src}
               alt={`Partner ${index + 1}`}
-              className="h-28 object-contain"
+              className="h-28 max-w-50 object-contain"
             />
           ))}
         </div>

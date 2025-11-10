@@ -111,7 +111,7 @@ export default function Pipeline() {
   };
 
   return (
-    <div className="min-h-screen w-full bg-gradient-to-br from-slate-100 via-blue-50 to-slate-200 relative overflow-hidden">
+    <div id='pipeline-section' className="min-h-screen w-full bg-gradient-to-br from-slate-100 via-blue-50 to-slate-200 relative overflow-hidden">
       {/* Medical Vials Image on Right */}
       <div 
         className="absolute inset-0"

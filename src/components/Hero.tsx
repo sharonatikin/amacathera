@@ -1,9 +1,18 @@
+'use client';
 import { Montserrat } from "next/font/google";
+import Link from "next/link";
 const montserrat = Montserrat({
   subsets: ['latin'],
   weight: ['400', '500', '600', '700'], // choose weights you need
 });
 export default function Hero() {
+
+  const scrollToPipeline = () => {
+    const pipelineSection = document.getElementById('pipeline-section');
+    if (pipelineSection) {
+      pipelineSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
   return (
     <div className="min-h-screen w-full bg-gradient-to-br from-blue-50 via-slate-100 to-blue-100 relative overflow-hidden">
       {/* Background Image Overlay */}
@@ -43,10 +52,10 @@ export default function Hero() {
 
               {/* Buttons */}
               <div className="flex pt-4">
-                <button className="px-16 py-3 bg-blue-900 text-white font-semibold rounded hover:bg-blue-800 transition shadow-lg">
+                <Link href={'/technology'} className="px-16 py-3 bg-blue-900 text-white font-semibold rounded hover:bg-blue-800 transition shadow-lg">
                   Explore Our Technology
-                </button>
-                <button className="px-8 py-3 border-2 border-blue-900 text-blue-900 font-semibold rounded hover:bg-blue-50 transition">
+                </Link>
+                <button onClick={scrollToPipeline} className="px-16 py-3 border-2 border-blue-900 text-blue-900 font-semibold rounded hover:bg-blue-50 transition">
                   View Clinical Pipeline
                 </button>
               </div>

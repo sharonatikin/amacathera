@@ -1,11 +1,37 @@
 'use client';
 import { Plus, Minus } from 'lucide-react';
 import { useState } from 'react';
-import {faqData} from '@/const/qna';
+
+// Sample FAQ data
+const faqData = [
+  {
+    question: "What is your injectable hydrogel platform?",
+    answer: "Our proprietary injectable hydrogel platform delivers localized, sustained therapies to hard-to-treat targets through minimally invasive procedures."
+  },
+  {
+    question: "How does the technology work?",
+    answer: "The hydrogel forms a depot at the injection site, providing controlled release of therapeutics over an extended period while maintaining local concentration."
+  },
+  {
+    question: "What therapeutic areas do you focus on?",
+    answer: "We focus on areas where localized, sustained delivery provides significant advantages, including oncology, ophthalmology, and inflammatory diseases."
+  },
+  {
+    question: "What stage is your clinical pipeline?",
+    answer: "We have multiple programs in various stages of development, from preclinical through clinical trials. Visit our pipeline section for detailed information."
+  },
+  {
+    question: "How is this different from traditional injections?",
+    answer: "Unlike traditional injections that require frequent dosing, our platform provides sustained release, reducing treatment burden and improving patient compliance."
+  },
+  {
+    question: "What are the benefits for patients?",
+    answer: "Patients benefit from fewer injections, reduced side effects from systemic exposure, and improved therapeutic outcomes through sustained local delivery."
+  }
+];
 
 export default function FAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
-
 
   const toggleAccordion = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
@@ -21,11 +47,11 @@ export default function FAQSection() {
 
         {/* FAQ Grid Container */}
         <div className="border-2 border-blue-400 rounded-2xl p-8 bg-white/50">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
             {faqData.map((faq, index) => (
               <div
                 key={index}
-                className="bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow"
+                className="bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow self-start"
               >
                 <button
                   onClick={() => toggleAccordion(index)}

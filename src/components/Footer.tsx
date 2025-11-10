@@ -42,7 +42,7 @@ export default function Footer() {
             <nav className="flex flex-wrap gap-x-4 sm:gap-x-6 gap-y-2 mb-6">
               {navItems.map(
                 (item, index) => (
-                  <>
+                  <div key={item}>
                     <Link
                       href={item === "Home" ? "/" : `/${item.toLowerCase().replace(/\s+/g, '-')}`}
                       key={item}
@@ -53,7 +53,7 @@ export default function Footer() {
                     {index < navItems.length - 1 && (
                       <span className="text-white/40 hidden sm:inline">|</span>
                     )}
-                  </>
+                  </div>
                 )
               )}
             </nav>

@@ -5,7 +5,6 @@ import NewsSection from "@/components/NewsCarousel";
 import Partners from "@/components/Partners";
 import Pipeline from "@/components/Pipeline";
 import ProblemSolution from "@/components/ProblemSolution";
-import TeamCarousel from "@/components/TeamCarousel";
 import TechnologyHighlights from "@/components/TechnologyHighlights";
 import WhatWeDo from "@/components/WhatWeDo";
 
@@ -21,7 +20,6 @@ export default function LandingPage() {
       <GetInTouch/>
       <Pipeline/>
       <NewsSection/>
-      <TeamCarousel/>
     </div>
   );
 }

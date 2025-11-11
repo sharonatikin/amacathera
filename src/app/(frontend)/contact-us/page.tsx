@@ -33,7 +33,7 @@ const ContactSection: React.FC = () => {
       </div>
 
       {/* Content Container */}
-      <div className="relative z-10 min-h-screen flex items-center justify-center px-4 sm:px-6 md:px-8 py-12 md:py-16">
+      <div className="relative z-10 min-h-screen flex items-center justify-center px-4 sm:px-6 mt-[5vh] md:px-8 py-12 md:py-16">
         <div className="w-full max-w-6xl flex flex-col lg:flex-row items-center gap-8 lg:gap-16">
           
           {/* Left Side - Text Content */}
@@ -46,7 +46,7 @@ const ContactSection: React.FC = () => {
             {/* Heading */}
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6">
               Get in touch with<br />
-              AmaCathera
+              AmacaThera
             </h1>
 
             {/* Description */}

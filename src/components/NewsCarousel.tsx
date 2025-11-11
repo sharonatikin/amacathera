@@ -147,10 +147,10 @@ export default function NewsSection() {
                 {pressReleases[activeSlide].summary}
               </p>
               <div className="flex items-center justify-between gap-3 mt-2">
-                <button className='bg-[#1e3a5f] hover:bg-[#2d5a8f] text-white px-6 py-3 rounded-lg font-semibold text-sm flex items-center gap-2 transition-colors cursor-pointer'>
+                <Link href={`/news/${pressReleases[activeSlide].id}`} className='bg-[#1e3a5f] hover:bg-[#2d5a8f] text-white px-6 py-3 rounded-lg font-semibold text-sm flex items-center gap-2 transition-colors cursor-pointer'>
                   <span>Read More</span>
                   <ArrowRight className="w-4 h-4" />
-                </button>
+                </Link>
                 <div>
                   <span className="text-[#1e3a5f] mr-1">
                     {pressReleases[activeSlide].date}

@@ -55,8 +55,8 @@ export default function Heading() {
     <>
       <nav className={`fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-4 sm:px-6 md:px-8 lg:pl-10 lg:pr-40 mx-auto w-full transition-all duration-300 ${
         isScrolled 
-          ? "bg-white/0 backdrop-blur-lg shadow-md" 
-          : "bg-white/0 backdrop-blur-0"
+          ? "bg-white/40 backdrop-blur-lg shadow-md" 
+          : "bg-white/30 backdrop-blur-0"
       }`}>
         {/* Logo */}
         <a href="/" className="flex-shrink-0">

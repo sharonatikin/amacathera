@@ -1,6 +1,16 @@
+'use client';
 import { ArrowBigRight, ArrowRight } from 'lucide-react';
+import { useEffect, useRef } from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function TechnologyHighlights() {
+  const titleRef = useRef<HTMLHeadingElement>(null);
+  const cardsContainerRef = useRef<HTMLDivElement>(null);
+  const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
+
   const highlights = [
     {
       title: "Injectable Depot",
@@ -24,42 +34,165 @@ export default function TechnologyHighlights() {
     }
   ];
 
+  useEffect(() => {
+    // Title animation
+    gsap.fromTo(
+      titleRef.current,
+      { opacity: 0, y: 30 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: titleRef.current,
+          start: "top 80%",
+          toggleActions: "play reverse play reverse",
+        },
+      }
+    );
+
+    // Cards stagger animation with scale and rotation
+    gsap.fromTo(
+      cardsRef.current,
+      { opacity: 0, y: 60, scale: 0.85, rotationY: -15 },
+      {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        rotationY: 0,
+        duration: 0.7,
+        stagger: 0.15,
+        ease: "back.out",
+        scrollTrigger: {
+          trigger: cardsContainerRef.current,
+          start: "top 70%",
+          toggleActions: "play reverse play reverse",
+        },
+      }
+    );
+
+    // Individual card hover animations
+    cardsRef.current.forEach((card, index) => {
+      if (card) {
+        // 3D perspective
+        gsap.set(card, { transformOrigin: "center center", transformStyle: "preserve-3d" });
+
+        // Hover in
+        card.addEventListener("mouseenter", () => {
+          gsap.to(card, {
+            y: -15,
+            scale: 1.05,
+            boxShadow: "0 30px 60px rgba(0, 61, 107, 0.25)",
+            duration: 0.4,
+            ease: "power2.out",
+          });
+
+          // Stagger icon animation on hover
+          const icon = card.querySelector("img");
+          if (icon) {
+            gsap.to(icon, {
+              scale: 1.15,
+              rotation: 5,
+              duration: 0.4,
+              ease: "power2.out",
+            });
+          }
+        });
+
+        // Hover out
+        card.addEventListener("mouseleave", () => {
+          gsap.to(card, {
+            y: 0,
+            scale: 1,
+            boxShadow: "0 20px 40px rgba(0, 0, 0, 0.1)",
+            duration: 0.4,
+            ease: "power2.out",
+          });
+
+          const icon = card.querySelector("img");
+          if (icon) {
+            gsap.to(icon, {
+              scale: 1,
+              rotation: 0,
+              duration: 0.4,
+              ease: "power2.out",
+            });
+          }
+        });
+      }
+    });
+
+    // Floating animation on scroll
+    cardsRef.current.forEach((card, index) => {
+      gsap.to(card, {
+        y: index % 2 === 0 ? -20 : 20,
+        scrollTrigger: {
+          trigger: cardsContainerRef.current,
+          start: "top center",
+          end: "bottom center",
+          scrub: 1,
+          markers: false,
+        },
+      });
+    });
+
+    return () => {
+      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+    };
+  }, []);
+
   return (
     <div className="min-h-screen w-full bg-gradient-to-br from-gray-50 via-slate-100 to-gray-100 relative overflow-hidden">
-      {/* Vertical Dashed Line in Center */}
-
       {/* Content */}
       <div className="relative z-10 px-8 py-20">
         {/* Title */}
-        <h1 className="text-4xl lg:text-5xl font-bold text-[#003d6b] text-center mb-20">
+        <h1 
+          ref={titleRef}
+          className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#003d6b] text-center mb-16 md:mb-20"
+        >
           Platform | Technology Highlights
         </h1>
 
         {/* Cards Grid */}
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div 
+          ref={cardsContainerRef}
+          className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+        >
           {highlights.map((item, index) => (
             <div
               key={index}
-              className="bg-[#003d6b]  group  rounded-3xl p-8 flex flex-col items-center text-center min-h-[500px] shadow-xl hover:shadow-2xl transition-shadow duration-300"
+              ref={(el) => {
+                if (el) cardsRef.current[index] = el;
+              }}
+              className="bg-[#003d6b] group rounded-3xl p-8 flex flex-col items-center text-center min-h-[500px] shadow-xl hover:shadow-2xl transition-shadow duration-300 cursor-pointer transform will-change-transform"
+              style={{ 
+                perspective: "1000px",
+                transformStyle: "preserve-3d"
+              }}
             >
-              {/* 3D Cube Icon */}
-              <div className="mb-8 mt-4">
-                <img src={item.image} alt="" />
+              {/* Icon */}
+              <div className="mb-8 mt-4 transform will-change-transform">
+                <img 
+                  src={item.image} 
+                  alt={item.title}
+                  className="transition-transform duration-300"
+                />
               </div>
 
               {/* Title */}
-              <h2 className="text-2xl font-bold  text-white  mb-6 leading-tight">
+              <h2 className="text-xl md:text-2xl font-bold text-white mb-6 leading-tight">
                 {item.title}
               </h2>
 
               {/* Description */}
-              <p className="text-white/90  text-base leading-relaxed mb-8 flex-grow">
+              <p className="text-white/90 text-sm md:text-base leading-relaxed mb-8 flex-grow">
                 {item.description}
               </p>
 
               {/* Arrow */}
               {/* <div className="mt-auto">
-                <ArrowRight className="w-12 h-6 text-white  " strokeWidth={2} />
+                <ArrowRight className="w-12 h-6 text-white" strokeWidth={2} />
               </div> */}
             </div>
           ))}

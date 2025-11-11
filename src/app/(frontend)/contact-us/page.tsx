@@ -1,111 +1,130 @@
-'use client';
-import { useState } from 'react';
+'use client'
+import React, { useState } from 'react';
 
-export default function ContactUsSection() {
+const ContactSection: React.FC = () => {
   const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
+    name: '',
     email: '',
     message: ''
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log('Form submitted:', formData);
-    // Reset form
-    setFormData({ firstName: '', lastName: '', email: '', message: '' });
+    // Add your form submission logic here
   };
 
   return (
-    <div 
-      className="relative w-full h-full bg-cover bg-center bg-no-repeat"
-      style={{
-        backgroundImage: 'url("/images/contact-bg.png")',
-      }}
-    >
+    <div className="min-h-screen relative overflow-hidden">
+      {/* Background Image with Overlay */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center"
+        style={{
+          backgroundImage: 'url("/images/contact-bg.png")',
+        }}
+      >
+      </div>
 
-      {/* Left side - Contact Form */}
-      <div className="relative z-10 w-full lg:w-1/2 min-h-screen flex flex-col justify-center pt-[10%] px-16 lg:px-30 py-20">
-        <div className="max-w-md">
-          {/* Title */}
-          <h1 className="text-5xl lg:text-6xl font-bold text-[#0f3a66] mb-12">
-            Contact us
-          </h1>
-
-          {/* Form */}
-          <form onSubmit={handleSubmit} className="space-y-6">
-            {/* First Name */}
-            <div>
-              <input
-                type="text"
-                name="firstName"
-                placeholder="First Name"
-                value={formData.firstName}
-                onChange={handleChange}
-                className="w-full px-4 py-3 border-2 border-[#0f3a66] rounded-lg text-[#0f3a66] placeholder-[#0f3a66]/60 focus:outline-none focus:border-[#1a4f7f] bg-white/50 backdrop-blur-sm transition-colors"
-                required
-              />
+      {/* Content Container */}
+      <div className="relative z-10 min-h-screen flex items-center justify-center px-4 sm:px-6 md:px-8 py-12 md:py-16">
+        <div className="w-full max-w-6xl flex flex-col lg:flex-row items-center gap-8 lg:gap-16">
+          
+          {/* Left Side - Text Content */}
+          <div className="flex-1 text-white text-center lg:text-left">
+            {/* Icon */}
+            <div className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20  rounded-full mb-6 lg:mb-8">
+              <img src="/icons/Chat.png" className="w-16 h-16 sm:w-20 sm:h-20" alt="" />
             </div>
 
-            {/* Last Name */}
-            <div>
-              <input
-                type="text"
-                name="lastName"
-                placeholder="Last Name"
-                value={formData.lastName}
-                onChange={handleChange}
-                className="w-full px-4 py-3 border-2 border-[#0f3a66] rounded-lg text-[#0f3a66] placeholder-[#0f3a66]/60 focus:outline-none focus:border-[#1a4f7f] bg-white/50 backdrop-blur-sm transition-colors"
-                required
-              />
-            </div>
+            {/* Heading */}
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6">
+              Get in touch with<br />
+              AmaCathera
+            </h1>
 
-            {/* Email */}
-            <div>
-              <input
-                type="email"
-                name="email"
-                placeholder="Email*"
-                value={formData.email}
-                onChange={handleChange}
-                className="w-full px-4 py-3 border-2 border-[#0f3a66] rounded-lg text-[#0f3a66] placeholder-[#0f3a66]/60 focus:outline-none focus:border-[#1a4f7f] bg-white/50 backdrop-blur-sm transition-colors"
-                required
-              />
-            </div>
+            {/* Description */}
+            <p className="text-base sm:text-lg md:text-xl text-slate-300 leading-relaxed max-w-xl mx-auto lg:mx-0">
+              Have a question about our services or need support? Our team is here to help — fast, clearly, and with
+            </p>
+          </div>
 
-            {/* Message */}
-            <div>
-              <textarea
-                name="message"
-                placeholder="Message"
-                value={formData.message}
-                onChange={handleChange}
-                rows={6}
-                className="w-full px-4 py-3 border-2 border-[#0f3a66] rounded-lg text-[#0f3a66] placeholder-[#0f3a66]/60 focus:outline-none focus:border-[#1a4f7f] bg-white/50 backdrop-blur-sm transition-colors resize-none"
-                required
-              />
-            </div>
+          {/* Right Side - Contact Form */}
+          <div className="flex-1 w-full max-w-sm lg:max-w-md">
+            <div className="bg-white rounded-2xl shadow-2xl p-6 sm:p-8 md:p-10">
+              <form onSubmit={handleSubmit} className="space-y-5 sm:space-y-6">
+                
+                {/* Name Field */}
+                <div>
+                  <label htmlFor="name" className="block text-sm sm:text-base font-medium text-slate-700 mb-2">
+                    Name
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    className="w-full px-4 py-3 sm:py-3.5 bg-slate-100 border-0 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#003260] transition-all text-sm sm:text-base"
+                    placeholder=""
+                  />
+                </div>
 
-            {/* Submit Button */}
-            <div className="">
-              <button
-                type="submit"
-                className="bg-[#1dd1a1] hover:bg-[#10ac84] text-white px-8 py-3 rounded-lg font-semibold transition-colors duration-300 text-base"
-              >
-                Send
-              </button>
+                {/* Email Field */}
+                <div>
+                  <label htmlFor="email" className="block text-sm sm:text-base font-medium text-slate-700 mb-2">
+                    Email
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    className="w-full px-4 py-3 sm:py-3.5 bg-slate-100 border-0 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#003260] transition-all text-sm sm:text-base"
+                    placeholder=""
+                  />
+                </div>
+
+                {/* Message Field */}
+                <div>
+                  <label htmlFor="message" className="block text-sm sm:text-base font-medium text-slate-700 mb-2">
+                    Message
+                  </label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    rows={5}
+                    className="w-full px-4 py-3 sm:py-3.5 bg-slate-100 border-0 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#003260] transition-all resize-none text-sm sm:text-base"
+                    placeholder=""
+                  />
+                </div>
+
+                {/* Submit Button */}
+                <div className="pt-2">
+                  <button
+                    type="submit"
+                    className="w-full bg-[#003260] hover:bg-[#004a8f] text-white font-semibold py-3.5 sm:py-4 rounded-lg transition-all duration-300 shadow-md hover:shadow-xl text-sm sm:text-base"
+                  >
+                    Schedule a call
+                  </button>
+                </div>
+              </form>
             </div>
-          </form>
+          </div>
+
         </div>
       </div>
     </div>
   );
-}
+};
+
+export default ContactSection;

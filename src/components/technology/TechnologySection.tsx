@@ -10,14 +10,14 @@ export default function TechnologySection() {
     }
   };
   return (
-    <div className="relative min-h-screen bg-gradient-to-br from-blue-50 via-blue-100 to-blue-50 overflow-hidden">
+    <div className="relative min-h-screen bg-gradient-to-br from-blue-50 via-blue-100 to-blue-50  overflow-hidden">
       {/* Background decorative elements */}
       <div 
         className="absolute inset-0 w-full h-full"
         style={{
           backgroundImage: 'url("/images/tech-bg.png")',
           backgroundSize: 'cover',
-          backgroundPosition: 'center',
+          backgroundPosition: 'center left ',
           backgroundRepeat: 'no-repeat',
           width: '100vw',
         }}

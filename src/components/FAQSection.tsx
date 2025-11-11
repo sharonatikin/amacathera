@@ -46,7 +46,7 @@ export default function FAQSection() {
         </h1>
 
         {/* FAQ Grid Container */}
-        <div className="border-2 border-blue-400 rounded-2xl p-8 bg-white/50">
+        <div className=" shadow-sm rounded-2xl p-8 bg-white/50">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
             {faqData.map((faq, index) => (
               <div

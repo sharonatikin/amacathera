@@ -2,12 +2,12 @@ import { ArrowRight, Brain } from 'lucide-react';
 
 export default function AmacaGelPlatform() {
   return (
-    <div className="w-full flex items-center h-140 bg-gradient-to-br from-[#0f3a66] via-[#1a4f7f] to-[#0d2d52] a overflow-hidden px-6 py-20">
+    <div className="w-full flex items-center  bg-gradient-to-br from-[#0f3a66] via-[#1a4f7f] to-[#0d2d52] a overflow-hidden px-6 py-20">
 
 
       {/* Main Container */}
       <div className="relative z-10 max-w-7xl mx-auto min-h-screen flex items-center">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center w-full">
+        <div className="grid grid-cols-1  lg:grid-cols-2 gap-12 lg:gap-20 items-center w-full">
           
           {/* Left Section - Content */}
           <div className="flex flex-col justify-center">

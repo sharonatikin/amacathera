@@ -4,7 +4,7 @@ import { ArrowRight } from 'lucide-react';
 const BioEngineeringFounder: React.FC = () => {
   return (
     <div 
-      className="relative w-full min-h-screen md:min-h-[130vh] bg-cover bg-center bg-no-repeat"
+      className="relative  w-full min-h-screen md:min-h-[130vh] bg-cover bg-center bg-no-repeat"
       style={{
         backgroundImage: 'url("/images/publication-bg.png")',
       }}
@@ -12,7 +12,7 @@ const BioEngineeringFounder: React.FC = () => {
       <div className="max-w-7xl relative w-full mx-auto px-4 sm:px-6 md:px-0">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
           {/* Left Content Section */}
-          <div className="space-y-4 sm:space-y-6 md:space-y-2 py-12 sm:py-16 md:ml-20 md:pt-[15vh]">
+          <div className="space-y-4 sm:space-y-6 md:space-y-2 py-12 sm:py-16 md:ml-20 pt-[10vh] md:pt-[15vh]">
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-800 leading-tight">
               Co-founded by a<br />
               <span className="text-blue-900">Bioengineering Pioneer</span>

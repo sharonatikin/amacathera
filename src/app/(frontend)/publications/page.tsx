@@ -9,7 +9,7 @@ const page = () => {
     <div>
       <BioEngineeringFounder />
 
-      <PublicationHero image={'/images/amacagel-bg.png'} title={'AmacaaGel Platform'} />
+      <PublicationHero image={'/images/amacagel-bg.png'} title={'AmacaGel Platform'} />
       {publications[0].map((pub, index) => (
         <Publication pub={pub} index={index} />
       ))}

@@ -30,7 +30,7 @@ const BioEngineeringFounder: React.FC = () => {
               <p className="text-base sm:text-lg leading-relaxed">
                 For more information about publications related to AmacaThera's technology, please visit{' '}
                 <a 
-                  href="#" 
+                  href="https://shoichetlab.utoronto.ca/" 
                   className="text-blue-700 hover:text-blue-800 underline font-medium transition-colors"
                 >
                   the Shoichet Lab
@@ -40,10 +40,10 @@ const BioEngineeringFounder: React.FC = () => {
             </div>
             
             <div className="pt-4 sm:pt-6 md:pt-4">
-              <button className="bg-blue-900 hover:bg-blue-800 text-white font-semibold px-6 sm:px-8 py-3 sm:py-4 rounded-lg transition-all duration-300 flex items-center gap-2 sm:gap-3 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 text-sm sm:text-base w-full sm:w-auto justify-center">
+              {/* <button className="bg-blue-900 hover:bg-blue-800 text-white font-semibold px-6 sm:px-8 py-3 sm:py-4 rounded-lg transition-all duration-300 flex items-center gap-2 sm:gap-3 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 text-sm sm:text-base w-full sm:w-auto justify-center">
                 Explore more
                 <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
-              </button>
+              </button> */}
             </div>
           </div>
 

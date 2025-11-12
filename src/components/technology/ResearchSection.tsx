@@ -15,7 +15,7 @@ export default function ResearchSection() {
       {/* Right side - Content */}
       <div className="w-full lg:w-1/2 lg:ml-auto min-h-screen flex flex-col items-start justify-center px-8 lg:px-16 py-20">
         {/* Logo/Badge - Top Right */}
-        <img src="/logos/TheShoichetLab.png" alt="" className='absolute top-8 right-8 w-48 lg:w-80 border-2 bg-blue-40 border-[#0f3a66] rounded-2xl px-6 py-4  backdrop-blur-sm' />
+        <img src="/logos/TheShoichetLab.png" alt="" className='absolute top-8 right-8 w-48 lg:w-70 md:w-60 border-2 bg-blue-40 border-[#0f3a66] rounded-2xl px-6 py-2  backdrop-blur-sm' />
 
         {/* Main content */}
         <div className="max-w-xl">

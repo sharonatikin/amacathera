@@ -23,10 +23,10 @@ export default function AmacaGelPlatform() {
 
             {/* Button */}
             <div>
-              <button className="bg-white hover:bg-gray-100 text-[#0f3a66] px-8 py-4 rounded-lg font-semibold transition-colors duration-300 flex items-center gap-2 text-base whitespace-nowrap">
+              {/* <button className="bg-white hover:bg-gray-100 text-[#0f3a66] px-8 py-4 rounded-lg font-semibold transition-colors duration-300 flex items-center gap-2 text-base whitespace-nowrap">
                 Explore more
                 <ArrowRight className="w-5 h-5" />
-              </button>
+              </button> */}
             </div>
           </div>
 

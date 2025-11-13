@@ -3,7 +3,7 @@ import Footer from "@/components/Footer";
 import Heading from "@/components/Heading";
 
 export const metadata: Metadata = {
-  title: "Amaca Thera",
+  title: "AmacaThera - Transforming Therapeutics",
   description: "Revolutionizing Wound Care with Advanced Hydrogel Technology",
 };
 

@@ -1,21 +1,21 @@
-import { Syringe, Beaker, ArrowRight, Sparkles } from 'lucide-react';
-import PlatformCard from '../ui/PlatformCard';
+import React from 'react'
+import PlatformCard from '../ui/PlatformCard'
+import { pipelineContent } from '@/const/pipeling'
 
-export default function HydrogelPlatform({content, title}:{content: {image:string,description:string,title:string,bg:string}[], title?:string}) {
-
+const PlatformSection = () => {
   return (
-    <div className="w-full min-h-screen bg-gradient-to-b from-white to-gray-50 px-6 py-20">
+    <div className="w-full min-h-screen bg-gradient-to-b from-slate-300 to-[#DFEAF0] ">
       {/* Container */}
       <div className="max-w-7xl mx-auto">
         {/* Title */}
-        <h1 className="text-5xl lg:text-6xl font-bold text-[#0f3a66] text-center mb-24">
-          {title}
+        <h1 className="text-5xl lg:text-6xl font-bold text-[#0f3a66] text- mb-24">
+          Platform
         </h1>
 
         {/* Cards Container */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
           {/* Left Card - Advanced Drug Delivery */}
-          {content.map((item)=>
+          {pipelineContent.map((item)=>
             <PlatformCard key={item.title} item={item} />
           )}
         </div>
@@ -29,5 +29,7 @@ export default function HydrogelPlatform({content, title}:{content: {image:strin
         </div> */}
       </div>
     </div>
-  );
+  )
 }
+
+export default PlatformSection

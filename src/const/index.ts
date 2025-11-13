@@ -1,4 +1,4 @@
-export const navItems = ["Home", "News", "Team", "Publications", "Technology", "Contact Us"];
+export const navItems = ["Home", "News", "Team", "Publications", "Technology", "Pipeline", "Contact Us"];
 export const teamMembers = [
   {
     name: "Dr. Molly Shoichet",

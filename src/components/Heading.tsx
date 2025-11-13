@@ -82,7 +82,6 @@ export default function Heading() {
               {item}
             </a>
           ))}
-          <button onClick={scrollToPipeline} className="text-slate-700 hover:text-blue-900 font-medium transition">Pipeline</button>
         </div>
 
 

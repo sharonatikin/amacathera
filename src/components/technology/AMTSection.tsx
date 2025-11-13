@@ -1,4 +1,5 @@
 import { ArrowRight } from 'lucide-react';
+import Link from 'next/link';
 
 export default function AMT143Section() {
   return (
@@ -26,10 +27,10 @@ export default function AMT143Section() {
           </p>
 
           {/* Button */}
-          <button className="bg-white hover:bg-gray-100 text-gray-900 px-6 py-3 rounded-lg font-semibold transition-colors duration-300 flex items-center gap-2 text-base group">
+          <Link href={'/AMT'} className="bg-white hover:bg-gray-100 text-gray-900 px-6 py-3 rounded-lg font-semibold transition-colors duration-300 flex items-center gap-2 text-base group">
             Explore more
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
-          </button>
+          </Link>
         </div>
         </div>
         <div className='flex justify-end flex-1'>

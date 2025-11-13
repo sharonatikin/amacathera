@@ -1,6 +1,7 @@
 'use client';
 import { pipelineData } from '@/const/pipeling';
 import { ArrowRight, Check, ArrowLeft } from 'lucide-react';
+import Link from 'next/link';
 import { useState, useEffect, useRef } from 'react';
 
 
@@ -62,7 +63,7 @@ export default function Pipeline() {
   };
 
   return (
-    <div id='pipeline-section' className="min-h-screen w-full bg-gradient-to-br from-slate-100 via-blue-50 to-slate-200 relative overflow-hidden">
+    <Link href={'/pipeline'} id='pipeline-section' className="min-h-screen w-full bg-gradient-to-br from-slate-100 via-blue-50 to-slate-200 relative overflow-hidden">
       {/* Medical Vials Image on Right */}
       <div 
         className="absolute inset-0"
@@ -220,6 +221,6 @@ export default function Pipeline() {
           ))}
         </div>
       </div>
-    </div>
+    </Link>
   );
 }

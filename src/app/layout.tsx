@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Amacathera",
+  title: "AmacaThera - Transforming Therapeutics",
   description: "Revolutionizing Therapeutics with Injectable Hydrogel Technology",
 };
 

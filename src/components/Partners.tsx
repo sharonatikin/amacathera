@@ -17,7 +17,7 @@ export default function Partners() {
     "/logos/UTEST.png",
     "/logos/Venture Labs.png",
     "/logos/CREATIVE.png",
-    "https://cdn-ildphco.nitrocdn.com/gRWXCDvJsjpRlGXdktAdTZFkhaknUDDR/assets/images/source/rev-e934a65/www.pacira.com/wp-content/themes/pacira/img/logo-b.svg"
+    "/logos/pacira.png"
   ];
 
   useEffect(() => {

@@ -6,12 +6,17 @@ import { pipelineData } from '@/const/pipeling';
 const HeroSection = () => {
   const stages = ['Discovery', 'Pre-Clinical', 'Phase 1']
   return (
+    <>
     <div className="relative w-screen overflow-hidden">
       <img
         src="/images/pipeline-bg.png"
         alt="Hero"
         className="w-full h-full object-cover"
       />
+      <div className='top-30 left-50 absolute'>
+
+          <h1 className='font-extrabold text-[#003d6b] text-[17vw]'>Pipeline</h1>
+      </div>
 <div className="absolute inset-0 bg-gradient-to-b from-transparent to-slate-300"></div>
       {/* Hero Section */}
       <div className="top-130 left-10 absolute w-full flex items-center justify-center px-6 py-20 ">
@@ -79,6 +84,7 @@ const HeroSection = () => {
         </div>
       </div>
     </div>
+    </>
   )
 }
 

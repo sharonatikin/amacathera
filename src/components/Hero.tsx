@@ -131,7 +131,7 @@ export default function Hero() {
             
             <div className="space-y-3 pt-4">
               <button className="w-full bg-[#003260] hover:bg-[#004a8f] text-white font-semibold py-3.5 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg transform hover:scale-105">
-                Explore Our Technology
+                Click Here For Details
               </button>
               <button className="w-full bg-white hover:bg-slate-50 text-[#003260] font-semibold py-3.5 rounded-lg border-2 border-[#003260] transition-all duration-300 transform hover:scale-105">
                 View Clinical Pipeline

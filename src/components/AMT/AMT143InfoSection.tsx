@@ -12,7 +12,17 @@ const PainManagementSection = () => {
         {/* Left Column - Statistics and Problem */}
         <div className="space-y-8">
           <div>
-            <p className="text-[#003260] text-2xl font-bold leading-relaxed">
+            <p className="text-.text-primary {
+  color: var(--primary-950);
+}
+
+.text-primary-500 {
+  color: var(--primary-500);
+}
+
+.text-primary-600 {
+  color: var(--primary-600);
+} text-2xl font-bold leading-relaxed">
               Approximately 51 million Americans undergo inpatient surgery annually, and opioids remain a primary modality for postoperative acute pain management.
             </p>
           </div>

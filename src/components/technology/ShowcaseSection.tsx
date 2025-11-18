@@ -10,7 +10,7 @@ export default function ShowcaseSection() {
               <iframe
                 width="100%"
                 height="100%"
-                src="https://www.youtube.com/embed/aFTugjM95Xc?autoplay=1"
+                src="https://www.youtube.com/embed/3m6SgTSU118?autoplay=1"
                 title="AmacaThera Video"
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

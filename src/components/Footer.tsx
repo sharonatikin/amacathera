@@ -75,7 +75,7 @@ export default function Footer() {
           <div className="flex lg:col-start-4 flex-col justify-start">
             <div className="grid grid-cols-2 lg:grid-cols-1 gap-6 lg:gap-8">
               {/* Canada Section */}
-              <div>
+              <Link href='https://maps.app.goo.gl/ncN3Bq4cJCSmPRNP6'>
                 <img src="/logos/Canada.png" alt="Canada Flag" className="h-20 mb-2" />
                 <div className="text-white">
                   <h2 className="text-base sm:text-lg font-bold mb-2">Canada</h2>
@@ -85,10 +85,10 @@ export default function Footer() {
                     <p>Toronto, ON M5G 0B7</p>
                   </div>
                 </div>
-              </div>
+              </Link>
 
               {/* US Section */}
-              <div>
+              <Link href='https://maps.app.goo.gl/Zj1VWCFaw4CfaXuk6 '>
                 <img src="/logos/US.png" alt="US Flag" className="h-20 mb-2" />
                 <div className="text-white">
                   <h2 className="text-base sm:text-lg font-bold mb-2">US</h2>
@@ -98,9 +98,9 @@ export default function Footer() {
                     <p>CA, US 94080</p>
                   </div>
                 </div>
-              </div>
+              </Link>
 
-              <div className='flex justify-between gap-2 overflow-auto items-center'>
+              <div className='flex flex-col  gap-2 overflow-auto '>
                 <p>+1 416-360-2094</p>
                 <p>info@amacathera.com</p>
               </div>

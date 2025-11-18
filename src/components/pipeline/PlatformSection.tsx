@@ -4,29 +4,61 @@ import { pipelineContent } from '@/const/pipeling'
 
 const PlatformSection = () => {
   return (
-    <div className="w-full min-h-screen bg-gradient-to-b from-slate-300 to-[#DFEAF0] ">
-      {/* Container */}
+    <div className="w-full bg-gradient-to-br from-blue-50 to-slate-200 py-12 sm:py-16 md:py-20 px-4 sm:px-6 md:px-8">
       <div className="max-w-7xl mx-auto">
         {/* Title */}
-        <h1 className="text-5xl lg:text-6xl font-bold text-[#0f3a66] text- mb-24">
+        <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-[#003d6b] mb-12 sm:mb-16 md:mb-20 text-center">
           Platform
-        </h1>
+        </h2>
 
-        {/* Cards Container */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
-          {/* Left Card - Advanced Drug Delivery */}
-          {pipelineContent.map((item)=>
-            <PlatformCard key={item.title} item={item} />
-          )}
+        {/* Desktop View - 3 Column Grid with Lines */}
+        <div className="hidden md:block">
+          <div className="relative">
+            {/* Cards Grid */}
+            <div className="grid grid-cols-3 gap-8 lg:gap-12">
+              {pipelineContent.map((item, index) => (
+                <div key={index} className="relative">
+
+
+                  {/* Card */}
+                  <PlatformCard item={item}
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
 
-        {/* Connecting lines - desktop only */}
-        {/* <div className="hidden lg:block mt-12">
-          <svg className="w-full h-12" viewBox="0 0 1200 50" preserveAspectRatio="none">
-            <line x1="770" y1="25" x2="850" y2="25" stroke="#0f3a66" strokeWidth="2" opacity="0.5" />
-            <polygon points="860,25 850,20 850,30" fill="#0f3a66" opacity="0.5" />
-          </svg>
-        </div> */}
+        {/* Tablet View - 2-1 Layout */}
+        <div className="hidden sm:block md:hidden">
+          <div className="space-y-8">
+            {/* Top Row - 2 Cards */}
+            <div className="grid grid-cols-2 gap-6">
+              {pipelineContent.slice(0, 2).map((item) => (
+                <PlatformCard item={item}
+                />
+              ))}
+            </div>
+
+            {/* Bottom Row - 1 Card Centered */}
+            <div className="flex justify-center">
+              <div className="w-full sm:w-1/2">
+                <PlatformCard item={pipelineContent[2]}
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Mobile View - Single Column Stack */}
+        <div className="sm:hidden">
+          <div className="space-y-5">
+            {pipelineContent.map((item,ind) => (
+              <PlatformCard item={item}
+              />
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   )

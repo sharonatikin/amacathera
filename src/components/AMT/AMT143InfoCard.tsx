@@ -4,9 +4,9 @@ import { Syringe, CheckCircle, Activity } from 'lucide-react';
 const AMT143InfoCard: React.FC = () => {
   return (
     <div className="min-h-screen b p-8 flex items-center justify-center">
-      <div className="max-w-9xl w-full">
+      <div className=" w-full">
         <div className=" overflow-hidden">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-0">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
             {/* Right Image Section */}
             <div className="relative  flex items-center justify-center ">
               <img
@@ -16,7 +16,7 @@ const AMT143InfoCard: React.FC = () => {
               />
             </div>
             {/* Left Content Section */}
-            <div className="p-12 lg:p-16 md:col-start-1 md:row-start-1 flex flex-col justify-center bg-gradient-to-br ">
+            <div className="p-12 lg:p-16 lg:col-start-1 lg:row-start-1 flex flex-col justify-center bg-gradient-to-br ">
               <div className="space-y-6">
                 <h1 className="text-3xl lg:text-3xl font-bold text-slate-900 leading-tight">
                   Bringing AMT-143 to market would benefit patients, doctors and other healthcare stakeholders who are concerned about the impact of addictive medications.

@@ -1,3 +1,4 @@
+import Banner from "@/components/Banner";
 import FAQSection from "@/components/FAQSection";
 import GetInTouch from "@/components/GetInTouch";
 import Hero from "@/components/Hero";
@@ -12,6 +13,7 @@ export default function LandingPage() {
   return (
     <div className="min-h-screen w-full bg-gradient-to-br from-blue-50 via-slate-100 to-blue-100">
       <Hero />
+      <Banner/>
       <WhatWeDo/>
       <ProblemSolution/>
       <TechnologyHighlights/>

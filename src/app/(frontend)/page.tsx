@@ -12,8 +12,8 @@ import WhatWeDo from "@/components/WhatWeDo";
 export default function LandingPage() {
   return (
     <div className="min-h-screen w-full bg-gradient-to-br from-blue-50 via-slate-100 to-blue-100">
-      <Hero />
       <Banner/>
+      <Hero />
       <WhatWeDo/>
       <ProblemSolution/>
       <TechnologyHighlights/>

@@ -3,8 +3,7 @@ import React, { useState } from 'react';
 import { pressReleases } from '@/const';
 import { usePathname } from 'next/navigation';
 import { Download } from 'lucide-react';
-import type { jsPDF } from 'jspdf';
-import type html2canvas from 'html2canvas';
+import jsPDF from 'jspdf';
 
 const PressReleaseArticle: React.FC = () => {
     const path = usePathname();
@@ -12,57 +11,113 @@ const PressReleaseArticle: React.FC = () => {
     const article = pressReleases.find(a => a?.id == Number(urlSegment));
     const [isGenerating, setIsGenerating] = useState(false);
 
-  const handlePressReleaseDownload = async () => {
+  const handleTextBasedPDFDownload = async () => {
+    if (!article) return;
+
     setIsGenerating(true);
+    
     try {
-      // Get the article content
-      const contentElement = document.getElementById('press-release-content');
-      
-      if (!contentElement) {
-        throw new Error('Content element not found');
-      }
+      const pdf = new jsPDF();
+      const pageWidth = pdf.internal.pageSize.getWidth();
+      const margin = 20;
+      let yPosition = margin;
+      const lineHeight = 7;
+      const titleLineHeight = 10;
 
-      // Dynamically import jsPDF and html2canvas
-      const { jsPDF } = await import('jspdf');
-      const html2canvas = (await import('html2canvas')).default;
+      // Set default font
+      pdf.setFont('helvetica', 'normal');
 
-      // Create canvas from HTML element
-      const canvas = await html2canvas(contentElement, {
-        scale: 2,
-        useCORS: true,
-        logging: false,
-        backgroundColor: '#EAF3F5'
+      // Add title
+      pdf.setFontSize(18);
+      pdf.setFont('helvetica', 'bold');
+      const titleLines = pdf.splitTextToSize(article.title, pageWidth - 2 * margin);
+      titleLines.forEach((line: string) => {
+        if (yPosition + titleLineHeight > pdf.internal.pageSize.getHeight() - margin) {
+          pdf.addPage();
+          yPosition = margin;
+        }
+        pdf.text(line, margin, yPosition);
+        yPosition += titleLineHeight;
       });
 
-      // Calculate PDF dimensions
-      const imgWidth = 210; // A4 width in mm
-      const pageHeight = 297; // A4 height in mm
-      const imgHeight = (canvas.height * imgWidth) / canvas.width;
-      let heightLeft = imgHeight;
+      yPosition += 5;
 
-      // Create PDF
-      const pdf = new jsPDF('p', 'mm', 'a4');
-      let position = 0;
-
-      // Add image to PDF
-      const imgData = canvas.toDataURL('image/jpeg', 0.98);
-      pdf.addImage(imgData, 'JPEG', 0, position, imgWidth, imgHeight);
-      heightLeft -= pageHeight;
-
-      // Add new pages if content is longer than one page
-      while (heightLeft > 0) {
-        position = heightLeft - imgHeight;
+      // Add date
+      pdf.setFontSize(12);
+      pdf.setFont('helvetica', 'normal');
+      if (yPosition + lineHeight > pdf.internal.pageSize.getHeight() - margin) {
         pdf.addPage();
-        pdf.addImage(imgData, 'JPEG', 0, position, imgWidth, imgHeight);
-        heightLeft -= pageHeight;
+        yPosition = margin;
       }
+      pdf.text(`Date: ${article.date}`, margin, yPosition);
+      yPosition += 10;
 
-      // Download PDF
-      pdf.save(`${article?.title?.replace(/\s+/g, '_') || 'Press_Release'}.pdf`);
+      // Add category
+      if (yPosition + lineHeight > pdf.internal.pageSize.getHeight() - margin) {
+        pdf.addPage();
+        yPosition = margin;
+      }
+      pdf.text(`Category: ${article.category}`, margin, yPosition);
+      yPosition += 15;
+
+      // Add summary
+      pdf.setFontSize(11);
+      pdf.setFont('helvetica', 'bold');
+      const summaryLines = pdf.splitTextToSize(article.summary, pageWidth - 2 * margin);
+      summaryLines.forEach((line: string) => {
+        if (yPosition + lineHeight > pdf.internal.pageSize.getHeight() - margin) {
+          pdf.addPage();
+          yPosition = margin;
+        }
+        pdf.text(line, margin, yPosition);
+        yPosition += lineHeight;
+      });
+
+      yPosition += 10;
+
+      // Add paragraphs
+      pdf.setFontSize(10);
+      pdf.setFont('helvetica', 'normal');
+      
+      article.paragraphs.forEach(paragraph => {
+        // Check if this should be a heading
+        if (paragraph.startsWith('About ') || (paragraph.length < 50 && !paragraph.includes('.'))) {
+          pdf.setFont('helvetica', 'bold');
+          pdf.setFontSize(11);
+        } else {
+          pdf.setFont('helvetica', 'normal');
+          pdf.setFontSize(10);
+        }
+
+        const lines = pdf.splitTextToSize(paragraph, pageWidth - 2 * margin);
+        
+        lines.forEach((line: string) => {
+          if (yPosition + lineHeight > pdf.internal.pageSize.getHeight() - margin) {
+            pdf.addPage();
+            yPosition = margin;
+            // Reset font for new page
+            if (paragraph.startsWith('About ') || (paragraph.length < 50 && !paragraph.includes('.'))) {
+              pdf.setFont('helvetica', 'bold');
+              pdf.setFontSize(11);
+            } else {
+              pdf.setFont('helvetica', 'normal');
+              pdf.setFontSize(10);
+            }
+          }
+          
+          pdf.text(line, margin, yPosition);
+          yPosition += lineHeight;
+        });
+
+        yPosition += 5; // Add spacing between paragraphs
+      });
+
+      const fileName = `${article.title.substring(0, 50).replace(/[^a-zA-Z0-9]/g, '_')}_press_release.pdf`;
+      pdf.save(fileName);
       
     } catch (error) {
       console.error('Error generating PDF:', error);
-      alert('Failed to generate press release PDF. Please try again.');
+      alert('Error generating PDF. Please try again.');
     } finally {
       setIsGenerating(false);
     }
@@ -95,7 +150,7 @@ const PressReleaseArticle: React.FC = () => {
                 </p>
               </div>
               <button
-                onClick={handlePressReleaseDownload}
+                onClick={handleTextBasedPDFDownload}
                 disabled={isGenerating}
                 className="flex items-center gap-2 px-4 py-2 bg-[#003260] text-white rounded-lg hover:bg-[#004a8f] transition-all duration-300 font-semibold text-sm disabled:bg-gray-400 disabled:cursor-not-allowed"
               >

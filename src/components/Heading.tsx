@@ -61,9 +61,9 @@ export default function Heading() {
         {/* Logo */}
         <a href="/" className="flex-shrink-0">
           <div
-            className="w-24 h-16 sm:w-28 sm:h-18 md:w-32 md:h-20 lg:w-36 lg:h-22 mt-2 sm:mt-3 lg:mt-4"
+            className="w-24 h-16 sm:w-28 sm:h-18 md:w-32 md:h-20 lg:w-36 lg:h-22  sm:mt-3"
             style={{
-              backgroundImage: 'url("/logos/Amaca_Thera_Logo_PNG.png")',
+              backgroundImage: 'url("/logos/Amaca_Thera_Logo.png")',
               backgroundSize: 'contain',
               backgroundRepeat: 'no-repeat',
               backgroundPosition: 'center',

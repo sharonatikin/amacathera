@@ -1,4 +1,4 @@
-import { navItems } from '@/const';
+import { footerItems } from '@/const';
 import { Facebook, Twitter, Linkedin, Instagram, MapPin } from 'lucide-react';
 import Link from 'next/link';
 
@@ -39,8 +39,8 @@ export default function Footer() {
             </div>
 
             {/* Navigation Links */}
-            <nav className="flex flex-wrap gap-x-4 sm:gap-x-6 gap-y-2 mb-6">
-              {navItems.map(
+            <nav className="flex flex-wrap gap-x-4 sm:gap-x-6  mb-6">
+              {footerItems.map(
                 (item, index) => (
                   <div key={item}>
                     <Link
@@ -50,8 +50,8 @@ export default function Footer() {
                     >
                       {item}
                     </Link>
-                    {index < navItems.length - 1 && (
-                      <span className="text-white/40 hidden sm:inline">|</span>
+                    {index < footerItems.length - 1 && (
+                      <span className="text-white/40 hidden pl-4 sm:inline">|</span>
                     )}
                   </div>
                 )

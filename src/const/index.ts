@@ -1,4 +1,5 @@
 export const navItems = ["Home", "News", "Team", "Publications", "Technology", "Pipeline", "Contact Us"];
+export const footerItems = ["Home", "News", "Team", "Publications", "Technology", "Pipeline", "Career", "Contact Us"];
 export const teamMembers = [
   {
     name: "Dr. Molly Shoichet",
@@ -70,8 +71,8 @@ export const pressReleases = [
   {
     id: 0,
     image: "award.png",
-    title: "AmacaThera Signs Exclusive Global Licensing Agreement with Pacira BioSciences for Up To US$230 Million, Validating Tunable Drug Delivery Platform",
-    date: "November 2, 2020",
+    title: "AmacaThera Signs Exclusive Global Licensing Agreement with Pacira BioSciences for Up To US$230 Million, Validating Its Tunable Drug Delivery Platform",
+    date: "November 2, 2025",
     category: "Press Release",
     summary: "AmacaThera received USD$5 million upfront and up to USD$225 million in potential future milestones payment with Pacira BioSciences for AMT-143, AmacaThera's long-acting, non-opioid pain management drug delivery platform.",
     paragraphs: [

@@ -100,11 +100,11 @@ export default function Footer() {
                 </div>
               </Link>
 
-              <div className='flex flex-col  gap-2 overflow-auto '>
+            </div>
+              <div className='flex flex-col mt-10  gap-2 overflow-auto '>
                 <p>+1 416-360-2094</p>
                 <p>info@amacathera.com</p>
               </div>
-            </div>
           </div>
         </div>
       </div>

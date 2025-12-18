@@ -21,7 +21,7 @@ const PlatformSection = () => {
 
 
                   {/* Card */}
-                  <PlatformCard item={item}
+                  <PlatformCard key={index} item={item}
                   />
                 </div>
               ))}
@@ -34,8 +34,8 @@ const PlatformSection = () => {
           <div className="space-y-8">
             {/* Top Row - 2 Cards */}
             <div className="grid grid-cols-2 gap-6">
-              {pipelineContent.slice(0, 2).map((item) => (
-                <PlatformCard item={item}
+              {pipelineContent.slice(0, 2).map((item, index) => (
+                <PlatformCard key={index} item={item}
                 />
               ))}
             </div>
@@ -53,8 +53,8 @@ const PlatformSection = () => {
         {/* Mobile View - Single Column Stack */}
         <div className="sm:hidden">
           <div className="space-y-5">
-            {pipelineContent.map((item,ind) => (
-              <PlatformCard item={item}
+            {pipelineContent.map((item,index) => (
+              <PlatformCard key={index} item={item}
               />
             ))}
           </div>

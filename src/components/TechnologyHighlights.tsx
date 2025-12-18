@@ -35,6 +35,9 @@ export default function TechnologyHighlights() {
   ];
 
   useEffect(() => {
+    // Check if screen is mobile
+    const isMobile = window.innerWidth < 768;
+
     // Title animation
     gsap.fromTo(
       titleRef.current,
@@ -123,21 +126,31 @@ export default function TechnologyHighlights() {
       }
     });
 
-    // Floating animation on scroll
-    cardsRef.current.forEach((card, index) => {
-      gsap.to(card, {
-        y: index % 2 === 0 ? -20 : 20,
-        scrollTrigger: {
-          trigger: cardsContainerRef.current,
-          start: "top center",
-          end: "bottom center",
-          scrub: 1,
-          markers: false,
-        },
+    // Floating animation on scroll - only on desktop
+    if (!isMobile) {
+      cardsRef.current.forEach((card, index) => {
+        gsap.to(card, {
+          y: index % 2 === 0 ? -20 : 20,
+          scrollTrigger: {
+            trigger: cardsContainerRef.current,
+            start: "top center",
+            end: "bottom center",
+            scrub: 1,
+            markers: false,
+          },
+        });
       });
-    });
+    }
+
+    // Handle window resize
+    const handleResize = () => {
+      ScrollTrigger.refresh();
+    };
+
+    window.addEventListener("resize", handleResize);
 
     return () => {
+      window.removeEventListener("resize", handleResize);
       ScrollTrigger.getAll().forEach(trigger => trigger.kill());
     };
   }, []);
@@ -149,7 +162,7 @@ export default function TechnologyHighlights() {
         {/* Title */}
         <h1 
           ref={titleRef}
-          className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#003d6b] text-center mb-16 md:mb-20"
+          className="text-2xl md:text-4xl lg:text-5xl font-bold text-[#003d6b] text-center mb-16 md:mb-20"
         >
           Platform | Technology Highlights
         </h1>
@@ -157,7 +170,7 @@ export default function TechnologyHighlights() {
         {/* Cards Grid */}
         <div 
           ref={cardsContainerRef}
-          className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+          className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10"
         >
           {highlights.map((item, index) => (
             <div

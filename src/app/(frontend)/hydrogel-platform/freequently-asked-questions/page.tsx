@@ -7,7 +7,7 @@ import { faqData } from '@/const/qna';
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function FAQSection() {
+export default function page() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
   const titleRef = useRef(null);
   const containerRef = useRef(null);

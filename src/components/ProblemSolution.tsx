@@ -212,10 +212,10 @@ export default function ProblemSolution() {
       {/* Content */}
       <div 
         ref={containerRef}
-        className="relative z-10 min-h-screen flex flex-col justify-between pt-40 md:pt-56 pb-10 px-8 lg:px-18"
+        className="relative z-10 min-h-screen flex flex-col justify-between pt-20 md:pt-56 pb-10 px-8 lg:px-18"
       >
         {/* Title Section */}
-        <div className="pl-10">
+        <div className="pl-10 pb-10">
           <h2 
             ref={titleRef}
             className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#003366] mb-2"
@@ -224,9 +224,9 @@ export default function ProblemSolution() {
           </h2>
           <h1 
             ref={subtitleRef}
-            className="text-4xl md:text-5xl lg:text-7xl font-bold text-[#003366]"
+            className="text-4xl md:text-5xl  inline lg:text-7xl font-bold text-[#003366]"
           >
-            + Our Solution
+            + AmacaThera’s solution
           </h1>
         </div>
 
@@ -243,7 +243,7 @@ export default function ProblemSolution() {
                 Problem:
               </h3>
               <p className="text-[#003366] font-light text-base md:text-lg lg:text-lg leading-relaxed">
-                Many therapies fail not for lack of potency but inability to deliver where needed — in right concentration, for enough time, with minimal systemic exposure.
+                Many therapies fall short because they cannot be delivered precisely, at the right dose, for long enough, or without unwanted side effects.
               </p>
             </div>
 
@@ -257,7 +257,7 @@ export default function ProblemSolution() {
                 Solution:
               </h3>
               <p className="text-white font-extralight text-base md:text-lg lg:text-lg leading-relaxed">
-                AmacaThera's AmacaGel™ platform addresses this by forming an injectable depot at the target site, achieving sustained, localized delivery of small molecules, biologics, enzymes or cells.
+                AmacaThera’s hydrogel drug delivery platform forms an injectable depot at the target site, providing precise, localized, and sustained delivery of therapeutics and minimising exposure elsewhere in the body.
               </p>
             </div>
           </div>

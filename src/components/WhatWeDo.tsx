@@ -13,20 +13,24 @@ export default function WhatWeDo() {
 
   const cards = [
     {
-      title: "Advanced Drug Delivery",
-      description: "Our proprietary hydrogel depot system releases therapeutic agents at the target site for prolonged effect.",
+      title: "Innovative Drug Delivery Platform",
+      description: "Next generation hydrogel-based drug delivery platform that enables precise, localized, and long-acting drug release for a wide range of therapeutics.",
     },
     {
-      title: "Hard-to-Reach Targets",
-      description: "From post-surgical pain to oncology and beyond — we tackle locations conventional delivery struggles to reach.",
+      title: "Broad Compatibility",
+      description: "Tunable platform works with small molecules, biologics, antibodies, peptides, nanoparticles, and cells, and is tailored for various clinical needs from post-surgical pain to oncology and beyond.",
     },
     {
-      title: "Clinical Validation",
-      description: "Moving rapidly from bench to bedside: GMP manufacturable, human safety data, multi-modal payloads.",
+      title: "Clinically Validated Technology",
+      description: "Proven safety and efficacy through preclinical models and Phase 1 human trials, minimizing regulatory risk.",
     },
     {
-      title: "Collaboration & Partnership",
-      description: "Open to strategic alliances, co-development programmes and licensing. Let's accelerate together.",
+      title: "Scalable, Cost-Effective Manufacturing",
+      description: 'Simple "mix and fill" process reduces production costs and easily scales to meet global demand.',
+    },
+    {
+      title: "Collaborative Partnership Model",
+      description: 'Partner with pharma companies to advance products, generating value through upfront payments, milestones, and royalties while accelerating product development.',
     }
   ];
 
@@ -122,7 +126,7 @@ export default function WhatWeDo() {
         {/* Cards Grid */}
         <div 
           ref={cardsContainerRef}
-          className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+          className=" mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6"
         >
           {cards.map((card, index) => (
             <div

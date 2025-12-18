@@ -4,7 +4,7 @@ import React from 'react'
 
 const TeamCard = ({ member }:{member:{image:string,name:string,title:string,description:string,url:string}}) => {
   return (
-    <Link href={`/team/${member.url}`}  className="">
+    <Link href={`/our-team/${member.url}`}  className="">
       {/* Card Container */}
       <div className=" overflow-hidden flex flex-col items-center  flex-grow">
         {/* Image */}
@@ -19,11 +19,11 @@ const TeamCard = ({ member }:{member:{image:string,name:string,title:string,desc
         </div>
 
         {/* Name and Title Card */}
-        <div className="bg-blue-900 h-70 lg:min-w-xs px-10 rounded-2xl pt-30 text-white py-8 text-center mt-4">
+        <div className="bg-blue-900 h-70 lg:min-w-xs px-10 rounded-2xl pt-25 text-white py-8 text-center mt-4">
           <h3 className="text-xl md:text-2xl  font-bold mb-2">
             {member.name}
           </h3>
-          <p className="text-base md:text-lg text-wrap max-w-48 leading-relaxed">
+          <p className="text-base md:text-lg text-wrap max-w-56 ">
             {member.title.split('&').map((part, i, arr) => (
               <React.Fragment key={i}>
                 {part.trim()}

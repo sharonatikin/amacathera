@@ -3,6 +3,10 @@ import { Montserrat } from "next/font/google";
 import Link from "next/link";
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
+import { ScrollToPlugin } from "gsap/ScrollToPlugin";
+
+gsap.registerPlugin(ScrollToPlugin);
+
 
 const montserrat = Montserrat({
   subsets: ['latin'],
@@ -121,12 +125,11 @@ export default function Hero() {
         <div ref={mobileContentRef} className="flex-1 bg-slate-50 px-4 sm:px-6 py-8 flex flex-col justify-center">
           <div className="space-y-4">
             <h1 className="text-3xl sm:text-4xl font-bold text-[#003260] leading-tight">
-              Transforming Therapeutics.<br />
-              One Injection at a Time.
+              Pioneering next-generation tunable hydrogel solutions for precise, sustained drug delivery
             </h1>
             
             <p className="text-base text-slate-700 leading-relaxed">
-              With our proprietary injectable hydrogel platform, we deliver localized, sustained therapies to the hardest-to-treat targets.
+              AmacaThera’s clinically validated hydrogel drug delivery platform seamlessly integrates two well-established, biocompatible polymers, hyaluronic acid and methyl cellulose, into a proprietary formulation. This innovative injectable hydrogel enables precise, localized, and sustained delivery of therapeutics, ensuring long-acting release exactly where it is needed. The platform is broadly compatible with a diverse array of therapeutic agents, including small molecules, biologics, enzymes, and cells. Its tunability allows for the fine adjustment of drug release parameters, such as rate, duration, and timing tailored to the unique requirements of each clinical application.
             </p>
             
             <div className="space-y-3 pt-4">
@@ -156,19 +159,16 @@ export default function Hero() {
           <div className="w-full md:w-1/2 lg:w-6/12 flex flex-col gap-6 md:gap-8">
             <div ref={headingRef}>
               <h1 className={`text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-blue-900 mb-3 md:mb-4 leading-tight ${montserrat.className}`}>
-                Transforming Therapeutics.
+                Pioneering next-generation tunable hydrogel solutions for precise, sustained drug delivery
               </h1>
-              <h2 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-blue-900 leading-tight">
-                One Injection at a Time.
-              </h2>
             </div>
 
             <p ref={descRef} className="text-sm md:text-base lg:text-lg text-slate-700 leading-relaxed">
-              With our proprietary injectable hydrogel platform, we deliver localized, sustained therapies to the hardest-to-treat targets.
+              AmacaThera's clinically validated hydrogel drug delivery platform seamlessly integrates two well-established, biocompatible polymers, hyaluronic acid and methyl cellulose, into a proprietary formulation. This innovative injectable hydrogel enables precise, localized, and sustained delivery of therapeutics, ensuring long-acting release exactly where it is needed. The platform is broadly compatible with a diverse array of therapeutic agents, including small molecules, biologics, enzymes, and cells. Its tunability allows for the fine adjustment of drug release parameters, such as rate, duration, and timing tailored to the unique requirements of each clinical application.
             </p>
 
             <div ref={buttonsRef} className="flex flex-col md:flex-row gap-4 pt-4">
-              <Link href={'/technology'} className="px-8 flex md:px-12 lg:px-16 py-3 bg-blue-900 text-white font-semibold rounded hover:bg-blue-800 transition items-center shadow-lg text-center hover:shadow-xl transform hover:scale-105 duration-300">
+              <Link href={'/hydrogel-platform'} className="px-8 flex md:px-12 lg:px-16 py-3 bg-blue-900 text-white font-semibold rounded hover:bg-blue-800 transition items-center shadow-lg text-center hover:shadow-xl transform hover:scale-105 duration-300">
                 Explore Our Technology
               </Link>
               <button onClick={scrollToPipeline} className="px-8 md:px-12 lg:px-16 py-3 border-2 border-blue-900 text-blue-900 font-semibold rounded hover:bg-blue-50 transition text-center transform hover:scale-105 duration-300">

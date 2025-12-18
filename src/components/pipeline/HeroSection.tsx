@@ -43,8 +43,8 @@ const HeroSection = () => {
 
             {/* Pipeline Table */}
             <div className="max-w-xl">
-              {pipelineData.map((product, idx) => (
-                <div className="grid grid-cols-6  mb-3">
+              {pipelineData.map((product, index) => (
+                <div key={index} className="grid grid-cols-6  mb-3">
                   {/* Product Info */}
                   <div className=" col-span-3  ">
                     <h3 className="text-xs lg:text-lg font-bold text-[#1e3a5f] mb-2">
@@ -56,9 +56,9 @@ const HeroSection = () => {
                     </p>
                   </div>
 
-                  {stages.map((stage: typeof stages[number]) => {
+                  {stages.map((stage: typeof stages[number], index) => {
                     return (
-                      <div className=" lg:px-6 py-5 lg:py-6 flex items-center justify-center ">
+                      <div key={index} className=" lg:px-6 py-5 lg:py-6 flex items-center justify-center ">
                         {product[stage] && (
                           <div className="w-5 h-5 lg:w-10 lg:h-10 rounded-full bg-[#003d6b] flex items-center justify-center">
                             <Check className="w-3 h-3 lg:w-7 lg:h-7 text-white" strokeWidth={3} />

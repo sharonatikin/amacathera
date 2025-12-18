@@ -7,21 +7,21 @@ const TeamLeadershipPage: React.FC = () => {
   const teamMembers = [
     {
       name: "Dr. Molly Shoichet",
-      title: "Co-Founder & Chief Science Officer",
+      title: "Co-Founder & Chief Science Officer & amend title to Chief Scientific Officer",
       description: "Biomedical Engineer Polymer design and drug delivery expert",
       image: "/images/team/mollyshoichet.png",
       url:"molly-shoichet"
     },
     {
       name: "Dr. Mike Cooke",
-      title: "Co-Founder & CEO",
+      title: "Co-Founder & CEO & Chief Executive Officer",
       description: "Chemical & Biomedical Engineer Polymer design and drug delivery expert",
       image: "/images/team/mikecooke.png",
       url:"mike-cooke"
     },
     {
       name: "Abhaya Khulbe CFA",
-      title: "Chief of Staff & Materials Engineer",
+      title: "Chief of Staff & Materials Engineer & Therapeutics",
       description: "Strategic leader in finance, operations, and commercialization",
       image: "/images/team/abhayakhulbe.png",
       url:"abhaya-khulbe"
@@ -37,9 +37,8 @@ const TeamLeadershipPage: React.FC = () => {
             Our Team & Leadership
           </h1>
           <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
-            We've brought together commercial leaders, researchers and
+            AmacaThera’s leadership team brings together expertise in business, science, and engineering to transform drug delivery
             <br className="hidden md:block" />
-            biotechnology experts that will transform therapeutics development.
           </p>
         </div>
       </div>

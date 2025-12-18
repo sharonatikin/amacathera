@@ -1,5 +1,5 @@
-export const navItems = ["Home", "News", "Team", "Publications", "Technology", "Pipeline", "Contact Us"];
-export const footerItems = ["Home", "News", "Team", "Publications", "Technology", "Pipeline", "Career", "Contact Us"];
+export const navItems = ["Home", "News", "Our Team", "Publications", "Hydrogel Platform", "Pipeline", "Contact Us"];
+export const footerItems = ["Home", "News", "Our Team", "Publications", "Hydrogel Platform", "Pipeline", "Career", "Contact Us"];
 export const teamMembers = [
   {
     name: "Dr. Molly Shoichet",

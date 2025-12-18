@@ -10,7 +10,7 @@ const montserrat = Montserrat({
 
 const Banner = () => {
   return (
-    <div className='min-h-[80vh] flex flex-col sm:flex-row relative '>
+    <div className='md:min-h-[80vh] min-h-[100vh] flex flex-col sm:flex-row relative '>
       <Image 
         src="/images/banner-bg.png"
         alt="Banner background"

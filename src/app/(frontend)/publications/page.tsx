@@ -11,17 +11,17 @@ const page = () => {
 
       <PublicationHero image={'/images/amacagel-bg.png'} title={'AmacaGel Platform'} />
       {publications[0].map((pub, index) => (
-        <Publication pub={pub} index={index} />
+        <Publication key={index} pub={pub} index={index} />
       ))}
 
       <PublicationHero image={'/images/biologics-bg.png'} title={'Biologics Cell'} />
       {publications[1].map((pub, index) => (
-        <Publication pub={pub} index={index} />
+        <Publication key={index} pub={pub} index={index} />
       ))}
 
       <PublicationHero image={'/images/smallmolecules-bg.png'} title={'Small Molecules'} />
       {publications[2].map((pub, index) => (
-        <Publication pub={pub} index={index} />
+        <Publication key={index} pub={pub} index={index} />
       ))}
 
     </div>

@@ -45,11 +45,7 @@ export default function AdminDashboard() {
 
     <>
       {/* Main Content */}
-      <div className="flex-1 overflow-auto">
-        {/* Header */}
-        <div className="bg-white border-b border-gray-200 px-8 py-6">
-          <h1 className="text-3xl font-bold text-[#0f3a66]">Welcome Back!</h1>
-        </div>
+
 
         {/* Content */}
         <div className="p-8">
@@ -128,7 +124,6 @@ export default function AdminDashboard() {
             </ResponsiveContainer>
           </div>
         </div>
-      </div>
     </>
   );
 }

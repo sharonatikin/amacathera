@@ -2,8 +2,10 @@
 import { ArrowRight, Home } from "lucide-react";
 import { useEffect, useState } from "react";
 
+type Particle = { id: number; left: number; delay: number; duration: number; };
+
 export default function NotFound() {
-  const [particles, setParticles] = useState([]);
+  const [particles, setParticles] = useState<Particle[]>([]);
 
   useEffect(() => {
     // Generate animated particles for visual interest

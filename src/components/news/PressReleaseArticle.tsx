@@ -1,15 +1,88 @@
 'use client';
-import React, { useState } from 'react';
-import { pressReleases } from '@/const';
+import React, { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 import { Download } from 'lucide-react';
 import jsPDF from 'jspdf';
 
+// Update the interface to match News schema
+interface INewsArticle {
+  _id: string;
+  mainHeading: string;
+  subHeading: string;
+  date: string;
+  pressReleaseLink?: string;
+  imageUrl?: string;
+  fileName?: string;
+  fileSize?: number;
+  videoUrl?: string;
+  content: string;
+  uploadedBy: string;
+  viewCount: number;
+  isPublished: boolean;
+  createdAt: string;
+  updatedAt: string;
+}
+
 const PressReleaseArticle: React.FC = () => {
-    const path = usePathname();
-    const urlSegment = path.split('/').pop();
-    const article = pressReleases.find(a => a?.id == Number(urlSegment));
-    const [isGenerating, setIsGenerating] = useState(false);
+  const path = usePathname();
+  const urlSegment = path.split('/').pop();
+  const [article, setArticle] = useState<INewsArticle | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState('');
+  const [isGenerating, setIsGenerating] = useState(false);
+
+  useEffect(() => {
+    async function fetchArticle() {
+      try {
+        setLoading(true);
+        // Fetch from backend API using the ID from URL
+        const res = await fetch(`/api/news/${urlSegment}`);
+        const data = await res.json();
+        
+        if (data.success) {
+          setArticle(data.data);
+        } else {
+          setError(data.error || 'Article not found');
+        }
+      } catch (err) {
+        console.error('Error fetching article:', err);
+        setError('Failed to load article');
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    if (urlSegment) {
+      fetchArticle();
+    }
+  }, [urlSegment]);
+
+  // Function to parse content into paragraphs
+  const parseContentToParagraphs = (content: string): string[] => {
+    if (!content) return [];
+    
+    // Split by double line breaks or create logical paragraphs
+    const paragraphs = content.split(/\n\s*\n/);
+    
+    // Filter out empty paragraphs and trim whitespace
+    return paragraphs
+      .filter(p => p.trim().length > 0)
+      .map(p => p.trim());
+  };
+
+  // Function to detect if a paragraph should be a heading
+  const isHeadingParagraph = (paragraph: string): boolean => {
+    return (
+      paragraph.startsWith('About ') ||
+      paragraph.startsWith('Introduction') ||
+      paragraph.startsWith('Conclusion') ||
+      paragraph.startsWith('Key Highlights') ||
+      paragraph.startsWith('Background') ||
+      paragraph.startsWith('Contact:') ||
+      (paragraph.length < 100 && paragraph.includes(':')) ||
+      paragraph.toUpperCase() === paragraph // All caps might be a heading
+    );
+  };
 
   const handleTextBasedPDFDownload = async () => {
     if (!article) return;
@@ -27,10 +100,10 @@ const PressReleaseArticle: React.FC = () => {
       // Set default font
       pdf.setFont('helvetica', 'normal');
 
-      // Add title
+      // Add main heading (title)
       pdf.setFontSize(18);
       pdf.setFont('helvetica', 'bold');
-      const titleLines = pdf.splitTextToSize(article.title, pageWidth - 2 * margin);
+      const titleLines = pdf.splitTextToSize(article.mainHeading, pageWidth - 2 * margin);
       titleLines.forEach((line: string) => {
         if (yPosition + titleLineHeight > pdf.internal.pageSize.getHeight() - margin) {
           pdf.addPage();
@@ -49,22 +122,14 @@ const PressReleaseArticle: React.FC = () => {
         pdf.addPage();
         yPosition = margin;
       }
-      pdf.text(`Date: ${article.date}`, margin, yPosition);
+      pdf.text(`Date: ${new Date(article.date).toLocaleDateString()}`, margin, yPosition);
       yPosition += 10;
 
-      // Add category
-      if (yPosition + lineHeight > pdf.internal.pageSize.getHeight() - margin) {
-        pdf.addPage();
-        yPosition = margin;
-      }
-      pdf.text(`Category: ${article.category}`, margin, yPosition);
-      yPosition += 15;
-
-      // Add summary
+      // Add sub heading (summary)
       pdf.setFontSize(11);
       pdf.setFont('helvetica', 'bold');
-      const summaryLines = pdf.splitTextToSize(article.summary, pageWidth - 2 * margin);
-      summaryLines.forEach((line: string) => {
+      const subHeadingLines = pdf.splitTextToSize(article.subHeading, pageWidth - 2 * margin);
+      subHeadingLines.forEach((line: string) => {
         if (yPosition + lineHeight > pdf.internal.pageSize.getHeight() - margin) {
           pdf.addPage();
           yPosition = margin;
@@ -75,13 +140,16 @@ const PressReleaseArticle: React.FC = () => {
 
       yPosition += 10;
 
-      // Add paragraphs
+      // Parse and add content paragraphs
       pdf.setFontSize(10);
       pdf.setFont('helvetica', 'normal');
       
-      article.paragraphs.forEach(paragraph => {
+      const paragraphs = parseContentToParagraphs(article.content);
+      paragraphs.forEach(paragraph => {
+        if (!paragraph) return;
+        
         // Check if this should be a heading
-        if (paragraph.startsWith('About ') || (paragraph.length < 50 && !paragraph.includes('.'))) {
+        if (isHeadingParagraph(paragraph)) {
           pdf.setFont('helvetica', 'bold');
           pdf.setFontSize(11);
         } else {
@@ -96,7 +164,7 @@ const PressReleaseArticle: React.FC = () => {
             pdf.addPage();
             yPosition = margin;
             // Reset font for new page
-            if (paragraph.startsWith('About ') || (paragraph.length < 50 && !paragraph.includes('.'))) {
+            if (isHeadingParagraph(paragraph)) {
               pdf.setFont('helvetica', 'bold');
               pdf.setFontSize(11);
             } else {
@@ -112,7 +180,18 @@ const PressReleaseArticle: React.FC = () => {
         yPosition += 5; // Add spacing between paragraphs
       });
 
-      const fileName = `${article.title.substring(0, 50).replace(/[^a-zA-Z0-9]/g, '_')}_press_release.pdf`;
+      // Add press release link if available
+      if (article.pressReleaseLink) {
+        yPosition += 10;
+        pdf.setFontSize(10);
+        pdf.setFont('helvetica', 'normal');
+        pdf.text('For more information:', margin, yPosition);
+        yPosition += 7;
+        pdf.setFont('helvetica', 'italic');
+        pdf.textWithLink(article.pressReleaseLink, margin, yPosition, { url: article.pressReleaseLink });
+      }
+
+      const fileName = `${article.mainHeading.substring(0, 50).replace(/[^a-zA-Z0-9]/g, '_')}_press_release.pdf`;
       pdf.save(fileName);
       
     } catch (error) {
@@ -123,30 +202,55 @@ const PressReleaseArticle: React.FC = () => {
     }
   };
 
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-[#EAF3F5] flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#003260] mx-auto"></div>
+          <p className="mt-4 text-slate-700">Loading article...</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (error || !article) {
+    return (
+      <div className="min-h-screen bg-[#EAF3F5] flex items-center justify-center">
+        <div className="text-center">
+          <h1 className="text-2xl font-bold text-red-600 mb-4">Article Not Found</h1>
+          <p className="text-slate-700 mb-6">{error || 'The requested article could not be found.'}</p>
+          <a 
+            href="/news" 
+            className="px-6 py-3 bg-[#003260] text-white rounded-lg hover:bg-[#004a8f] transition-all duration-300 font-semibold"
+          >
+            Back to News
+          </a>
+        </div>
+      </div>
+    );
+  }
+
+  const paragraphs = parseContentToParagraphs(article.content);
+
   return (
-    <div  className="min-h-screen bg-[#EAF3F5]">
+    <div className="min-h-screen bg-[#EAF3F5]">
       <div className="max-w-6xl mx-auto px-6 pt-32 py-12">
         {/* Header Section */}
-        <div id="press-release-content" className="grid md:grid-cols-2 gap-12 mb-12">
-          {/* Image */}
-          <div className="rounded-lg overflow-hidden shadow-lg">
-            <img
-              src={`/images/news/${article?.image}`}
-              alt={article?.title}
-              className="w-full h-80 object-cover"
-              crossOrigin="anonymous"
-            />
-          </div>
-
-          {/* Title and Meta */}
-          <div className="flex flex-col justify-around">
+        <div id="press-release-content" className="flex justify-center mb-12">
+          <div className="flex flex-col justify-center">
             <h1 className="text-4xl font-bold text-slate-800 mb-8 leading-tight">
-              {article?.title}
+              {article.mainHeading}
             </h1>
             <div className="flex items-center gap-4">
               <div>
                 <p className="text-slate-700">
-                  <span className="font-semibold">{article?.date}</span>
+                  <span className="font-semibold">
+                    {new Date(article.date).toLocaleDateString('en-US', {
+                      year: 'numeric',
+                      month: 'long',
+                      day: 'numeric'
+                    })}
+                  </span>
                 </p>
               </div>
               <button
@@ -161,25 +265,25 @@ const PressReleaseArticle: React.FC = () => {
           </div>
         </div>
 
+        {/* Sub Heading */}
+        <div className="mb-8">
+          <p className="text-xl text-slate-700 font-semibold leading-relaxed">
+            {article.subHeading}
+          </p>
+        </div>
+
         {/* Article Content */}
         <div className="p-10">
           <article className="prose prose-slate max-w-none">
-            {article?.paragraphs?.map((paragraph, index) => {
-              // Check if paragraph starts with "About " to make it a heading
-              if (paragraph.startsWith('About ')) {
+            {paragraphs.map((paragraph, index) => {
+              if (!paragraph) return null;
+              
+              // Check if paragraph should be a heading
+              if (isHeadingParagraph(paragraph)) {
                 return (
                   <h2 key={index} className="text-2xl font-bold text-slate-800 mt-10 mb-4">
                     {paragraph}
                   </h2>
-                );
-              }
-              
-              // Check if it's a very short paragraph (likely a section separator or label)
-              if (paragraph.length < 50 && !paragraph.includes('.')) {
-                return (
-                  <p key={index} className="text-slate-700 leading-relaxed mb-4 font-semibold">
-                    {paragraph}
-                  </p>
                 );
               }
               
@@ -210,6 +314,46 @@ const PressReleaseArticle: React.FC = () => {
               );
             })}
           </article>
+        </div>
+
+        {/* Additional Information */}
+        <div className="mt-12 pt-8 border-t border-slate-300">
+          <div className="flex flex-wrap gap-6">
+            {article.pressReleaseLink && (
+              <div>
+                <p className="text-sm text-slate-600 mb-2">Press Release Link:</p>
+                <a 
+                  href={article.pressReleaseLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#003260] underline hover:text-[#004a8f]"
+                >
+                  {article.pressReleaseLink}
+                </a>
+              </div>
+            )}
+            
+            {article.videoUrl && (
+              <div>
+                <p className="text-sm text-slate-600 mb-2">Related Video:</p>
+                <a 
+                  href={article.videoUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#003260] underline hover:text-[#004a8f]"
+                >
+                  Watch Video
+                </a>
+              </div>
+            )}
+            
+            {article.fileName && (
+              <div>
+                <p className="text-sm text-slate-600 mb-2">Attached File:</p>
+                <p className="text-slate-700">{article.fileName} {article.fileSize && `(${(article.fileSize / 1024).toFixed(0)} KB)`}</p>
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </div>

@@ -4,7 +4,6 @@ import React, { useState } from 'react';
 import { Users, BookOpen, Newspaper, LogOut, Home, Menu, X } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
-import { signOut } from 'next-auth/react';
 
 export default function AdminLayout({
   children,
@@ -32,15 +31,27 @@ export default function AdminLayout({
 
   const handleLogout = async () => {
     if (isLoggingOut) return;
-    
+
     setIsLoggingOut(true);
     try {
-      await signOut({ 
-        redirect: false,
-        callbackUrl: '/admin/login' 
+      const response = await fetch('/api/auth/logout', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        credentials: 'include',
       });
-      router.push('/admin/login');
-      router.refresh();
+
+      const data = await response.json();
+
+      if (response.ok && data.success) {
+        // Redirect to login page
+        router.push('/admin/login');
+        router.refresh();
+      } else {
+        console.error('Logout failed:', data.error);
+        setIsLoggingOut(false);
+      }
     } catch (error) {
       console.error('Logout error:', error);
       setIsLoggingOut(false);
@@ -91,7 +102,7 @@ export default function AdminLayout({
           <button
             onClick={handleLogout}
             disabled={isLoggingOut}
-            className="w-full flex items-center gap-4 px-4 py-3 text-white/70 hover:bg-white/10 rounded-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full flex items-center gap-4 px-4 py-3 text-white/70 hover:bg-white/10 hover:text-white rounded-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed"
           >
             <LogOut className="w-5 h-5 flex-shrink-0" />
             {sidebarOpen && (

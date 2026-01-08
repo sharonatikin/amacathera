@@ -1,6 +1,7 @@
+import { PublicationType } from '@/types/publications';
 import { ArrowRight } from 'lucide-react';
 
-const Publication = ({pub, index}:{pub:{date:string, title: string, authors: string, publishedInfo: string},index: number}) => {
+const Publication = ({pub, index}:{pub: PublicationType,index: number}) => {
   
   return (
     <div className="relative mx-4 sm:mx-6 md:mx-12 lg:mx-20 xl:mx-30">
@@ -22,7 +23,7 @@ const Publication = ({pub, index}:{pub:{date:string, title: string, authors: str
         <div className="flex-1 w-full">
           <div className="space-y-3 md:space-y-4">
             <p className="text-xs sm:text-sm font-semibold text-[#0f3a66] tracking-wide">
-              {pub.date}
+              {pub.publicationDate} &bull; {pub.journal}
             </p>
             
             <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-slate-800 leading-tight">
@@ -30,11 +31,11 @@ const Publication = ({pub, index}:{pub:{date:string, title: string, authors: str
             </h2>
             
             <p className="text-sm sm:text-base text-slate-700 leading-relaxed">
-              {pub.authors}
+              {pub.authors.join(', ')}
             </p>
             
             <p className="text-xs sm:text-sm text-slate-600 italic">
-              {pub.publishedInfo}
+              {pub.abstract}
             </p>
             
             <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 pt-2">

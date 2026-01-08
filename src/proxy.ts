@@ -1,9 +1,45 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from 'next/server';
+import jwt from 'jsonwebtoken';
 
-export default function proxy() {
+const SECRET_KEY = process.env.JWT_SECRET || 'your-secret-key';
 
+export function proxy(request: NextRequest) {
+  const path = request.nextUrl.pathname;
+  const adminToken = request.cookies.get('adminToken')?.value;
+
+  // Verify token if it exists
+  let isValidToken = false;
+  let tokenData = null;
+
+  if (adminToken) {
+    try {
+      tokenData = jwt.verify(adminToken, SECRET_KEY);
+      isValidToken = true;
+    } catch (error) {
+      isValidToken = false;
+    }
+  }
+
+  // Public paths (no token required)
+  const publicPaths = ['/admin/login'];
+  const isPublicPath = publicPaths.some(p => path.startsWith(p));
+
+  // Protected admin paths
+  const isAdminPath = path.startsWith('/admin');
+
+  // If user is logged in and tries to access login, redirect to admin
+  if (isValidToken && path === '/admin/login') {
+    return NextResponse.redirect(new URL('/admin', request.url));
+  }
+
+  // If user is not logged in and tries to access protected admin routes
+  if (!isValidToken && isAdminPath && !isPublicPath) {
+    return NextResponse.redirect(new URL('/admin/login', request.url));
+  }
+
+  return NextResponse.next();
 }
-// Protect all admin routes except login
+
 export const config = {
-  matcher: "/admin/:path*"
+  matcher: ['/admin/:path*'],
 };

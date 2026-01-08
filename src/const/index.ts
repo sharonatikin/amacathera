@@ -268,7 +268,7 @@ export const pressReleases = [
   },
   {
     id: 11,
-    image: "microscope.png",
+    image: "",
     title: "AmacaThera CEO Mike Cooke accepted to adMare BioInnovations 2021-22 Executive Institute",
     date: "November 19, 2021",
     category: "Press Release",

@@ -62,7 +62,7 @@ const NewsGrid: React.FC = () => {
                 {/* Footer */}
                 <div className="flex items-center justify-between pt-4 border-slate-200">
                   <div className="text-xs text-slate-500">
-                    <div>{item.date.toISOString().split('T')[0]}</div>
+                    <div>{item.date.toString().split('T')[0]}</div>
                     <div className="font-semibold">press release</div>
                   </div>
                   <button className="px-4 py-2 bg-slate-800 text-white text-sm font-semibold rounded hover:bg-slate-700 transition-colors flex items-center gap-2">

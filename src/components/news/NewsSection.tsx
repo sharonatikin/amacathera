@@ -2,10 +2,10 @@
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { useState, useEffect, useRef } from 'react';
 import gsap from 'gsap';
-import { pressReleases } from '@/const';
 import Link from 'next/link';
+import { INews } from '@/types/news';
 
-export default function NewsSection() {
+export default function NewsSection({ newsData }: { newsData: INews[] }) {
   const [activeSlide, setActiveSlide] = useState(0);
   const contentRef = useRef<HTMLDivElement>(null);
   const isAnimatingRef = useRef(false);
@@ -29,8 +29,8 @@ export default function NewsSection() {
     
     isAnimatingRef.current = true;
     const nextSlide = direction === 'next' 
-      ? (activeSlide + 1) % pressReleases.length
-      : (activeSlide - 1 + pressReleases.length) % pressReleases.length;
+      ? (activeSlide + 1) % newsData.length
+      : (activeSlide - 1 + newsData.length) % newsData.length;
 
     // Animate out current content
     gsap.to(contentRef.current, {
@@ -130,10 +130,10 @@ export default function NewsSection() {
           >
             <div className="flex items-center justify-center">
               <div className="relative w-full max-w-md bg-gray-300 h-64 rounded-3xl shadow-xl flex items-center justify-center">
-                {/* <span className="text-gray-600">{pressReleases[activeSlide].image}</span> */}
+                {/* <span className="text-gray-600">{newsData[activeSlide].image}</span> */}
                 <img
-                  src={`/images/news/${pressReleases[activeSlide].image}`}
-                  alt={pressReleases[activeSlide].title}
+                  src={`/images/news/${newsData[activeSlide].imageUrl}`}
+                  alt={newsData[activeSlide].mainHeading}
                   className="w-full h-full object-cover rounded-3xl"
                 />
               </div>
@@ -141,19 +141,19 @@ export default function NewsSection() {
 
             <div className="flex flex-col gap-4">
               <h2 className="text-2xl lg:text-3xl font-bold text-[#1e3a5f] leading-tight">
-                {pressReleases[activeSlide].title}
+                {newsData[activeSlide].mainHeading}
               </h2>
               <p className="text-[#1e3a5f] text-base leading-relaxed line-clamp-4">
-                {pressReleases[activeSlide].summary}
+                {newsData[activeSlide].subHeading}
               </p>
               <div className="flex items-center justify-between gap-3 mt-2">
-                <Link href={`/news/${pressReleases[activeSlide].id}`} className='bg-[#1e3a5f] hover:bg-[#2d5a8f] text-white px-6 py-3 rounded-lg font-semibold text-sm flex items-center gap-2 transition-colors cursor-pointer'>
+                <Link href={`/news/${newsData[activeSlide]._id}`} className='bg-[#1e3a5f] hover:bg-[#2d5a8f] text-white px-6 py-3 rounded-lg font-semibold text-sm flex items-center gap-2 transition-colors cursor-pointer'>
                   <span>Read More</span>
                   <ArrowRight className="w-4 h-4" />
                 </Link>
                 <div>
                   <span className="text-[#1e3a5f] mr-1">
-                    {pressReleases[activeSlide].date}
+                    {newsData[activeSlide].date.toString().split('T')[0]}
                   </span>
                   <button className="text-[#1e3a5f] font-bold underline hover:text-[#2d5a8f] transition">
                     Press Release
@@ -172,7 +172,7 @@ export default function NewsSection() {
         </div>
 
         <div className="flex items-center gap-3">
-          {pressReleases.map((_, index) => (
+          {newsData.map((_, index) => (
             <button
               key={index}
               onClick={() => goToSlide(index)}

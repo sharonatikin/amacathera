@@ -6,31 +6,12 @@ import Link from 'next/link';
 import { pressReleases } from '@/const';
 import { INews } from '@/types/news';
 
-const NewsGrid: React.FC = () => {
-  const [newsData, setNewsData] = useState<INews[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState('');
+const NewsGrid = ({ newsData }: { newsData: INews[] }) => {
 
-  useEffect(() => {
-    async function fetchNews() {
-      try {
-        const res = await fetch('/api/news');
-        const data = await res.json();
-        if (data.success) {
-          setNewsData(data.data);
-        }
-      } catch (err) {
-        setError('Failed to load news');
-      } finally {
-        setLoading(false);
-      }
-    }
-    
-    fetchNews();
-  }, []);
 
-  if (loading) return <div>Loading...</div>;
-  if (error) return <div>{error}</div>;
+
+
+
 
   return (
     <div className="min-h-screen bg-slate-50">

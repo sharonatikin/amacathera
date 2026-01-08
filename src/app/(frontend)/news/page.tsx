@@ -27,7 +27,16 @@ const page = () => {
     fetchNews();
   }, []);
 
-    if (loading) return <div>Loading...</div>;
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-[#EAF3F5] flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#003260] mx-auto"></div>
+          <p className="mt-4 text-slate-700">Loading article...</p>
+        </div>
+      </div>
+    );
+  }
   if (error) return <div>{error}</div>;
   return (
     <>

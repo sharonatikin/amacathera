@@ -131,7 +131,7 @@ export async function POST(request: NextRequest) {
       try {
         const { fileName: savedFileName } = await savePdfFile(pdfFile);
         pdfUrl = `/uploads/publications/${savedFileName}`;
-        fileName = pdfFile.name;
+        fileName = savedFileName;
         fileSize = pdfFile.size;
       } catch (error) {
         return NextResponse.json(

@@ -2,7 +2,7 @@
 import React, { useState, useEffect, use } from 'react';
 import { useRouter } from 'next/navigation';
 import { toast, ToastContainer } from 'react-toastify';
-import { Loader2, ArrowLeft, Upload, Calendar, Globe, AlertCircle, CheckCircle } from 'lucide-react';
+import { Loader2, ArrowLeft, Upload, Calendar, Globe, AlertCircle, CheckCircle, X } from 'lucide-react';
 import Link from 'next/link';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -13,6 +13,9 @@ interface NewsItem {
   date: string;
   content: string;
   imageUrl?: string;
+  fileName?: string;
+  pressReleaseLink?: string;
+  videoUrl?: string;
   isPublished: boolean;
   viewCount: number;
 }
@@ -21,17 +24,20 @@ export default function EditNewsPage({ params }: { params: Promise<{ id: string 
   const router = useRouter();
   const unwrappedParams = use(params);
   const newsId = unwrappedParams.id;
-  console.log('Editing news with ID:', newsId);
 
   const [formData, setFormData] = useState({
     mainHeading: '',
     subHeading: '',
     content: '',
     imageUrl: '',
+    fileName: '',
     date: '',
+    pressReleaseLink: '',
+    videoUrl: '',
     isPublished: false
   });
 
+  const [uploadImage, setUploadImage] = useState<File | null>(null);
   const [loading, setLoading] = useState(true);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -57,7 +63,10 @@ export default function EditNewsPage({ params }: { params: Promise<{ id: string 
             subHeading: data.data.subHeading || '',
             content: data.data.content || '',
             imageUrl: data.data.imageUrl || '',
+            fileName: data.data.fileName || '',
             date: data.data.date ? new Date(data.data.date).toISOString().split('T')[0] : '',
+            pressReleaseLink: data.data.pressReleaseLink || '',
+            videoUrl: data.data.videoUrl || '',
             isPublished: data.data.isPublished || false
           });
         } else {
@@ -89,8 +98,32 @@ export default function EditNewsPage({ params }: { params: Promise<{ id: string 
     setError(null);
   };
 
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.currentTarget.files?.[0];
+
+    if (file) {
+      const validImageTypes = ['image/jpeg', 'image/png', 'image/gif', 'image/webp'];
+      if (!validImageTypes.includes(file.type)) {
+        setError('Only image files (JPEG, PNG, GIF, WebP) are allowed');
+        return;
+      }
+
+      if (file.size > 10 * 1024 * 1024) {
+        setError('Image file size cannot exceed 10MB');
+        return;
+      }
+
+      setUploadImage(file);
+    }
+    setError(null);
+  };
+
+  const removeUploadImage = () => {
+    setUploadImage(null);
+  };
+
   const handleSubmit = async () => {
-    setError('');
+    setError(null);
 
     // Validation
     if (!formData.mainHeading.trim()) {
@@ -110,20 +143,24 @@ export default function EditNewsPage({ params }: { params: Promise<{ id: string 
       return;
     }
 
-    if (!formData.imageUrl ) {
-      setError('Invalid image URL');
-      console.log('Invalid image URL:', formData.imageUrl);
-      return;
-    }
-
     setSubmitting(true);
     try {
+      const submitData = new FormData();
+      submitData.append('mainHeading', formData.mainHeading);
+      submitData.append('subHeading', formData.subHeading);
+      submitData.append('date', formData.date);
+      submitData.append('pressReleaseLink', formData.pressReleaseLink);
+      submitData.append('videoUrl', formData.videoUrl);
+      submitData.append('content', formData.content);
+      submitData.append('isPublished', String(formData.isPublished));
+
+      if (uploadImage) {
+        submitData.append('uploadImage', uploadImage);
+      }
+
       const response = await fetch(`/api/news/${newsId}`, {
         method: 'PATCH',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData)
+        body: submitData
       });
 
       const data = await response.json();
@@ -143,15 +180,6 @@ export default function EditNewsPage({ params }: { params: Promise<{ id: string 
       toast.error(errorMessage);
     } finally {
       setSubmitting(false);
-    }
-  };
-
-  const isValidUrl = (string: string): boolean => {
-    try {
-      new URL(string);
-      return true;
-    } catch (_) {
-      return false;
     }
   };
 
@@ -245,18 +273,103 @@ export default function EditNewsPage({ params }: { params: Promise<{ id: string 
               </div>
             </div>
 
-            {/* Image URL */}
+            {/* Press Release Link */}
             <div>
               <label className="block text-sm font-semibold text-gray-900 mb-2">
-                Image URL (Optional)
+                Press Release Link (Optional)
               </label>
               <div className="relative">
                 <input
                   type="url"
-                  name="imageUrl"
-                  value={formData.imageUrl}
+                  name="pressReleaseLink"
+                  value={formData.pressReleaseLink}
                   onChange={handleChange}
-                  placeholder="https://example.com/image.jpg"
+                  placeholder="https://example.com/press-release"
+                  disabled={submitting}
+                  className="w-full px-4 py-3 pl-10 border border-gray-300 rounded-lg text-black focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100 transition-all disabled:bg-gray-100"
+                />
+                <Globe className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400 pointer-events-none" />
+              </div>
+            </div>
+
+            {/* Upload Image */}
+            <div>
+              <label className="block text-sm font-semibold text-gray-900 mb-2">
+                Upload Image (Optional)
+              </label>
+              <div>
+                {/* Current Image Display */}
+                {formData.imageUrl && !uploadImage && (
+                  <div className="mb-4 p-4 bg-blue-50 border border-blue-200 rounded-lg">
+                    <p className="text-sm font-medium text-gray-700 mb-2">Current Image:</p>
+                    <img
+                      src={`/images/news/${formData.imageUrl}`}
+                      alt="Current"
+                      className="h-32 w-auto rounded border border-blue-200 object-cover"
+                    />
+                    <p className="text-xs text-gray-600 mt-2">{formData.fileName}</p>
+                  </div>
+                )}
+
+                {/* New Image Preview */}
+                {uploadImage && (
+                  <div className="mb-4 p-4 bg-green-50 border border-green-200 rounded-lg">
+                    <div className="flex items-start justify-between">
+                      <div>
+                        <p className="text-sm font-medium text-gray-700 mb-2">New Image:</p>
+                        <img
+                          src={URL.createObjectURL(uploadImage)}
+                          alt="Preview"
+                          className="h-32 w-auto rounded border border-green-200 object-cover"
+                        />
+                        <p className="text-xs text-gray-600 mt-2">
+                          {uploadImage.name} ({(uploadImage.size / 1024 / 1024).toFixed(2)}MB)
+                        </p>
+                      </div>
+                      <button
+                        onClick={removeUploadImage}
+                        className="text-red-500 hover:text-red-700"
+                      >
+                        <X className="w-5 h-5" />
+                      </button>
+                    </div>
+                  </div>
+                )}
+
+                {/* File Input */}
+                <div>
+                  <input
+                    type="file"
+                    onChange={handleFileChange}
+                    accept="image/*"
+                    className="hidden"
+                    id="image-upload"
+                    disabled={submitting}
+                  />
+                  <label
+                    htmlFor="image-upload"
+                    className="flex items-center gap-3 px-4 py-3 border border-gray-300 rounded-lg cursor-pointer hover:bg-gray-50 transition-colors"
+                  >
+                    <Upload className="w-5 h-5 text-gray-400" />
+                    <span className="text-gray-900 font-medium">Choose Image</span>
+                    <span className="text-gray-500 text-sm ml-auto">Max 10MB</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            {/* Video URL */}
+            <div>
+              <label className="block text-sm font-semibold text-gray-900 mb-2">
+                Video URL (Optional)
+              </label>
+              <div className="relative">
+                <input
+                  type="url"
+                  name="videoUrl"
+                  value={formData.videoUrl}
+                  onChange={handleChange}
+                  placeholder="https://youtube.com/watch?v=..."
                   disabled={submitting}
                   className="w-full px-4 py-3 pl-10 border border-gray-300 rounded-lg text-black focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100 transition-all disabled:bg-gray-100"
                 />

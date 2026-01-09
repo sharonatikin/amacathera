@@ -7,7 +7,7 @@ import { join } from 'path';
 import { existsSync } from 'fs';
 
 const SECRET_KEY = process.env.JWT_SECRET || 'your-secret-key';
-const UPLOAD_DIR = join(process.cwd(), 'public', 'uploads', 'news');
+const UPLOAD_DIR = join(process.cwd(), 'public', 'images', 'news');
 
 // Verify JWT token
 function verifyToken(token: string) {
@@ -125,7 +125,7 @@ export async function POST(request: NextRequest) {
 
       try {
         const { fileName: savedFileName } = await saveImageFile(uploadImage);
-        imageUrl = `/uploads/news/${savedFileName}`;
+        imageUrl = savedFileName;
         fileName = uploadImage.name;
         fileSize = uploadImage.size;
       } catch (error) {

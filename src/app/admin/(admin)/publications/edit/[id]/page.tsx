@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { toast, ToastContainer } from 'react-toastify';
-import { Loader2, ArrowLeft, Calendar, AlertCircle } from 'lucide-react';
+import { Loader2, ArrowLeft, Upload, Calendar, AlertCircle, X, FileText } from 'lucide-react';
 import Link from 'next/link';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -13,11 +13,13 @@ interface EditPublicationPageProps {
 interface PublicationData {
   _id: string;
   title: string;
-  authors: string;
+  authors: string[];
   journal: string;
-  date: string;
+  publicationDate: string;
   category: string;
   abstract: string;
+  fileName?: string;
+  pdfUrl?: string;
   isPublished: boolean;
 }
 
@@ -34,6 +36,8 @@ export default function EditPublicationPage({ params }: EditPublicationPageProps
     isPublished: false
   });
 
+  const [currentPdf, setCurrentPdf] = useState<{ fileName?: string; pdfUrl?: string } | null>(null);
+  const [uploadPdf, setUploadPdf] = useState<File | null>(null);
   const [loading, setLoading] = useState(true);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -59,14 +63,25 @@ export default function EditPublicationPage({ params }: EditPublicationPageProps
         const data = await response.json();
 
         if (data.success && data.data) {
+          const authorsString = Array.isArray(data.data.authors)
+            ? data.data.authors.join(', ')
+            : data.data.authors || '';
+
           setFormData({
             title: data.data.title || '',
-            authors: data.data.authors || '',
+            authors: authorsString,
             journal: data.data.journal || '',
-            date: data.data.publicationDate ? new Date(data.data.publicationDate).toISOString().split('T')[0] : '',
+            date: data.data.publicationDate
+              ? new Date(data.data.publicationDate).toISOString().split('T')[0]
+              : '',
             category: data.data.category || 'AmacaGel Platform',
             abstract: data.data.abstract || '',
             isPublished: data.data.isPublished || false
+          });
+
+          setCurrentPdf({
+            fileName: data.data.fileName,
+            pdfUrl: data.data.pdfUrl
           });
         } else {
           throw new Error(data.error || 'Failed to load publication');
@@ -95,6 +110,29 @@ export default function EditPublicationPage({ params }: EditPublicationPageProps
     setError(null);
   };
 
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.currentTarget.files?.[0];
+
+    if (file) {
+      if (file.type !== 'application/pdf') {
+        setError('Only PDF files are allowed');
+        return;
+      }
+
+      if (file.size > 50 * 1024 * 1024) {
+        setError('File size cannot exceed 50MB');
+        return;
+      }
+
+      setUploadPdf(file);
+    }
+    setError(null);
+  };
+
+  const removeUploadPdf = () => {
+    setUploadPdf(null);
+  };
+
   const handleSubmit = async () => {
     setError('');
 
@@ -103,7 +141,7 @@ export default function EditPublicationPage({ params }: EditPublicationPageProps
       setError('Title is required');
       return;
     }
-    if (!formData.authors.length) {
+    if (!formData.authors.trim()) {
       setError('Authors are required');
       return;
     }
@@ -125,12 +163,22 @@ export default function EditPublicationPage({ params }: EditPublicationPageProps
       const resolvedParams = await params;
       const publicationId = resolvedParams.id;
 
+      const submitData = new FormData();
+      submitData.append('title', formData.title);
+      submitData.append('authors', formData.authors);
+      submitData.append('journal', formData.journal);
+      submitData.append('date', formData.date);
+      submitData.append('category', formData.category);
+      submitData.append('abstract', formData.abstract);
+      submitData.append('isPublished', String(formData.isPublished));
+
+      if (uploadPdf) {
+        submitData.append('pdfFile', uploadPdf);
+      }
+
       const response = await fetch(`/api/publications/${publicationId}`, {
         method: 'PATCH',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData)
+        body: submitData
       });
 
       const data = await response.json();
@@ -291,6 +339,70 @@ export default function EditPublicationPage({ params }: EditPublicationPageProps
                 disabled={submitting}
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg text-black focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100 transition-all resize-none disabled:bg-gray-100"
               />
+            </div>
+
+            {/* PDF Upload */}
+            <div>
+              <label className="block text-sm font-semibold text-gray-900 mb-2">
+                Access PDF (Optional)
+              </label>
+              <div>
+                {/* Current PDF Display */}
+                {currentPdf?.pdfUrl && !uploadPdf && (
+                  <div className="mb-4 p-4 bg-blue-50 border border-blue-200 rounded-lg">
+                    <div className="flex items-center gap-3">
+                      <FileText className="w-8 h-8 text-blue-600" />
+                      <div>
+                        <p className="text-sm font-medium text-gray-700">Current PDF:</p>
+                        <p className="text-xs text-gray-600">{currentPdf.fileName}</p>
+                      </div>
+                    </div>
+                  </div>
+                )}
+
+                {/* New PDF Preview */}
+                {uploadPdf && (
+                  <div className="mb-4 p-4 bg-green-50 border border-green-200 rounded-lg">
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-3">
+                        <FileText className="w-8 h-8 text-green-600" />
+                        <div>
+                          <p className="text-sm font-medium text-gray-700">New PDF:</p>
+                          <p className="text-xs text-gray-600">
+                            {uploadPdf.name} ({(uploadPdf.size / 1024 / 1024).toFixed(2)}MB)
+                          </p>
+                        </div>
+                      </div>
+                      <button
+                        onClick={removeUploadPdf}
+                        className="text-red-500 hover:text-red-700"
+                      >
+                        <X className="w-5 h-5" />
+                      </button>
+                    </div>
+                  </div>
+                )}
+
+                {/* File Input */}
+                <div>
+                  <input
+                    type="file"
+                    onChange={handleFileChange}
+                    accept=".pdf"
+                    className="hidden"
+                    id="pdf-upload"
+                    disabled={submitting}
+                  />
+                  <label
+                    htmlFor="pdf-upload"
+                    className="flex items-center gap-3 px-4 py-3 border border-gray-300 rounded-lg cursor-pointer hover:bg-gray-50 transition-colors"
+                  >
+                    <Upload className="w-5 h-5 text-gray-400" />
+                    <span className="text-gray-900 font-medium">Choose PDF</span>
+                    <span className="text-gray-500 text-sm ml-auto">Max 50MB</span>
+                  </label>
+                </div>
+              </div>
             </div>
 
             {/* Publish Status */}

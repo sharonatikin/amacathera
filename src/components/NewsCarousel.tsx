@@ -10,6 +10,11 @@ export default function NewsSection() {
   const contentRef = useRef<HTMLDivElement>(null);
   const isAnimatingRef = useRef(false);
   const autoPlayRef = useRef<NodeJS.Timeout | null>(null);
+  
+  // Touch handling refs
+  const touchStartX = useRef(0);
+  const touchEndX = useRef(0);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   // Auto-play carousel
   useEffect(() => {
@@ -109,8 +114,43 @@ export default function NewsSection() {
     });
   };
 
+  // Touch handlers
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.changedTouches[0].screenX;
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    touchEndX.current = e.changedTouches[0].screenX;
+    handleSwipe();
+  };
+
+  const handleSwipe = () => {
+    const swipeThreshold = 50; // Minimum distance to trigger swipe
+    const diff = touchStartX.current - touchEndX.current;
+
+    if (Math.abs(diff) > swipeThreshold) {
+      // Clear autoplay when user swipes
+      if (autoPlayRef.current) {
+        clearInterval(autoPlayRef.current);
+      }
+
+      if (diff > 0) {
+        // Swiped left - show next slide
+        goToNextSlide();
+      } else {
+        // Swiped right - show previous slide
+        goToPrevSlide();
+      }
+    }
+  };
+
   return (
-    <div className="min-h-screen backdrop-blur-xs bg-white/10 w-full relative overflow-hidden">
+    <div 
+      ref={containerRef}
+      className="min-h-screen backdrop-blur-xs bg-white/10 w-full relative overflow-hidden"
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
+    >
       <div className="z-10 flex flex-col items-center  min-h-screen px-8 py-16">
         <h1 className="text-6xl lg:text-7xl font-bold text-[#1e3a5f] mb-20">
           News
@@ -130,7 +170,6 @@ export default function NewsSection() {
           >
             <div className="flex items-center justify-center">
               <div className="relative w-full max-w-md bg-gray-300 h-64 rounded-3xl shadow-xl flex items-center justify-center">
-                {/* <span className="text-gray-600">{pressReleases[activeSlide].image}</span> */}
                 <img
                   src={`/images/news/${pressReleases[activeSlide].image}`}
                   alt={pressReleases[activeSlide].title}

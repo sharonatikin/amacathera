@@ -38,7 +38,7 @@ export default function AmacaGelProperties() {
           {/* Subtitle */}
           <p className="text-lg text-[#0f3a66] max-w-3xl mx-auto leading-relaxed">
             AmacaGel may be combined with small molecules, growth factors, antibodies, stem cells and enzymes. See our{' '}
-            <a href="#" className="underline hover:text-[#1a4f7f] transition-colors">
+            <a href="/publications" className="underline hover:text-[#1a4f7f] transition-colors">
               list of publications
             </a>
             {' '}for complete citations.

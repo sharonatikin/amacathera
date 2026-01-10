@@ -8,7 +8,7 @@ export default function ResearchSection() {
       <div className="absolute left-0 top-0 w-1/2 h-full hidden lg:flex items-center justify-center">
         <div className="relative w-full h-full flex items-center justify-center">
           {/* Placeholder for scientist with microscope image */}
-          <img src="/images/research-bg.png" alt="Scientist with Microscope" className="object-cover w-full h-full rounded-3xl  mx-8" />
+          <img src="/images/research-bg.png" alt="Scientist with Microscope" className="object-cover w-full h-full rounded-3xl  " />
         </div>
       </div>
 
@@ -31,7 +31,7 @@ export default function ResearchSection() {
 
           {/* Buttons */}
           <div className="flex flex-col sm:flex-row gap-6 items-start">
-            <Link href={'/team/molly-shoichet'} className="bg-[#0f3a66] hover:bg-[#1a4f7f] text-white px-8 py-4 rounded-lg font-semibold transition-colors duration-300 flex items-center gap-2 text-base whitespace-nowrap">
+            <Link href={'/our-team/molly-shoichet'} className="bg-[#0f3a66] hover:bg-[#1a4f7f] text-white px-8 py-4 rounded-lg font-semibold transition-colors duration-300 flex items-center gap-2 text-base whitespace-nowrap">
               Meet our CSO
               <ArrowRight className="w-5 h-5" />
             </Link>
@@ -44,14 +44,6 @@ export default function ResearchSection() {
         </div>
       </div>
 
-      {/* Decorative background elements */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        {/* Top right accent */}
-        <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-blue-200 to-transparent opacity-20 rounded-full blur-3xl"></div>
-        
-        {/* Bottom left accent */}
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-blue-100 to-transparent opacity-10 rounded-full blur-3xl"></div>
-      </div>
     </div>
   );
 }

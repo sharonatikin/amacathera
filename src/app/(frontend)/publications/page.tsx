@@ -57,13 +57,13 @@ const page = async () => {
       )}
 
       {/* Biologics Cell */}
-      {groupedPublications['Biologics Cell'] && (
+      {groupedPublications['Biologics and Cell'] && (
         <>
           <PublicationHero
             image="/images/biologics-bg.png"
-            title="Biologics Cell"
+            title="Biologics and Cell"
           />
-          {groupedPublications['Biologics Cell'].map((pub, index) => (
+          {groupedPublications['Biologics and Cell'].map((pub, index) => (
             <Publication key={pub._id} pub={pub} index={index} />
           ))}
         </>

@@ -93,7 +93,7 @@ const ContactSection: React.FC = () => {
 
             {/* Description */}
             <p className="text-base sm:text-lg md:text-xl text-slate-300 leading-relaxed max-w-xl mx-auto lg:mx-0">
-              Have a question about our services or need support? Our team is here to help — fast, clearly, and with
+              Have a question about our services or need support? Our team is here to help — fast, clearly, and with a personal touch.
             </p>
           </div>
 

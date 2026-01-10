@@ -63,7 +63,7 @@ export default function Pipeline() {
   };
 
   return (
-    <Link href={'/pipeline'} id='pipeline-section' className="min-h-screen w-full bg-gradient-to-br from-slate-100 via-blue-50 to-slate-200 relative overflow-hidden">
+    <div id='pipeline-section' className="min-h-screen w-full bg-gradient-to-br from-slate-100 via-blue-50 to-slate-200 relative overflow-hidden">
       {/* Medical Vials Image on Right */}
       <div 
         className="absolute inset-0"
@@ -84,7 +84,7 @@ export default function Pipeline() {
         </div>
 
         {/* Pipeline Table with Navigation */}
-        <div className="flex items-center w-full mb-12 sm:mb-14 md:mb-16">
+        <Link href={'/pipeline'} className="flex items-center w-full mb-12 sm:mb-14 md:mb-16">
           {/* Animated Content */}
           <div 
             className={`flex-1 transition-opacity duration-300 ${isAnimating ? 'opacity-0' : 'opacity-100'}`}
@@ -203,7 +203,7 @@ export default function Pipeline() {
               </div>
             </div>
           </div>
-        </div>
+        </Link>
 
         {/* Pagination Dots */}
         <div className="flex items-center justify-center gap-2 sm:gap-3">
@@ -221,6 +221,6 @@ export default function Pipeline() {
           ))}
         </div>
       </div>
-    </Link>
+    </div>
   );
 }

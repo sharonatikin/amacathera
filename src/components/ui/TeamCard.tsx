@@ -29,7 +29,7 @@ const TeamCard = ({ member }:{member:{image:string,name:string,title:string,desc
                 {part.trim()}
                 {i < arr.length - 1 && (
                   <>
-                    <br />&
+                    <br /> & &nbsp;
                   </>
                 )}
               </React.Fragment>

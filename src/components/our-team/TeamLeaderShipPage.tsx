@@ -7,21 +7,21 @@ const TeamLeadershipPage: React.FC = () => {
   const teamMembers = [
     {
       name: "Dr. Molly Shoichet",
-      title: "Co-Founder & Chief Science Officer & amend title to Chief Scientific Officer",
+      title: "Co-Founder &Chief Science Officer",
       description: "Biomedical Engineer Polymer design and drug delivery expert",
       image: "/images/team/mollyshoichet.png",
       url:"molly-shoichet"
     },
     {
       name: "Dr. Mike Cooke",
-      title: "Co-Founder & CEO & Chief Executive Officer",
+      title: "Co-Founder & CEO",
       description: "Chemical & Biomedical Engineer Polymer design and drug delivery expert",
       image: "/images/team/mikecooke.png",
       url:"mike-cooke"
     },
     {
       name: "Abhaya Khulbe CFA",
-      title: "Chief of Staff & Materials Engineer & Therapeutics",
+      title: "Chief of Staff & Materials Engineer",
       description: "Strategic leader in finance, operations, and commercialization",
       image: "/images/team/abhayakhulbe.png",
       url:"abhaya-khulbe"

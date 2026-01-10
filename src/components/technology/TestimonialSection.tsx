@@ -31,7 +31,7 @@ export default function TestimonialSection() {
             {/* Attribution Box */}
             <div className="bg-[#0f3a66] text-white px-8 py-6 rounded-lg inline-block max-w-md">
               <h4 className="text-xl font-bold mb-2">
-                Peter van der Velden,
+                Peter van der Velden
               </h4>
               <p className="text-white/90 text-base">
                 (Managing Partner - Lumira Ventures)

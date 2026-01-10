@@ -122,14 +122,14 @@ export default function Hero() {
           <div className="absolute inset-0 bg-gradient-to-b from-transparent to-slate-50"></div>
         </div>
 
-        <div ref={mobileContentRef} className="flex-1 bg-slate-50 px-4 sm:px-6 py-8 flex flex-col justify-center">
+        <div ref={mobileContentRef} className="flex-1 bg-slate-50 px-4 sm:px-6 py-8  flex flex-col justify-center">
           <div className="space-y-4">
             <h1 className="text-3xl sm:text-4xl font-bold text-[#003260] leading-tight">
               Pioneering next-generation tunable hydrogel solutions for precise, sustained drug delivery
             </h1>
             
             <p className="text-base text-slate-700 leading-relaxed">
-              AmacaThera’s clinically validated hydrogel drug delivery platform seamlessly integrates two well-established, biocompatible polymers, hyaluronic acid and methyl cellulose, into a proprietary formulation. This innovative injectable hydrogel enables precise, localized, and sustained delivery of therapeutics, ensuring long-acting release exactly where it is needed. The platform is broadly compatible with a diverse array of therapeutic agents, including small molecules, biologics, enzymes, and cells. Its tunability allows for the fine adjustment of drug release parameters, such as rate, duration, and timing tailored to the unique requirements of each clinical application.
+              AmacaThera’s clinically validated hydrogel drug delivery platform seamlessly integrates two well-established, biocompatible polymers, hyaluronic acid and methylcellulose, into a proprietary formulation. This innovative injectable hydrogel enables precise, localized, and sustained delivery of therapeutics, ensuring long-acting release exactly where it is needed. The platform is broadly compatible with a diverse array of therapeutic agents, including small molecules, biologics, enzymes, and cells. Its tunability allows for the fine adjustment of drug release parameters, such as rate, duration, and timing tailored to the unique requirements of each clinical application.
             </p>
             
             <div className="space-y-3 pt-4">
@@ -155,7 +155,7 @@ export default function Hero() {
       />
 
       <div className="relative md:block hidden z-10">
-        <div className="min-h-screen w-full px-6 md:px-8 lg:px-16 py-12 md:py-20 flex items-center justify-end">
+        <div className="min-h-screen w-full px-6 md:px-8 lg:px-14 py-12 md:py-20 flex items-center justify-end">
           <div className="w-full md:w-1/2 lg:w-6/12 flex flex-col gap-6 md:gap-8">
             <div ref={headingRef}>
               <h1 className={`text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-blue-900 mb-3 md:mb-4 leading-tight ${montserrat.className}`}>

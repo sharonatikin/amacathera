@@ -4,7 +4,7 @@ import { ArrowRight } from 'lucide-react';
 const BioEngineeringFounder: React.FC = () => {
   return (
     <div 
-      className="relative  w-full min-h-screen md:min-h-[130vh] bg-cover bg-center bg-no-repeat"
+      className="relative  w-full  md:min-h-[130vh] bg-cover bg-[80%] bg-no-repeat"
       style={{
         backgroundImage: 'url("/images/publication-bg.png")',
       }}

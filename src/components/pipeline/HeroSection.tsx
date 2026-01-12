@@ -6,7 +6,7 @@ const HeroSection = () => {
   const stages = ['discovery', 'preClinical', 'phase1'] as const
   return (
     <>
-      <div className="relative min-h-[140vh] md:min-h-screen w-screen overflow-hidden">
+      <div className="relative min-h-[200vh] md:min-h-screen w-screen overflow-hidden">
         <img
           src="/images/pipeline-bg.png"
           alt="Hero"
@@ -21,11 +21,12 @@ const HeroSection = () => {
 
           <h1 className='font-extrabold text-[#003d6b] text-6xl lg:text-[17vw]'>Pipeline</h1>
         </div>
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-slate-300 via-white/80"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-slate-100 via-white/80"></div>
         {/* Hero Section */}
         <div className="md:top-130 md:max-w-2xl top-60 md:left-1/2 md:-translate-x-1/2 absolute w-full flex items-center justify-center px-6 py-20 ">
 
           <div className=" max-w-105 md:max-w-[50vw]">
+            
             <div className="grid grid-cols-6  py-4 text-[#003d6b]">
               <div className=" col-span-3 font-bold text-sm text-start lg:text-base ">
                 Product / Platform
@@ -42,7 +43,7 @@ const HeroSection = () => {
             </div>
 
             {/* Pipeline Table */}
-            <div className="max-w-xl">
+            <div className="max-w-xl h-full">
               {pipelineData.map((product, index) => (
                 <div key={index} className="grid grid-cols-6  mb-3">
                   {/* Product Info */}

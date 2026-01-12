@@ -46,11 +46,11 @@ export default function AmacaGelProperties() {
         </div>
 
         {/* Properties Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 relative">
+        <div className="grid grid-cols-1 mx-10 md:grid-cols-2 lg:grid-cols-4 gap-10 relative">
           {/* Vertical lines for medium and larger screens */}
-          <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-[#004d7a] to-transparent transform -translate-x-1/2"></div>
-          <div className="hidden md:block absolute left-3/4 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-[#004d7a] to-transparent transform -translate-x-1/2"></div>
-          <div className="hidden md:block absolute left-1/4 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-[#004d7a] to-transparent transform -translate-x-1/2"></div>
+          <div className="hidden lg:block absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-[#004d7a] to-transparent transform -translate-x-1/2"></div>
+          <div className="hidden lg:block absolute left-3/4 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-[#004d7a] to-transparent transform -translate-x-1/2"></div>
+          <div className="hidden lg:block absolute left-1/4 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-[#004d7a] to-transparent transform -translate-x-1/2"></div>
           
           {/* Map through properties */}
           {properties.map((property, index) => (

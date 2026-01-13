@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, FormEvent } from 'react';
-import { redirect, useRouter } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 import { Lock, Mail, AlertCircle } from 'lucide-react';
 
 export default function AdminLogin() {
@@ -27,7 +27,7 @@ export default function AdminLogin() {
       });
 
       const data = await response.json();
-      console.log('Login response data:', data);
+
       if (!response.ok) {
         setError(data.error || 'Login failed. Please try again.');
         return;
@@ -35,10 +35,8 @@ export default function AdminLogin() {
 
       if (data.success) {
         // Token is automatically set in httpOnly cookie
-setTimeout(() => {
-          console.log('Redirecting to /admin');
-          redirect('/admin');
-        }, 300);
+        // Redirect to admin dashboard
+        router.push('/admin');
       }
     } catch (error) {
       console.error('Login error:', error);

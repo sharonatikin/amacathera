@@ -43,7 +43,6 @@ export default function AdminDashboard() {
     totalPublications: 0,
     totalNews: 0
   });
-  console.log(stats,'Chart Data:', chartData);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -59,7 +58,6 @@ export default function AdminDashboard() {
       // Fetch chart data
       const chartResponse = await fetch('/api/dashboard/chart-data');
       const chartResult = await chartResponse.json();
-      console.log(chartResult,'Chart Result:');
       if (chartResult.success) {
         setChartData(chartResult.data);
       }
@@ -67,7 +65,6 @@ export default function AdminDashboard() {
       // Fetch statistics
       const statsResponse = await fetch('/api/dashboard/stats');
       const statsResult = await statsResponse.json();
-      console.log(statsResult,'Stats Result:');
       if (statsResult.success) {
         setStats(statsResult.data);
       }

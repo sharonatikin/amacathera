@@ -186,7 +186,6 @@ export async function POST(request: NextRequest) {
 // GET - Fetch all publications with optional pagination
 export async function GET(request: NextRequest) {
   try {
-    console.log('Fetching publications...');
     await connectDB();
 
     // Get query parameters for pagination and filtering

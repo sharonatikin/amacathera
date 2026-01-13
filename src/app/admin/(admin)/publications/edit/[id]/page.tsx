@@ -52,7 +52,6 @@ export default function EditPublicationPage({ params }: EditPublicationPageProps
         const resolvedParams = await params;
         const publicationId = resolvedParams.id;
 
-        console.log('Editing publication with ID:', publicationId);
 
         const response = await fetch(`/api/publications/${publicationId}`);
 

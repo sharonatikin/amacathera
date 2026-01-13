@@ -5,9 +5,8 @@ const SECRET_KEY = process.env.JWT_SECRET || 'your-secret-key';
 
 export function proxy(request: NextRequest) {
   const path = request.nextUrl.pathname;
-  console.log('Proxy middleware activated for path:', path);
   const adminToken = request.cookies.get('adminToken')?.value;
-  console.log('Admin token from cookies:', adminToken);
+
   // Verify token if it exists
   let isValidToken = false;
   let tokenData = null;
@@ -20,7 +19,7 @@ export function proxy(request: NextRequest) {
       isValidToken = false;
     }
   }
-  console.log('Is valid token:', isValidToken);
+
   // Public paths (no token required)
   const publicPaths = ['/admin/login'];
   const isPublicPath = publicPaths.some(p => path.startsWith(p));

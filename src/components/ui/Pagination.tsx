@@ -61,7 +61,6 @@ const Pagination = ({
   const itemsOptions = [10, 20, 50];
 
   const handlePageChange = (page: number) => {
-    console.log('Requested page:', page);
     if (page >= 1 && page <= totalPages) {
       setCurrentPage(page);
     }

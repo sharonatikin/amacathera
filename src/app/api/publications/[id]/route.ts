@@ -37,9 +37,7 @@ async function deletePdfFile(fileName: string): Promise<void> {
     if (!fileName) return;
 
     const filePath = join(UPLOAD_DIR, fileName);
-    console.log('Checking for old PDF file at:', filePath);
     if (existsSync(filePath)) {
-      console.log('Deleting old PDF file:', filePath);
       await unlink(filePath);
 
     }

@@ -17,7 +17,6 @@ export async function GET(
     const unwrappedParams = await params;
     const newsId = unwrappedParams.id;
     
-    console.log('Fetching news with ID:', newsId);
     
     // Validate ObjectId
     if (!mongoose.Types.ObjectId.isValid(newsId)) {

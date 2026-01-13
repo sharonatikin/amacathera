@@ -4,21 +4,34 @@ import { ArrowRight } from 'lucide-react';
 const BioEngineeringFounder: React.FC = () => {
   return (
     <div 
-      className="relative  w-full  md:min-h-[130vh] bg-cover bg-[80%] bg-no-repeat"
-      style={{
-        backgroundImage: 'url("/images/publication-bg.png")',
-      }}
+      className="  w-full  lg:min-h-[130vh] bg-cover bg-[80%] "
+
     >
-      <div className="max-w-7xl relative w-full mx-auto px-4 sm:px-6 md:px-0">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
+            <div 
+        className="absolute lg:block hidden inset-0"
+        style={{
+          backgroundImage: 'url("/images/publication-bg.png")',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }}
+      />
+          <div className="relative block lg:hidden w-full aspect-square">
+            <img
+              src="/images/publication-bg.png"
+              alt="Dr. Molly Shoichet"
+              className="w-full h-full object-cover object-right rounded-lg shadow-lg"
+            />
+          </div>
+      <div className="max-w-7xl relative w-full mx-auto px-4 sm:px-6 lg:px-0">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Left Content Section */}
-          <div className="space-y-4 sm:space-y-6 md:space-y-2 py-12 sm:py-16 md:ml-20 pt-[10vh] md:pt-[15vh]">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-800 leading-tight">
+          <div className="space-y-4 sm:space-y-6 lg:space-y-2 py-12 sm:py-16 lg:ml-20 pt-[10vh] lg:pt-[15vh]">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-800 leading-tight">
               Co-founded by a<br />
               <span className="text-blue-900">Bioengineering Pioneer</span>
             </h1>
             
-            <div className="space-y-4 sm:space-y-5 md:space-y-4 text-slate-700 pt-2 sm:pt-4 md:pt-0">
+            <div className="space-y-4 sm:space-y-5 lg:space-y-4 text-slate-700 pt-2 sm:pt-4 lg:pt-0">
               <p className="text-base sm:text-lg leading-relaxed">
                 Dr. Molly Shoichet is internationally renowned for her innovative biomaterials and therapeutic delivery strategies. Shoichet addresses critical questions in medicine with her multidisciplinary research approach that spans drug discovery to drug delivery.
               </p>
@@ -39,7 +52,7 @@ const BioEngineeringFounder: React.FC = () => {
               </p>
             </div>
             
-            <div className="pt-4 sm:pt-6 md:pt-4">
+            <div className="pt-4 sm:pt-6 lg:pt-4">
               {/* <button className="bg-blue-900 hover:bg-blue-800 text-white font-semibold px-6 sm:px-8 py-3 sm:py-4 rounded-lg transition-all duration-300 flex items-center gap-2 sm:gap-3 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 text-sm sm:text-base w-full sm:w-auto justify-center">
                 Explore more
                 <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
@@ -48,7 +61,7 @@ const BioEngineeringFounder: React.FC = () => {
           </div>
 
           {/* Right side - Empty on mobile, background shows through */}
-          <div className="hidden md:block"></div>
+          <div className="hidden lg:block"></div>
         </div>
       </div>
     </div>

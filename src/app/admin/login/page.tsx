@@ -35,9 +35,10 @@ export default function AdminLogin() {
 
       if (data.success) {
         // Token is automatically set in httpOnly cookie
-        // Redirect to admin dashboard
-        router.push('/admin');
-        console.log('Login successful, redirecting to /admin');
+setTimeout(() => {
+          console.log('Redirecting to /admin');
+          router.push('/admin');
+        }, 300);
       }
     } catch (error) {
       console.error('Login error:', error);

@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, FormEvent } from 'react';
-import { useRouter } from 'next/navigation';
+import { redirect, useRouter } from 'next/navigation';
 import { Lock, Mail, AlertCircle } from 'lucide-react';
 
 export default function AdminLogin() {
@@ -37,7 +37,7 @@ export default function AdminLogin() {
         // Token is automatically set in httpOnly cookie
 setTimeout(() => {
           console.log('Redirecting to /admin');
-          router.push('/admin');
+          redirect('/admin');
         }, 300);
       }
     } catch (error) {

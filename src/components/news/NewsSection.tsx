@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import Link from 'next/link';
 import { INews } from '@/types/news';
+import { redirect } from 'next/navigation';
 
 export default function NewsSection({ newsData }: { newsData: INews[] }) {
   const [activeSlide, setActiveSlide] = useState(0);
@@ -109,6 +110,10 @@ export default function NewsSection({ newsData }: { newsData: INews[] }) {
     });
   };
 
+  const handleClick = () => {
+    redirect('/');
+  }
+
   return (
     <div className="h-screen backdrop-blur-xs bg-white/10 w-full relative overflow-hidden">
       <div className="z-10 flex flex-col items-center  min-h-screen px-8 py-16">
@@ -155,7 +160,7 @@ export default function NewsSection({ newsData }: { newsData: INews[] }) {
                   <span className="text-[#1e3a5f] mr-1">
                     {newsData[activeSlide].date.toString().split('T')[0]}
                   </span>
-                  <button className="text-[#1e3a5f] font-bold underline hover:text-[#2d5a8f] transition">
+                  <button onClick={handleClick} className="text-[#1e3a5f] font-bold underline hover:text-[#2d5a8f] transition">
                     Press Release
                   </button>
                 </div>

@@ -27,7 +27,7 @@ export default function AdminLogin() {
       });
 
       const data = await response.json();
-
+      console.log('Login response data:', data);
       if (!response.ok) {
         setError(data.error || 'Login failed. Please try again.');
         return;
@@ -37,6 +37,7 @@ export default function AdminLogin() {
         // Token is automatically set in httpOnly cookie
         // Redirect to admin dashboard
         router.push('/admin');
+        console.log('Login successful, redirecting to /admin');
       }
     } catch (error) {
       console.error('Login error:', error);

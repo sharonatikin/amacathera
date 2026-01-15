@@ -49,14 +49,16 @@ export async function POST(request: NextRequest) {
     await sendEmail(
       email,
       'We Received Your Message - AmacaThera',
-      getConfirmationEmail(name)
+      getConfirmationEmail(name),
+      process.env.ADMIN_EMAIL
     );
 
     // Send notification email to admin
     await sendEmail(
       process.env.ADMIN_EMAIL!,
       `New Contact Form Submission from ${name}`,
-      getAdminNotificationEmail(name, email, message)
+      getAdminNotificationEmail(name, email, message),
+      email
     );
 
     return NextResponse.json(

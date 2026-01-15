@@ -56,7 +56,7 @@ export async function POST(request: NextRequest) {
     // Send notification email to admin
     await sendEmail(
       process.env.ADMIN_EMAIL!,
-      `New Contact Form Submission from ${name}`,
+      `New Contact Form Submission on Amacathera`,
       getAdminNotificationEmail(name, email, message),
       email
     );

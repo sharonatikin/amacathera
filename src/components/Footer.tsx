@@ -67,7 +67,7 @@ export default function Footer() {
 
             {/* Copyright */}
             <div className="text-white/70 text-xs mt-20 sm:text-sm">
-              © 2025 AmacaThera Inc. All rights reserved. Powered by <a href="https://atikin.tech">Atikin Technologies.</a>
+              © 2026 AmacaThera Inc. All rights reserved. Powered by <a href="https://atikin.tech">Atikin Technologies.</a>
             </div>
           </div>
 

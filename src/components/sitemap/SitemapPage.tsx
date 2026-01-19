@@ -145,15 +145,6 @@ export default function SitemapPage() {
           </div>
         </div>
 
-        {/* Footer */}
-        <div className="bg-gradient-to-r from-gray-50 to-gray-100 px-6 sm:px-8 py-8 border-t border-gray-200 text-center">
-          <p className="text-gray-600 text-sm">
-            &copy; 2024 Amacathera. All rights reserved. |{' '}
-            <Link href="/" className="text-blue-600 hover:text-blue-800 transition-colors font-medium">
-              Back to Home
-            </Link>
-          </p>
-        </div>
       </div>
     </div>
   );

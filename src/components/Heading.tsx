@@ -61,7 +61,7 @@ export default function Heading() {
             }}
           />
         </a>
-
+            <div className="flex gap-3">
         {/* Desktop Navigation */}
         <div className="hidden lg:flex gap-8 items-center flex-1 ml-8">
           {navItems.map((item) => (
@@ -92,6 +92,7 @@ export default function Heading() {
               <Menu className="w-6 h-6" />
             )}
           </button>
+        </div>
         </div>
       </nav>
 

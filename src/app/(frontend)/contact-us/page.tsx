@@ -156,7 +156,7 @@ const ContactSection: React.FC = () => {
                     type="submit"
                     className="w-full bg-[#003260] hover:bg-[#004a8f] text-white font-semibold py-3.5 sm:py-4 rounded-lg transition-all duration-300 shadow-md hover:shadow-xl text-sm sm:text-base"
                   >
-                    Schedule a call
+                    Submit
                   </button>
                 </div>
               </form>

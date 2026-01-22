@@ -1,5 +1,5 @@
 'use client';
-import { Upload, Calendar, Globe, AlertCircle, CheckCircle } from 'lucide-react';
+import { Upload, Calendar, Globe, AlertCircle, CheckCircle, ChevronDown } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import React, { useState } from 'react';
 
@@ -28,6 +28,7 @@ export default function NewsCreateForm(): React.ReactElement {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
+  const [showInstructions, setShowInstructions] = useState(false);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>): void => {
     const { name, value } = e.target;
@@ -301,6 +302,9 @@ export default function NewsCreateForm(): React.ReactElement {
                 <label className="block text-sm font-semibold text-gray-900 mb-2">
                   Content *
                 </label>
+
+
+
                 <textarea
                   name="content"
                   value={formData.content}
@@ -310,6 +314,83 @@ export default function NewsCreateForm(): React.ReactElement {
                   disabled={isLoading}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100 transition-all text-gray-900 resize-none disabled:bg-gray-100"
                 />
+                                {/* Expandable Instructions */}
+                <button
+                  type="button"
+                  onClick={() => setShowInstructions(!showInstructions)}
+                  disabled={isLoading}
+                  className="mb-3 flex items-center gap-2 text-sm text-blue-600 hover:text-blue-700 font-medium disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                >
+                  <ChevronDown 
+                    className={`w-4 h-4 transition-transform duration-200 ${showInstructions ? 'rotate-180' : ''}`}
+                  />
+                  Writing Guidelines
+                </button>
+
+                {showInstructions && (
+                  <div className="mb-4 p-4 bg-blue-50 border border-blue-200 rounded-lg text-sm text-gray-700 space-y-3">
+                    <div className="font-semibold text-blue-900 mb-3">How to write effective news content:</div>
+                    
+                    <div>
+                      <span className="font-semibold text-gray-900">Start Strong:</span> Begin with the most important information. Readers should understand the news in the first few lines.
+                    </div>
+                    <div>
+                      <span className="font-semibold text-gray-900">Structure:</span> Use clear paragraphs. Each paragraph should focus on one idea. Keep sentences concise and simple.
+                    </div>
+                    <div>
+                      <span className="font-semibold text-gray-900">Context & Impact:</span> Explain why this news matters. Include relevant background information and potential impacts on readers.
+                    </div>
+                    <div>
+                      <span className="font-semibold text-gray-900">Facts Over Opinion:</span> Stick to verifiable facts. If including quotes or opinions, clearly attribute them.
+                    </div>
+                    <div>
+                      <span className="font-semibold text-gray-900">Length:</span> Aim for 150-500 words for optimal readability. Longer news should be well-organized with subheadings if possible.
+                    </div>
+
+                    <div className="border-t border-blue-200 pt-3 mt-3">
+                      <div className="font-semibold text-blue-900 mb-2">Formatting Tips:</div>
+                      
+                      <div className="bg-white rounded p-3 space-y-2 text-xs font-mono">
+                        <div>
+                          <span className="font-semibold text-gray-900">Make Text Bold:</span>
+                          <div className="text-gray-600 mt-1">Use asterisks: <span className="text-blue-600">**bold text**</span> → <strong>bold text</strong></div>
+                        </div>
+                        
+                        <div>
+                          <span className="font-semibold text-gray-900">Make Text Italic:</span>
+                          <div className="text-gray-600 mt-1">Use single asterisks: <span className="text-blue-600">*italic text*</span> → <em>italic text</em></div>
+                        </div>
+                        
+                        <div>
+                          <span className="font-semibold text-gray-900">Main Heading:</span>
+                          <div className="text-gray-600 mt-1"><span className="text-blue-600"># Your Main Heading</span></div>
+                        </div>
+                        
+                        <div>
+                          <span className="font-semibold text-gray-900">Sub Heading:</span>
+                          <div className="text-gray-600 mt-1"><span className="text-blue-600">## Your Sub Heading</span></div>
+                        </div>
+
+                        <div>
+                          <span className="font-semibold text-gray-900">Line Break (Space Between):</span>
+                          <div className="text-gray-600 mt-1">Leave a blank line between paragraphs</div>
+                        </div>
+
+                        <div>
+                          <span className="font-semibold text-gray-900">Example Structure:</span>
+                          <div className="text-gray-600 mt-1 bg-gray-50 p-2 rounded">
+                            <div># Main News Heading</div>
+                            <div className="mt-2">First paragraph about the news.</div>
+                            <div className="mt-2">## Key Details</div>
+                            <div className="mt-2">Second paragraph with important information.</div>
+                            <div className="mt-2">## Impact & Next Steps</div>
+                            <div className="mt-2">Final paragraph explaining the impact.</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                )}
               </div>
 
               {/* Buttons */}

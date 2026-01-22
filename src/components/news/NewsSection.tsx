@@ -114,6 +114,8 @@ export default function NewsSection({ newsData }: { newsData: INews[] }) {
     redirect('/');
   }
 
+  console.log(newsData[activeSlide], typeof newsData[activeSlide].date);
+
   return (
     <div className="h-screen backdrop-blur-xs bg-white/10 w-full relative overflow-hidden">
       <div className="z-10 flex flex-col items-center  min-h-screen px-8 py-16">

@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { toast, ToastContainer } from 'react-toastify';
-import { Loader2, ArrowLeft, Upload, Calendar, AlertCircle, X, FileText } from 'lucide-react';
+import { Loader2, ArrowLeft, Upload, Calendar, AlertCircle, X, FileText, Globe } from 'lucide-react';
 import Link from 'next/link';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -18,6 +18,7 @@ interface PublicationData {
   publicationDate: string;
   category: string;
   abstract: string;
+  abstractUrl?: string;
   fileName?: string;
   pdfUrl?: string;
   isPublished: boolean;
@@ -33,6 +34,7 @@ export default function EditPublicationPage({ params }: EditPublicationPageProps
     date: '',
     category: 'AmacaGel Platform',
     abstract: '',
+    abstractUrl: '',
     isPublished: false
   });
 
@@ -51,7 +53,6 @@ export default function EditPublicationPage({ params }: EditPublicationPageProps
 
         const resolvedParams = await params;
         const publicationId = resolvedParams.id;
-
 
         const response = await fetch(`/api/publications/${publicationId}`);
 
@@ -75,6 +76,7 @@ export default function EditPublicationPage({ params }: EditPublicationPageProps
               : '',
             category: data.data.category || 'AmacaGel Platform',
             abstract: data.data.abstract || '',
+            abstractUrl: data.data.abstractUrl || '',
             isPublished: data.data.isPublished || false
           });
 
@@ -157,6 +159,16 @@ export default function EditPublicationPage({ params }: EditPublicationPageProps
       return;
     }
 
+    // Validate abstract URL if provided
+    if (formData.abstractUrl.trim()) {
+      try {
+        new URL(formData.abstractUrl);
+      } catch (_) {
+        setError('Invalid abstract URL format');
+        return;
+      }
+    }
+
     setSubmitting(true);
     try {
       const resolvedParams = await params;
@@ -169,6 +181,7 @@ export default function EditPublicationPage({ params }: EditPublicationPageProps
       submitData.append('date', formData.date);
       submitData.append('category', formData.category);
       submitData.append('abstract', formData.abstract);
+      submitData.append('abstractUrl', formData.abstractUrl);
       submitData.append('isPublished', String(formData.isPublished));
 
       if (uploadPdf) {
@@ -338,6 +351,26 @@ export default function EditPublicationPage({ params }: EditPublicationPageProps
                 disabled={submitting}
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg text-black focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100 transition-all resize-none disabled:bg-gray-100"
               />
+            </div>
+
+            {/* Abstract URL Field */}
+            <div>
+              <label className="block text-sm font-semibold text-gray-900 mb-2">
+                Abstract URL (Optional)
+              </label>
+              <div className="relative">
+                <Globe className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400 pointer-events-none" />
+                <input
+                  type="url"
+                  name="abstractUrl"
+                  value={formData.abstractUrl}
+                  onChange={handleChange}
+                  placeholder="https://example.com/abstract"
+                  disabled={submitting}
+                  className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg text-black focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100 transition-all disabled:bg-gray-100"
+                />
+              </div>
+              <p className="text-xs text-gray-500 mt-2">Link to the publication abstract or project page</p>
             </div>
 
             {/* PDF Upload */}

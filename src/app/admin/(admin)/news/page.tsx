@@ -79,7 +79,7 @@ const NewsRow: React.FC<NewsRowProps> = ({ news, onDelete, onTogglePublish }) =>
             day: 'numeric'
           })}
         </p>
-        <p className="text-xs text-gray-500 mt-1">{news.viewCount} views</p>
+        {/* <p className="text-xs text-gray-500 mt-1">{news.viewCount} views</p> */}
       </td>
       <td className="px-6 py-4">
         <p className="text-sm text-gray-700 line-clamp-2">{news.content.substring(0, 100)}...</p>
@@ -375,7 +375,7 @@ export default function NewsDashboard(): React.ReactElement {
                     <tr className="bg-gray-100 border-b border-gray-200">
                       <th className="px-6 py-4 text-left text-xs font-bold text-gray-700 uppercase tracking-wider">Main Heading</th>
                       <th className="px-6 py-4 text-left text-xs font-bold text-gray-700 uppercase tracking-wider">Sub Heading</th>
-                      <th className="px-6 py-4 text-left text-xs font-bold text-gray-700 uppercase tracking-wider">Date & Views</th>
+                      <th className="px-6 py-4 text-left text-xs font-bold text-gray-700 uppercase tracking-wider">Date</th>
                       <th className="px-6 py-4 text-left text-xs font-bold text-gray-700 uppercase tracking-wider">Content Preview</th>
                       <th className="px-6 py-4 text-left text-xs font-bold text-gray-700 uppercase tracking-wider">Actions</th>
                     </tr>

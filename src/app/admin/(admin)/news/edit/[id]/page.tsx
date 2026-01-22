@@ -2,7 +2,7 @@
 import React, { useState, useEffect, use } from 'react';
 import { useRouter } from 'next/navigation';
 import { toast, ToastContainer } from 'react-toastify';
-import { Loader2, ArrowLeft, Upload, Calendar, Globe, AlertCircle, CheckCircle, X } from 'lucide-react';
+import { Loader2, ArrowLeft, Upload, Calendar, Globe, AlertCircle, CheckCircle, X, Trash2 } from 'lucide-react';
 import Link from 'next/link';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -38,6 +38,7 @@ export default function EditNewsPage({ params }: { params: Promise<{ id: string 
   });
 
   const [uploadImage, setUploadImage] = useState<File | null>(null);
+  const [imageRemoved, setImageRemoved] = useState(false);
   const [loading, setLoading] = useState(true);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -114,12 +115,22 @@ export default function EditNewsPage({ params }: { params: Promise<{ id: string 
       }
 
       setUploadImage(file);
+      setImageRemoved(false);
     }
     setError(null);
   };
 
   const removeUploadImage = () => {
     setUploadImage(null);
+  };
+
+  const removeCurrentImage = () => {
+    setFormData(prev => ({
+      ...prev,
+      imageUrl: '',
+      fileName: ''
+    }));
+    setImageRemoved(true);
   };
 
   const handleSubmit = async () => {
@@ -153,6 +164,7 @@ export default function EditNewsPage({ params }: { params: Promise<{ id: string 
       submitData.append('videoUrl', formData.videoUrl);
       submitData.append('content', formData.content);
       submitData.append('isPublished', String(formData.isPublished));
+      submitData.append('imageRemoved', String(imageRemoved));
 
       if (uploadImage) {
         submitData.append('uploadImage', uploadImage);
@@ -299,15 +311,34 @@ export default function EditNewsPage({ params }: { params: Promise<{ id: string 
               </label>
               <div>
                 {/* Current Image Display */}
-                {formData.imageUrl && !uploadImage && (
+                {formData.imageUrl && !uploadImage && !imageRemoved && (
                   <div className="mb-4 p-4 bg-blue-50 border border-blue-200 rounded-lg">
-                    <p className="text-sm font-medium text-gray-700 mb-2">Current Image:</p>
-                    <img
-                      src={`/images/news/${formData.imageUrl}`}
-                      alt="Current"
-                      className="h-32 w-auto rounded border border-blue-200 object-cover"
-                    />
-                    <p className="text-xs text-gray-600 mt-2">{formData.fileName}</p>
+                    <div className="flex items-start justify-between">
+                      <div>
+                        <p className="text-sm font-medium text-gray-700 mb-2">Current Image:</p>
+                        <img
+                          src={`/images/news/${formData.imageUrl}`}
+                          alt="Current"
+                          className="h-32 w-auto rounded border border-blue-200 object-cover"
+                        />
+                        <p className="text-xs text-gray-600 mt-2">{formData.fileName}</p>
+                      </div>
+                      <button
+                        onClick={removeCurrentImage}
+                        className="text-red-500 hover:text-red-700 hover:bg-red-50 p-2 rounded transition-colors"
+                        title="Remove current image"
+                      >
+                        <Trash2 className="w-5 h-5" />
+                      </button>
+                    </div>
+                  </div>
+                )}
+
+                {/* Image Removed Indicator */}
+                {imageRemoved && !uploadImage && (
+                  <div className="mb-4 p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
+                    <p className="text-sm font-medium text-yellow-800">Image will be removed</p>
+                    <p className="text-xs text-yellow-700 mt-1">The current image will be deleted when you save changes.</p>
                   </div>
                 )}
 

@@ -29,7 +29,7 @@ const Banner = () => {
         <p className={`text-primary sm:text-start text-center text-sm  md:text-lg ${montserrat.className}`}>
           Biotech firm AmacaThera has struck a worldwide deal with Pacira BioSciences to licence its long-acting non-opioid pain management platform, AMT-143, receiving a US$5 million upfront payment and up to US$225 million in future milestones. The agreement underscores AmacaThera's tunable hydrogel drug-delivery technology and sets the stage for Pacira to fund development, manufacturing and commercialisation of AMT-143, targeted for 2026.
         </p>
-        <Link href={'/news/1'} className='bg-primary w-full sm:max-w-70  text-center px-10 py-2 rounded text-white'>
+        <Link href={'/news/676b1a1000000000000000a1'} className='bg-primary w-full sm:max-w-70  text-center px-10 py-2 rounded text-white'>
           Click here for Details
         </Link>
       </div>

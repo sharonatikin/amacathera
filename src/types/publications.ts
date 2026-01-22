@@ -14,6 +14,7 @@ export interface PublicationType {
   publicationDate: string;   // ISO string for frontend
   category: PublicationCategory;
   abstract?: string;
+  abstractUrl?: string;
   pdfUrl?: string;
   fileName?: string;
   fileSize?: number;

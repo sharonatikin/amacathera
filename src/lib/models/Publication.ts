@@ -38,6 +38,11 @@ const publicationSchema = new mongoose.Schema(
       required: [true, 'Abstract is required'],
       trim: true
     },
+    abstractUrl: {
+      type: String,
+      trim: true,
+      default: null
+    },
     pdfUrl: {
       type: String,
       trim: true
@@ -48,11 +53,6 @@ const publicationSchema = new mongoose.Schema(
     },
     fileSize: {
       type: Number
-    },
-    uploadedBy: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'Admin',
-      required: true
     },
     viewCount: {
       type: Number,

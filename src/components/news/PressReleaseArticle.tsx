@@ -266,11 +266,11 @@ const PressReleaseArticle: React.FC = () => {
         </div>
 
         {/* Sub Heading */}
-        <div className="mb-8">
+        {/* <div className="mb-8">
           <p className="text-xl text-slate-700 font-semibold leading-relaxed">
             {article.subHeading}
           </p>
-        </div>
+        </div> */}
 
         {/* Article Content */}
         <div className="p-10">

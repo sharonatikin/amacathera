@@ -1,5 +1,5 @@
 'use client';
-import { Upload, Calendar, AlertCircle, CheckCircle } from 'lucide-react';
+import { Upload, Calendar, AlertCircle, CheckCircle, Globe } from 'lucide-react';
 import React, { useState } from 'react';
 
 export default function PublicationForm() {
@@ -10,6 +10,7 @@ export default function PublicationForm() {
     date: '',
     category: 'AmacaGel Platform',
     abstract: '',
+    abstractUrl: '',
     pdfFile: null as File | null
   });
 
@@ -65,6 +66,7 @@ export default function PublicationForm() {
       submitData.append('date', formData.date);
       submitData.append('category', formData.category);
       submitData.append('abstract', formData.abstract);
+      submitData.append('abstractUrl', formData.abstractUrl);
       
       if (formData.pdfFile) {
         submitData.append('pdfFile', formData.pdfFile);
@@ -105,6 +107,7 @@ export default function PublicationForm() {
       date: '',
       category: 'AmacaGel Platform',
       abstract: '',
+      abstractUrl: '',
       pdfFile: null
     });
   };
@@ -234,6 +237,26 @@ export default function PublicationForm() {
               disabled={isLoading}
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none resize-none disabled:bg-gray-100"
             />
+          </div>
+
+          {/* Abstract URL Field */}
+          <div>
+            <label className="block text-sm font-semibold text-gray-900 mb-2">
+              Abstract URL (Optional)
+            </label>
+            <div className="relative">
+              <Globe className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400 pointer-events-none" />
+              <input
+                type="url"
+                name="abstractUrl"
+                value={formData.abstractUrl}
+                onChange={handleInputChange}
+                placeholder="https://example.com/abstract"
+                disabled={isLoading}
+                className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none disabled:bg-gray-100"
+              />
+            </div>
+            <p className="text-xs text-gray-500 mt-2">Link to the publication abstract or project page</p>
           </div>
 
           {/* File Upload Field */}

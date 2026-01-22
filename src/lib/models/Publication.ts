@@ -29,7 +29,7 @@ const publicationSchema = new mongoose.Schema(
     },
     category: {
       type: String,
-      enum: ['AmacaGel Platform', 'Biologics Cell', 'Small Molecules', 'Polymers', 'Hydrogels', 'Drug Delivery'],
+      enum: ['AmacaGel Platform', 'Biologics and Cell', 'Small Molecules', 'Polymers', 'Hydrogels', 'Drug Delivery'],
       required: [true, 'Category is required'],
       default: 'AmacaGel Platform'
     },

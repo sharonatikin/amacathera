@@ -39,14 +39,18 @@ const Publication = ({pub, index}:{pub: PublicationType,index: number}) => {
             </p>
             
             <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 pt-2">
-              <button className="bg-[#0f3a66] hover:bg-blue-800 text-white font-semibold px-5 py-2.5 sm:px-6 sm:py-3 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg text-sm sm:text-base w-full sm:w-auto">
+              {
+                pub.abstractUrl && (
+              <a href={pub.abstractUrl} className="bg-[#0f3a66] hover:bg-blue-800 text-white font-semibold px-5 py-2.5 sm:px-6 sm:py-3 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg text-sm sm:text-base w-full sm:w-auto">
                 Abstract
-              </button>
-              {pub.abstractUrl && (
-              <button className="bg-[#0f3a66] hover:bg-blue-800 text-white font-semibold px-5 py-2.5 sm:px-6 sm:py-3 rounded-lg transition-all duration-300 flex items-center justify-center gap-2 shadow-md hover:shadow-lg text-sm sm:text-base w-full sm:w-auto">
+              </a>
+              )}
+              {
+              pub.pdfUrl && (
+              <a href={pub.pdfUrl} className="bg-[#0f3a66] hover:bg-blue-800 text-white font-semibold px-5 py-2.5 sm:px-6 sm:py-3 rounded-lg transition-all duration-300 flex items-center justify-center gap-2 shadow-md hover:shadow-lg text-sm sm:text-base w-full sm:w-auto">
                 Access PDF
                 <ArrowRight className="w-4 h-4" />
-              </button>
+              </a>
               )}
             </div>
           </div>

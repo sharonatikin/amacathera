@@ -1,4 +1,5 @@
 import { ArrowRight } from 'lucide-react';
+import Image from 'next/image';
 import Link from 'next/link';
 
 export default function AMT143Section() {
@@ -35,7 +36,7 @@ export default function AMT143Section() {
         </div>
         <div className='flex justify-end flex-1'>
 
-        <img src="/logos/Amaca_Thera_Logo_PNG.png" className='w-40' alt="" />
+        <Image src="/logos/Amaca_Thera_Logo_PNG.png" className='w-40' alt="" />
         </div>
       </div>
     </div>

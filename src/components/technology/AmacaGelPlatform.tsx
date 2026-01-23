@@ -1,4 +1,5 @@
 import { ArrowRight, Brain } from 'lucide-react';
+import Image from 'next/image';
 
 export default function AmacaGelPlatform() {
   return (
@@ -34,7 +35,7 @@ export default function AmacaGelPlatform() {
           <div className="flex items-center justify-center lg:justify-end">
             <div className="relative w-full max-w-sm h-96 flex items-center justify-center">
               {/* Brain wireframe illustration */}
-              <img src="/icons/brain.png" alt="" />
+              <Image src="/icons/brain.png" alt="" />
             </div>
           </div>
         </div>

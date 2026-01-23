@@ -1,5 +1,6 @@
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
+import Image from 'next/image';
 
 const BioEngineeringFounder: React.FC = () => {
   return (
@@ -16,7 +17,7 @@ const BioEngineeringFounder: React.FC = () => {
         }}
       />
           <div className="relative block lg:hidden w-full aspect-square">
-            <img
+            <Image
               src="/images/publication-bg.png"
               alt="Dr. Molly Shoichet"
               className="w-full h-full object-cover object-right rounded-lg shadow-lg"

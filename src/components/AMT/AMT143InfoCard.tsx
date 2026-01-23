@@ -1,5 +1,6 @@
 import React from 'react';
 import { Syringe, CheckCircle, Activity } from 'lucide-react';
+import Image from 'next/image';
 
 const AMT143InfoCard: React.FC = () => {
   return (
@@ -9,7 +10,7 @@ const AMT143InfoCard: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
             {/* Right Image Section */}
             <div className="relative  flex items-center justify-center ">
-              <img
+              <Image
                 src="/images/amtpage-bg.png"
                 alt="AMT-143 Illustration"
                 className="lg:max-w-7xl"

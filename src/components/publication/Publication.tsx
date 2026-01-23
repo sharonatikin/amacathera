@@ -1,5 +1,6 @@
 import { PublicationType } from '@/types/publications';
 import { ArrowRight } from 'lucide-react';
+import Image from 'next/image';
 
 const Publication = ({pub, index}:{pub: PublicationType,index: number}) => {
   
@@ -12,7 +13,7 @@ const Publication = ({pub, index}:{pub: PublicationType,index: number}) => {
         
         {/* Document Icon */}
         <div className="flex flex-1 justify-center w-full md:w-auto">
-          <img 
+          <Image 
             src="/icons/note.png" 
             alt="Document icon" 
             className="w-32 h-32 sm:w-40 sm:h-40 md:w-auto md:h-auto max-w-full object-contain" 
@@ -58,7 +59,7 @@ const Publication = ({pub, index}:{pub: PublicationType,index: number}) => {
       </div>
 
       {/* Decorative Divider Wave */}
-      <img 
+      <Image 
         src="/icons/bar.png" 
         className={`w-full mb-4 md:mb-5 ${index % 2 === 0 ? '' : 'scale-x-[-1]'}`} 
         alt="Divider" 

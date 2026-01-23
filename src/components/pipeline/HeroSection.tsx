@@ -1,18 +1,19 @@
 import { Check, CheckCircle } from 'lucide-react'
 import React from 'react'
 import { pipelineData } from '@/const/pipeling';
+import Image from 'next/image';
 
 const HeroSection = () => {
   const stages = ['discovery', 'preClinical', 'phase1'] as const
   return (
     <>
       <div className="relative min-h-[200vh] md:min-h-screen w-screen overflow-hidden">
-        <img
+        <Image
           src="/images/pipeline-bg.png"
           alt="Hero"
           className="w-full min-w-200 md:block hidden h-full object-cover"
         />
-        <img
+        <Image
           src="/images/pipeline-mb-bg.png"
           alt="Hero"
           className="w-full pt-18 md:hidden h-full object-cover"

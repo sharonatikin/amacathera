@@ -1,6 +1,7 @@
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
 import TeamCard from '../ui/TeamCard';
+import Image from 'next/image';
 
 
 const BoardOfDirectors: React.FC = () => {
@@ -11,7 +12,7 @@ const BoardOfDirectors: React.FC = () => {
         <div className="lg:hidden space-y-8">
           {/* Header */}
           <div className="flex flex-col items-center text-center">
-            <img src="/icons/Group.png" alt="" className="w-16 h-16 sm:w-20 sm:h-20 mb-4" />
+            <Image src="/icons/Group.png" alt="" className="w-16 h-16 sm:w-20 sm:h-20 mb-4" />
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-800 mb-4 sm:mb-6">
               Board of Directors
             </h1>
@@ -49,7 +50,7 @@ const BoardOfDirectors: React.FC = () => {
             url: "paul-austin"
           }} />
           <div className='flex flex-col text-center items-center'>
-            <img src="/icons/Group.png" alt="" />
+            <Image src="/icons/Group.png" alt="" />
             <h1 className="text-5xl font-bold text-slate-800 m-6">Board of Directors</h1>
             <p className="text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed">
               In addition to co-founders Mike Cooke and Molly Shoichet, our board is made up of the following:

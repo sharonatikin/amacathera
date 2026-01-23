@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import React from 'react'
 
 const PlatformCard = ({item}:{item:{ bg:string, image: string, title: string, description: string}}) => {
@@ -12,7 +13,7 @@ const PlatformCard = ({item}:{item:{ bg:string, image: string, title: string, de
               
               {/* Icon */}
               <div className="flex justify-center mb-6">
-                <img src={`/icons/${item.image}`} alt="" />
+                <Image src={`/icons/${item.image}`} alt="" />
               </div>
 
               {/* Title */}

@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { pressReleases } from '@/const';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function NewsSection() {
   const [activeSlide, setActiveSlide] = useState(0);
@@ -170,7 +171,7 @@ export default function NewsSection() {
           >
             <div className="flex items-center justify-center">
               <div className="relative w-full max-w-md bg-gray-300 h-64 rounded-3xl shadow-xl flex items-center justify-center">
-                <img
+                <Image
                   src={`/images/news/${pressReleases[activeSlide].image}`}
                   alt={pressReleases[activeSlide].title}
                   className="w-full h-full object-cover rounded-3xl"

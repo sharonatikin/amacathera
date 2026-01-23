@@ -1,12 +1,13 @@
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
+import Image from 'next/image';
 
 export default function PressReleaseCard({item}: {item: {image: string, title: string, description: string, category: string, date: string}}) { return (
     <div className="min-h-screen bg-gray-100 flex items-center justify-center p-4">
       <div className="w-full max-w-md bg-white rounded-2xl shadow-xl overflow-hidden">
         {/* Image Section */}
         <div className="relative w-full h-64 overflow-hidden">
-          <img
+          <Image
             src={`/images/news/${item.image}`}
             alt="Business handshake"
             className="w-full h-full object-cover"

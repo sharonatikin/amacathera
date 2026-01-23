@@ -5,6 +5,7 @@ import { toast, ToastContainer } from 'react-toastify';
 import { Loader2, ArrowLeft, Upload, Calendar, Globe, AlertCircle, CheckCircle, X, Trash2 } from 'lucide-react';
 import Link from 'next/link';
 import 'react-toastify/dist/ReactToastify.css';
+import Image from 'next/image';
 
 interface NewsItem {
   _id: string;
@@ -316,7 +317,7 @@ export default function EditNewsPage({ params }: { params: Promise<{ id: string 
                     <div className="flex items-start justify-between">
                       <div>
                         <p className="text-sm font-medium text-gray-700 mb-2">Current Image:</p>
-                        <img
+                        <Image
                           src={`/images/news/${formData.imageUrl}`}
                           alt="Current"
                           className="h-32 w-auto rounded border border-blue-200 object-cover"
@@ -348,7 +349,7 @@ export default function EditNewsPage({ params }: { params: Promise<{ id: string 
                     <div className="flex items-start justify-between">
                       <div>
                         <p className="text-sm font-medium text-gray-700 mb-2">New Image:</p>
-                        <img
+                        <Image
                           src={URL.createObjectURL(uploadImage)}
                           alt="Preview"
                           className="h-32 w-auto rounded border border-green-200 object-cover"

@@ -1,4 +1,5 @@
 import { Droplets, CheckCircle2, Clock, Syringe } from 'lucide-react';
+import Image from 'next/image';
 
 export default function AmacaGelProperties() {
   const properties = [
@@ -57,7 +58,7 @@ export default function AmacaGelProperties() {
             <div key={index} className="flex flex-col items-center text-center relative">
               {/* Icon Container */}
               <div className="mb-8 h-24 flex items-center justify-center">
-                <img src={property.icon} alt="" />
+                <Image src={property.icon} alt="" />
               </div>
 
               {/* Title */}

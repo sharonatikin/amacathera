@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import React from 'react'
 
 const CareerHero = () => {
@@ -10,9 +11,9 @@ const CareerHero = () => {
         <p className='lg:text-2xl lg:w-2xl md:w-sm sm:w-xs px-5 md:text-xl text-wrap'>With roots in world-leading science, AmacaThera is on a mission to solve some of the stickiest challenges in drug development.</p>
         </div>
       </div>
-      <img className='sm:flex hidden' src="/images/career-bg.png" alt="Hero image" />
+      <Image className='sm:flex hidden' src="/images/career-bg.png" alt="Hero image" />
       <div className="absolute flex justify-center sm:hidden w-full">
-  <img
+  <Image
     className="relative -top-10"
     src="/images/career-bg.png"
     alt="Hero image"

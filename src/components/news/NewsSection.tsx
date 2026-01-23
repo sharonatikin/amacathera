@@ -5,6 +5,7 @@ import gsap from 'gsap';
 import Link from 'next/link';
 import { INews } from '@/types/news';
 import { redirect } from 'next/navigation';
+import Image from 'next/image';
 
 export default function NewsSection({ newsData }: { newsData: INews[] }) {
   const [activeSlide, setActiveSlide] = useState(0);
@@ -138,7 +139,7 @@ export default function NewsSection({ newsData }: { newsData: INews[] }) {
             <div className="flex items-center justify-center">
               <div className="relative w-full max-w-md bg-gray-300 h-64 rounded-3xl shadow-xl flex items-center justify-center">
                 {/* <span className="text-gray-600">{newsData[activeSlide].image}</span> */}
-                <img
+                <Image
                   src={newsData[activeSlide]?.imageUrl ? `/images/news/${newsData[activeSlide].imageUrl}` : '/logos/Amaca_Thera_Logo_PNG.png'}
                   alt={newsData[activeSlide].mainHeading}
                   className="w-full h-full object-cover rounded-3xl"

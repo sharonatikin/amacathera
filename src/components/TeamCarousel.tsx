@@ -1,5 +1,6 @@
 'use client';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import Image from 'next/image';
 import { useState } from 'react';
 
 export default function OurTeamLeadership() {
@@ -80,7 +81,7 @@ export default function OurTeamLeadership() {
               {/* Image Container - positioned absolutely to overlap */}
               <div className="absolute top-0 left-1/2 transform -translate-x-1/2 z-10">
                 <div className="w-48 h-56 rounded-md overflow-hidden shadow-2xl ">
-                  <img
+                  <Image
                     src={member.image}
                     alt={member.name}
                     className="w-full h-full object-cover"

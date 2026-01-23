@@ -1,4 +1,5 @@
 import { ArrowRight } from 'lucide-react';
+import Image from 'next/image';
 import Link from 'next/link';
 
 export default function ResearchSection() {
@@ -7,7 +8,7 @@ export default function ResearchSection() {
       {/* Left side - Image area (hidden on mobile, tablet) */}
       <div className="absolute left-0 top-0 w-1/2 h-full hidden lg:flex items-center justify-center">
         <div className="relative w-full h-full flex items-center justify-center">
-          <img 
+          <Image 
             src="/images/research-bg.png" 
             alt="Scientist with Microscope" 
             className="object-cover w-full h-full" 
@@ -20,7 +21,7 @@ export default function ResearchSection() {
         
         {/* Logo/Badge - Top Right */}
         <div className="absolute top-4 sm:top-6 lg:top-8 right-4 sm:right-6 lg:right-8 w-40 sm:w-48 md:w-56 lg:w-70">
-          <img 
+          <Image 
             src="/logos/TheShoichetLab.png" 
             alt="The Shoichet Lab" 
             className="w-full border-2 bg-blue-40 border-[#0f3a66] rounded-xl sm:rounded-2xl px-4 sm:px-6 py-2 backdrop-blur-sm" 

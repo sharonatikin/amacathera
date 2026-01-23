@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import React from 'react';
 
 const FirstAndForemost = () => {
@@ -6,7 +7,7 @@ const FirstAndForemost = () => {
         
 
 
-              <img
+              <Image
                 src="/images/career-2-bg.png"
                 alt="Medical syringe"
                 className="lg:w-2/4 xl:w-full h-full flex-1 object-cover  object-center"

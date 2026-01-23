@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import React from 'react';
 
 const PainReliefHero: React.FC = () => {
@@ -12,12 +13,12 @@ const PainReliefHero: React.FC = () => {
       <div className="md:block absolute inset-0  bg-gradient-to-t via-white/80 via-70%  to-transparent" />
         </div>
       </div>
-      <img
+      <Image
         src="/images/painrelief-bg.png"
         alt="Hero"
         className=" inset-0 hidden md:block w-full h-full object-cover"
       />
-      <img
+      <Image
         src="/images/amt-img-mb.png"
         alt="Hero"
         className=" inset-0 md:hidden w-full h-full object-cover"

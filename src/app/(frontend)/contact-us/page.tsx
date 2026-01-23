@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import React, { useState } from 'react';
 
 interface FormData {
@@ -82,7 +83,7 @@ const ContactSection: React.FC = () => {
           <div className="flex-1 text-white text-center lg:text-left">
             {/* Icon */}
             <div className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20  rounded-full mb-6 lg:mb-8">
-              <img src="/icons/Chat.png" className="w-16 h-16 sm:w-20 sm:h-20" alt="" />
+              <Image src="/icons/Chat.png" className="w-16 h-16 sm:w-20 sm:h-20" alt="" />
             </div>
 
             {/* Heading */}

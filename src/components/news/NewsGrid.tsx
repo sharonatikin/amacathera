@@ -5,6 +5,7 @@ import PressReleaseCard from './PressReleaseCard';
 import Link from 'next/link';
 import { pressReleases } from '@/const';
 import { INews } from '@/types/news';
+import Image from 'next/image';
 
 const NewsGrid = ({ newsData }: { newsData: INews[] }) => {
 
@@ -23,7 +24,7 @@ const NewsGrid = ({ newsData }: { newsData: INews[] }) => {
               {/* Image */}
               <div className=" bg-gradient-to-br rounded-lg from-slate-300 to-slate-400 overflow-hidden">
 
-                <img
+                <Image
                   src={item?.imageUrl ? `/images/news/${item.imageUrl}` : '/logos/Amaca_Thera_Logo_PNG.png'}
                   alt={item?.mainHeading}
                   className="w-full h-52"

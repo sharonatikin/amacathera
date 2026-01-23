@@ -1,5 +1,6 @@
 import { footerItems } from '@/const';
 import { Facebook, Twitter, Linkedin, Instagram, MapPin } from 'lucide-react';
+import Image from 'next/image';
 import Link from 'next/link';
 
 export default function Footer() {
@@ -16,7 +17,7 @@ export default function Footer() {
             {/* Logo and Social Icons */}
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6 mb-15">
               {/* Logo */}
-              <img src="/images/footerlogo.png" alt="AmacaThera Logo" className="h-10 mb-6 sm:h-10 lg:h-20" />
+              <Image src="/images/footerlogo.png" alt="AmacaThera Logo" className="h-10 mb-6 sm:h-10 lg:h-20" />
 
               {/* Divider */}
               <div className="hidden sm:block w-px h-8 bg-white/30" />
@@ -76,7 +77,7 @@ export default function Footer() {
             <div className="grid grid-cols-2 lg:grid-cols-1 gap-6 lg:gap-8">
               {/* Canada Section */}
               <Link href='https://maps.app.goo.gl/ncN3Bq4cJCSmPRNP6'>
-                <img src="/logos/Canada.png" alt="Canada Flag" className="h-20 mb-2" />
+                <Image src="/logos/Canada.png" alt="Canada Flag" className="h-20 mb-2" />
                 <div className="text-white">
                   <h2 className="text-base sm:text-lg font-bold mb-2">Canada</h2>
                   <div className="text-xs sm:text-sm leading-relaxed space-y-1">
@@ -89,7 +90,7 @@ export default function Footer() {
 
               {/* US Section */}
               <Link href='https://maps.app.goo.gl/Zj1VWCFaw4CfaXuk6 '>
-                <img src="/logos/US.png" alt="US Flag" className="h-20 mb-2" />
+                <Image src="/logos/US.png" alt="US Flag" className="h-20 mb-2" />
                 <div className="text-white">
                   <h2 className="text-base sm:text-lg font-bold mb-2">US</h2>
                   <div className="text-xs sm:text-sm leading-relaxed space-y-1">

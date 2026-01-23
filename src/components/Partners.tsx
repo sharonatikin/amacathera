@@ -2,6 +2,7 @@
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import Image from 'next/image';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -190,7 +191,7 @@ export default function Partners() {
                 key={index}
                 className="flex-shrink-0 flex items-center justify-center h-24 md:h-28 w-40 md:w-56 px-4 transition-all duration-300 hover:scale-110 hover:brightness-110"
               >
-                <img
+                <Image
                   src={src}
                   alt={`Partner ${(index % images.length) + 1}`}
                   className="h-full max-w-full object-contain filter drop-shadow-sm"

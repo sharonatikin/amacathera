@@ -3,6 +3,7 @@ import { ArrowBigRight, ArrowRight } from 'lucide-react';
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import Image from 'next/image';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -186,7 +187,7 @@ export default function TechnologyHighlights() {
             >
               {/* Icon */}
               <div className="mb-8 mt-4 transform will-change-transform">
-                <img 
+                <Image 
                   src={item.image} 
                   alt={item.title}
                   className="transition-transform duration-300"

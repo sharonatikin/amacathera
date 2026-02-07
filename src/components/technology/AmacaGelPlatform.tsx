@@ -35,7 +35,12 @@ export default function AmacaGelPlatform() {
           <div className="flex items-center justify-center lg:justify-end">
             <div className="relative w-full max-w-sm h-96 flex items-center justify-center">
               {/* Brain wireframe illustration */}
-              <Image src="/icons/brain.png" alt="" />
+              <Image 
+                src="/icons/brain.png" 
+                alt="Brain visualization"
+                width={200}
+                height={200}
+              />
             </div>
           </div>
         </div>

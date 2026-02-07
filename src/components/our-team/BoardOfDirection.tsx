@@ -12,7 +12,13 @@ const BoardOfDirectors: React.FC = () => {
         <div className="lg:hidden space-y-8">
           {/* Header */}
           <div className="flex flex-col items-center text-center">
-            <Image src="/icons/Group.png" alt="" className="w-16 h-16 sm:w-20 sm:h-20 mb-4" />
+            <Image 
+              src="/icons/Group.png" 
+              alt="" 
+              width={64}
+              height={64}
+              className="w-16 h-16 sm:w-20 sm:h-20 mb-4" 
+            />
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-800 mb-4 sm:mb-6">
               Board of Directors
             </h1>
@@ -50,7 +56,12 @@ const BoardOfDirectors: React.FC = () => {
             url: "paul-austin"
           }} />
           <div className='flex flex-col text-center items-center'>
-            <Image src="/icons/Group.png" alt="" />
+            <Image 
+              src="/icons/Group.png" 
+              alt="" 
+              width={80}
+              height={80}
+            />
             <h1 className="text-5xl font-bold text-slate-800 m-6">Board of Directors</h1>
             <p className="text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed">
               In addition to co-founders Mike Cooke and Molly Shoichet, our board is made up of the following:

@@ -11,7 +11,7 @@ const TeamCard = ({ member }:{member:{image:string,name:string,title:string,desc
         {/* Image */}
         <div className="relative top-20">
           <div className="aspect-square  w-full max-w-[280px] mx-auto pt-8 px-8">
-            <Image
+            <img
               src={member.image}
               alt={member.name}
               className="w-full h-full object-contain rounded-3xl"

@@ -194,6 +194,8 @@ export default function Partners() {
                 <Image
                   src={src}
                   alt={`Partner ${(index % images.length) + 1}`}
+                  width={200}
+                  height={112}
                   className="h-full max-w-full object-contain filter drop-shadow-sm"
                   loading="lazy"
                 />

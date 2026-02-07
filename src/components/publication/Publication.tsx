@@ -15,7 +15,9 @@ const Publication = ({pub, index}:{pub: PublicationType,index: number}) => {
         <div className="flex flex-1 justify-center w-full md:w-auto">
           <Image 
             src="/icons/note.png" 
-            alt="Document icon" 
+            alt="Document icon"
+            width={160}
+            height={160}
             className="w-32 h-32 sm:w-40 sm:h-40 md:w-auto md:h-auto max-w-full object-contain" 
           />
         </div>
@@ -60,7 +62,9 @@ const Publication = ({pub, index}:{pub: PublicationType,index: number}) => {
 
       {/* Decorative Divider Wave */}
       <Image 
-        src="/icons/bar.png" 
+        src="/icons/bar.png"
+        width={400}
+        height={100}
         className={`w-full mb-4 md:mb-5 ${index % 2 === 0 ? '' : 'scale-x-[-1]'}`} 
         alt="Divider" 
       />

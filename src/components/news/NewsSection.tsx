@@ -142,6 +142,8 @@ export default function NewsSection({ newsData }: { newsData: INews[] }) {
                 <Image
                   src={newsData[activeSlide]?.imageUrl ? `/images/news/${newsData[activeSlide].imageUrl}` : '/logos/Amaca_Thera_Logo_PNG.png'}
                   alt={newsData[activeSlide].mainHeading}
+                  width={512}
+                  height={256}
                   className="w-full h-full object-cover rounded-3xl"
                 />
               </div>

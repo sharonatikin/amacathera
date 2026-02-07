@@ -190,6 +190,8 @@ export default function TechnologyHighlights() {
                 <Image 
                   src={item.image} 
                   alt={item.title}
+                  width={100}
+                  height={100}
                   className="transition-transform duration-300"
                 />
               </div>

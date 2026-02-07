@@ -13,7 +13,12 @@ const PlatformCard = ({item}:{item:{ bg:string, image: string, title: string, de
               
               {/* Icon */}
               <div className="flex justify-center mb-6">
-                <Image src={`/icons/${item.image}`} alt="" />
+                <Image 
+                  src={`/icons/${item.image}`} 
+                  alt={item.title}
+                  width={48}
+                  height={48}
+                />
               </div>
 
               {/* Title */}

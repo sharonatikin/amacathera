@@ -10,7 +10,9 @@ export default function ResearchSection() {
         <div className="relative w-full h-full flex items-center justify-center">
           <Image 
             src="/images/research-bg.png" 
-            alt="Scientist with Microscope" 
+            alt="Scientist with Microscope"
+            width={1080}
+            height={1080}
             className="object-cover w-full h-full" 
           />
         </div>
@@ -24,6 +26,8 @@ export default function ResearchSection() {
           <Image 
             src="/logos/TheShoichetLab.png" 
             alt="The Shoichet Lab" 
+            width={280}
+            height={280}
             className="w-full border-2 bg-blue-40 border-[#0f3a66] rounded-xl sm:rounded-2xl px-4 sm:px-6 py-2 backdrop-blur-sm" 
           />
         </div>

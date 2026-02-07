@@ -1,19 +1,18 @@
 import { Check, CheckCircle } from 'lucide-react'
 import React from 'react'
 import { pipelineData } from '@/const/pipeling';
-import Image from 'next/image';
 
 const HeroSection = () => {
   const stages = ['discovery', 'preClinical', 'phase1'] as const
   return (
     <>
       <div className="relative min-h-[200vh] md:min-h-screen w-screen overflow-hidden">
-        <Image
+        <img
           src="/images/pipeline-bg.png"
           alt="Hero"
           className="w-full min-w-200 md:block hidden h-full object-cover"
         />
-        <Image
+        <img
           src="/images/pipeline-mb-bg.png"
           alt="Hero"
           className="w-full pt-18 md:hidden h-full object-cover"
@@ -24,7 +23,7 @@ const HeroSection = () => {
         </div>
         <div className="absolute inset-0 bg-gradient-to-b from-transparent to-slate-100 via-white/80"></div>
         {/* Hero Section */}
-        <div className="md:top-130 md:max-w-2xl top-60 md:left-1/2 md:-translate-x-1/2 absolute w-full flex items-center justify-center px-6 py-20 ">
+        <div className="md:top-130  md:max-w-2xl  md:left-1/2 md:-translate-x-1/2 absolute w-full flex items-center justify-center px-6 py-20 ">
 
           <div className=" max-w-105 md:max-w-[50vw]">
             

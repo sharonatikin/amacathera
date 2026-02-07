@@ -19,8 +19,14 @@ const Banner = () => {
         className='object-cover hidden sm:inline-block relat object-cente '
       />
       <div className="sm:hidden w-full">
-      <Image className='min-h-[50vh] relative object-right object-cover sm:hidden' src="/images/banner-bg.png" alt="" />
-  <div className="absolute inset-0 bg-gradient-to-t from-white from-25%  " />
+        <Image 
+          width={1080}
+          height={540}
+          className='min-h-[50vh] relative object-right object-cover sm:hidden' 
+          src="/images/banner-bg.png" 
+          alt="" 
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-white from-25%  " />
       </div>
       <div className=' items-start flex sm:gap-10 gap-5 absolute top-70 flex-col justify-center max-w-2xl sm:pl-7 px-10 pb-10 sm:py-0 sm:px-0 sm:pt-20 sm:relative sm:top-0 z-10 '>
         <h1 className={`text-primary font-bold md:text-4xl sm:text-start text-center text-md ${montserrat.className}`}>

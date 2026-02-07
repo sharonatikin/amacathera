@@ -8,12 +8,6 @@ import { INews } from '@/types/news';
 import Image from 'next/image';
 
 const NewsGrid = ({ newsData }: { newsData: INews[] }) => {
-
-
-
-
-
-
   return (
     <div className="min-h-screen bg-slate-50">
       {/* News Grid */}
@@ -27,6 +21,8 @@ const NewsGrid = ({ newsData }: { newsData: INews[] }) => {
                 <Image
                   src={item?.imageUrl ? `/images/news/${item.imageUrl}` : '/logos/Amaca_Thera_Logo_PNG.png'}
                   alt={item?.mainHeading}
+                  width={400}
+                  height={208}
                   className="w-full h-52"
                   crossOrigin="anonymous"
                 />

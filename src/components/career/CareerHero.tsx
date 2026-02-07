@@ -11,16 +11,24 @@ const CareerHero = () => {
         <p className='lg:text-2xl lg:w-2xl md:w-sm sm:w-xs px-5 md:text-xl text-wrap'>With roots in world-leading science, AmacaThera is on a mission to solve some of the stickiest challenges in drug development.</p>
         </div>
       </div>
-      <Image className='sm:flex hidden' src="/images/career-bg.png" alt="Hero image" />
+      <Image 
+        className='sm:flex hidden' 
+        src="/images/career-bg.png" 
+        alt="Hero image"
+        width={1080}
+        height={1080}
+      />
       <div className="absolute flex justify-center sm:hidden w-full">
-  <Image
-    className="relative -top-10"
-    src="/images/career-bg.png"
-    alt="Hero image"
-  />
+        <Image
+          className="relative -top-10"
+          src="/images/career-bg.png"
+          alt="Hero image"
+          width={1080}
+          height={1080}
+        />
 
-  <div className="absolute inset-0 bg-gradient-to-b  to-white" />
-</div>
+        <div className="absolute inset-0 bg-gradient-to-b  to-white" />
+      </div>
     </div>
   )
 }

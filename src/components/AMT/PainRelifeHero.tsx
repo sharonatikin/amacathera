@@ -15,13 +15,17 @@ const PainReliefHero: React.FC = () => {
       </div>
       <Image
         src="/images/painrelief-bg.png"
-        alt="Hero"
-        className=" inset-0 hidden md:block w-full h-full object-cover"
+        alt="Pain Relief Background Desktop"
+        width={1920}
+        height={1080}
+        className="inset-0 hidden md:block w-full h-full object-cover"
       />
       <Image
         src="/images/amt-img-mb.png"
-        alt="Hero"
-        className=" inset-0 md:hidden w-full h-full object-cover"
+        alt="Pain Relief Background Mobile"
+        width={1080}
+        height={1920}
+        className="inset-0 md:hidden w-full h-full object-cover"
       />
 
       {/* White gradient overlay from left to right */}

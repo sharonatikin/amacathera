@@ -58,7 +58,12 @@ export default function AmacaGelProperties() {
             <div key={index} className="flex flex-col items-center text-center relative">
               {/* Icon Container */}
               <div className="mb-8 h-24 flex items-center justify-center">
-                <Image src={property.icon} alt="" />
+                <Image 
+                  src={property.icon} 
+                  alt={property.title}
+                  width={96}
+                  height={96}
+                />
               </div>
 
               {/* Title */}

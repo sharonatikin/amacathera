@@ -15,7 +15,9 @@ export default function TestimonialSection() {
               <div className="absolute -inset-4 bg-gradient-to-br from-gray-200 to-gray-300 rounded-2xl sm:rounded-3xl opacity-40 blur-lg"></div>
               
               <Image
-                src="/images/team/peter.png" 
+                src="/images/team/peter.png"
+                width={400}
+                height={400}
                 className='relative w-64 h-64 sm:w-80 sm:h-80 lg:w-100 lg:h-100 lg:top-15 lg:left-20 rounded-2xl sm:rounded-3xl overflow-hidden object-cover' 
                 alt="Peter van der Velden" 
               />

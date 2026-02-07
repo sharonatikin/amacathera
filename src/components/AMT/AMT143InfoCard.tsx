@@ -13,7 +13,9 @@ const AMT143InfoCard: React.FC = () => {
               <Image
                 src="/images/amtpage-bg.png"
                 alt="AMT-143 Illustration"
-                className="lg:max-w-7xl"
+                width={1200}
+                height={800}
+                className="lg:max-w-7xl w-full h-auto"
               />
             </div>
             {/* Left Content Section */}

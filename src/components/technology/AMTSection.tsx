@@ -36,7 +36,13 @@ export default function AMT143Section() {
         </div>
         <div className='flex justify-end flex-1'>
 
-        <Image src="/logos/Amaca_Thera_Logo_PNG.png" className='w-40' alt="" />
+        <Image 
+          src="/logos/Amaca_Thera_Logo_PNG.png" 
+          alt="AmacaThera Logo"
+          width={160}
+          height={160}
+          className='w-40' 
+        />
         </div>
       </div>
     </div>

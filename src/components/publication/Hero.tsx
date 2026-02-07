@@ -20,6 +20,8 @@ const BioEngineeringFounder: React.FC = () => {
             <Image
               src="/images/publication-bg.png"
               alt="Dr. Molly Shoichet"
+              width={800}
+              height={800}
               className="w-full h-full object-cover object-right rounded-lg shadow-lg"
             />
           </div>

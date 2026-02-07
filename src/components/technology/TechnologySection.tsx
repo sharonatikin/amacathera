@@ -1,5 +1,6 @@
 'use client';
 import { ArrowRight, Droplet } from 'lucide-react';
+import Image from 'next/image';
 
 export default function TechnologySection() {
 
@@ -10,18 +11,17 @@ export default function TechnologySection() {
     }
   };
   return (
-    <div className="relative min-h-screen bg-gradient-to-br from-blue-50 via-blue-100 to-blue-50  overflow-hidden">
-      {/* Background decorative elements */}
-      <div 
-        className="absolute inset-0 w-full h-full"
-        style={{
-          backgroundImage: 'url("/images/tech-bg.png")',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center left ',
-          backgroundRepeat: 'no-repeat',
-          width: '100vw',
-        }}
-      />
+    <div className="relative min-h-screen bg-gradient-to-br from-blue-50 via-blue-100 to-blue-50 overflow-hidden">
+      {/* Background Image */}
+      <div className="absolute inset-0 w-full h-full overflow-hidden">
+        <Image
+          src="/images/tech-bg.png"
+          alt="Technology Background"
+          fill
+          className="object-cover object-left"
+          priority
+        />
+      </div>
 
       {/* Main content container */}
       <div className="relative min-h-screen z-10 h-full flex items-center justify-end px-8 lg:px-20">

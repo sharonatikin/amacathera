@@ -66,14 +66,14 @@ const ContactSection: React.FC = () => {
 
   return (
     <div className="min-h-screen relative overflow-hidden">
-      {/* Background Image with Overlay */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center"
-        style={{
-          backgroundImage: 'url("/images/contact-bg.png")',
-        }}
-      >
-      </div>
+      {/* Background Image - Using Next.js Image Component */}
+      <Image
+        src="/images/contact-bg.png"
+        alt="Contact Background"
+        fill
+        className="object-cover object-center"
+        priority
+      />
 
       {/* Content Container */}
       <div className="relative z-10 min-h-screen flex items-center justify-center px-4 sm:px-6 mt-[5vh] md:px-8 py-12 md:py-16">
@@ -83,7 +83,7 @@ const ContactSection: React.FC = () => {
           <div className="flex-1 text-white text-center lg:text-left">
             {/* Icon */}
             <div className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20  rounded-full mb-6 lg:mb-8">
-              <Image src="/icons/Chat.png" className="w-16 h-16 sm:w-20 sm:h-20" alt="" />
+              <Image width={16} height={16} src="/icons/Chat.png" className="w-16 h-16 sm:w-20 sm:h-20" alt="" />
             </div>
 
             {/* Heading */}

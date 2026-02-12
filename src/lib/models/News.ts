@@ -24,10 +24,17 @@ const newsSchema = new mongoose.Schema(
       validate: {
         validator: function(v: string) {
           if (!v) return true; // Optional field
-          return /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/.test(v);
+          try {
+            new URL(v);
+            return true;
+          } catch {
+            return false;
+          }
         },
         message: 'Please provide a valid URL'
-      }
+      },
+      default: null,
+      sparse: true,
     },
     imageUrl: {
       type: String,

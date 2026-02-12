@@ -99,7 +99,7 @@ export async function POST(request: NextRequest) {
         { status: 400 }
       );
     }
-
+    
     // Handle image file upload
     let imageUrl = null;
     let fileName = null;

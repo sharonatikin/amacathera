@@ -57,31 +57,28 @@ const PressReleaseArticle: React.FC = () => {
     }
   }, [urlSegment]);
 
-  // Function to parse content into paragraphs
-  const parseContentToParagraphs = (content: string): string[] => {
-    if (!content) return [];
+  // Parse markdown to HTML for display
+  const parseContentToHTML = (content: string): string => {
+    let html = content;
     
-    // Split by double line breaks or create logical paragraphs
-    const paragraphs = content.split(/\n\s*\n/);
+    // Bold
+    html = html.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
     
-    // Filter out empty paragraphs and trim whitespace
-    return paragraphs
-      .filter(p => p.trim().length > 0)
-      .map(p => p.trim());
-  };
-
-  // Function to detect if a paragraph should be a heading
-  const isHeadingParagraph = (paragraph: string): boolean => {
-    return (
-      paragraph.startsWith('About ') ||
-      paragraph.startsWith('Introduction') ||
-      paragraph.startsWith('Conclusion') ||
-      paragraph.startsWith('Key Highlights') ||
-      paragraph.startsWith('Background') ||
-      paragraph.startsWith('Contact:') ||
-      (paragraph.length < 100 && paragraph.includes(':')) ||
-      paragraph.toUpperCase() === paragraph // All caps might be a heading
-    );
+    // Italic
+    html = html.replace(/\*(.*?)\*/g, '<em>$1</em>');
+    
+    // Links
+    html = html.replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer" class="text-slate-700 underline hover:text-slate-900">$1</a>');
+    
+    // Headings
+    html = html.replace(/^### (.*?)$/gm, '<h3 class="text-lg font-bold text-slate-800 mt-4 mb-2">$1</h3>');
+    html = html.replace(/^## (.*?)$/gm, '<h2 class="text-xl font-bold text-slate-800 mt-6 mb-3">$1</h2>');
+    html = html.replace(/^# (.*?)$/gm, '<h1 class="text-2xl font-bold text-slate-800 mt-8 mb-4">$1</h1>');
+    
+    // Line breaks to paragraphs
+    html = html.split('\n\n').map(p => `<p class="text-slate-700 leading-relaxed mb-4">${p.trim()}</p>`).join('');
+    
+    return html;
   };
 
   const handleTextBasedPDFDownload = async () => {
@@ -144,12 +141,22 @@ const PressReleaseArticle: React.FC = () => {
       pdf.setFontSize(10);
       pdf.setFont('helvetica', 'normal');
       
-      const paragraphs = parseContentToParagraphs(article.content);
+      // Split content by double line breaks
+      const paragraphs = article.content.split(/\n\s*\n/).filter(p => p.trim().length > 0);
       paragraphs.forEach(paragraph => {
         if (!paragraph) return;
         
-        // Check if this should be a heading
-        if (isHeadingParagraph(paragraph)) {
+        // Remove markdown formatting for PDF
+        let cleanParagraph = paragraph
+          .replace(/\*\*(.*?)\*\*/g, '$1')
+          .replace(/\*(.*?)\*/g, '$1')
+          .replace(/\[(.*?)\]\((.*?)\)/g, '$1')
+          .replace(/^### /, '')
+          .replace(/^## /, '')
+          .replace(/^# /, '');
+
+        // Check if this should be a heading (starts with markdown heading symbols)
+        if (/^(#{1,3}) /.test(paragraph)) {
           pdf.setFont('helvetica', 'bold');
           pdf.setFontSize(11);
         } else {
@@ -157,14 +164,14 @@ const PressReleaseArticle: React.FC = () => {
           pdf.setFontSize(10);
         }
 
-        const lines = pdf.splitTextToSize(paragraph, pageWidth - 2 * margin);
+        const lines = pdf.splitTextToSize(cleanParagraph, pageWidth - 2 * margin);
         
         lines.forEach((line: string) => {
           if (yPosition + lineHeight > pdf.internal.pageSize.getHeight() - margin) {
             pdf.addPage();
             yPosition = margin;
             // Reset font for new page
-            if (isHeadingParagraph(paragraph)) {
+            if (/^(#{1,3}) /.test(paragraph)) {
               pdf.setFont('helvetica', 'bold');
               pdf.setFontSize(11);
             } else {
@@ -230,8 +237,6 @@ const PressReleaseArticle: React.FC = () => {
     );
   }
 
-  const paragraphs = parseContentToParagraphs(article.content);
-
   return (
     <div className="min-h-screen bg-[#EAF3F5]">
       <div className="max-w-6xl mx-auto px-6 pt-32 py-12">
@@ -265,54 +270,12 @@ const PressReleaseArticle: React.FC = () => {
           </div>
         </div>
 
-        {/* Sub Heading */}
-        {/* <div className="mb-8">
-          <p className="text-xl text-slate-700 font-semibold leading-relaxed">
-            {article.subHeading}
-          </p>
-        </div> */}
-
         {/* Article Content */}
         <div className="p-10">
           <article className="prose prose-slate max-w-none">
-            {paragraphs.map((paragraph, index) => {
-              if (!paragraph) return null;
-              
-              // Check if paragraph should be a heading
-              if (isHeadingParagraph(paragraph)) {
-                return (
-                  <h2 key={index} className="text-2xl font-bold text-slate-800 mt-10 mb-4">
-                    {paragraph}
-                  </h2>
-                );
-              }
-              
-              // Regular paragraph - check if it contains URLs to make them links
-              const urlRegex = /(https?:\/\/[^\s]+|www\.[^\s]+)/g;
-              const parts = paragraph.split(urlRegex);
-              
-              return (
-                <p key={index} className="text-slate-700 leading-relaxed mb-6">
-                  {parts.map((part, i) => {
-                    if (part.match(urlRegex)) {
-                      const url = part.startsWith('http') ? part : `https://${part}`;
-                      return (
-                        <a 
-                          key={i} 
-                          href={url} 
-                          className="text-slate-700 underline hover:text-slate-900"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          {part}
-                        </a>
-                      );
-                    }
-                    return part;
-                  })}
-                </p>
-              );
-            })}
+            <div 
+              dangerouslySetInnerHTML={{ __html: parseContentToHTML(article.content) }}
+            />
           </article>
         </div>
 

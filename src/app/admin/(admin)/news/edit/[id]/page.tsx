@@ -440,7 +440,7 @@ export default function EditNewsPage({ params }: { params: Promise<{ id: string 
                           <div>
                             <p className="text-sm font-medium text-gray-700 mb-2">Current Image:</p>
                             <Image
-                              src={`/images/news/${formData.imageUrl}`}
+                              src={`/api/images/${formData.imageUrl}`}
                               alt="Current"
                               width={200}
                               height={128}
@@ -763,7 +763,7 @@ export default function EditNewsPage({ params }: { params: Promise<{ id: string 
                     )}
                     {!uploadImage && formData.imageUrl && !imageRemoved && (
                       <Image
-                        src={`/images/news/${formData.imageUrl}`}
+                        src={`/api/images/${formData.imageUrl}`}
                         alt="Preview"
                         width={300}
                         height={200}

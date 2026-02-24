@@ -19,7 +19,7 @@ const NewsGrid = ({ newsData }: { newsData: INews[] }) => {
               <div className=" bg-gradient-to-br rounded-lg from-slate-300 to-slate-400 overflow-hidden">
 
                 <Image
-                  src={item?.imageUrl ? `/images/news/${item.imageUrl}` : '/logos/Amaca_Thera_Logo_PNG.png'}
+                  src={item?.imageUrl ? `/api/images/${item.imageUrl}` : '/logos/Amaca_Thera_Logo_PNG.png'}
                   alt={item?.mainHeading}
                   width={400}
                   height={208}

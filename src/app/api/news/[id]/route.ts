@@ -93,7 +93,7 @@ export async function DELETE(
 
 
 
-const UPLOAD_DIR = join(process.cwd(), 'public', 'images', 'news');
+const UPLOAD_DIR = join(process.cwd(), 'uploads', 'news');
 
 // Save image file
 async function saveImageFile(file: File): Promise<{ fileName: string }> {

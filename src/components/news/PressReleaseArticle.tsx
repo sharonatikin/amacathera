@@ -317,6 +317,27 @@ const PressReleaseArticle: React.FC = () => {
                       className="prose prose-slate max-w-none"
                       dangerouslySetInnerHTML={{ __html: parseContentToHTML(paragraph) }}
                     />
+              //                     return (
+              //   <p key={index} className="text-slate-700 leading-relaxed mb-6">
+              //     {parts.map((part, i) => {
+              //       if (part.match(urlRegex)) {
+              //         const url = part.startsWith('http') ? part : `https://${part}`;
+              //         return (
+              //           <a 
+              //             key={i} 
+              //             href={url} 
+              //             className="text-slate-700 underline hover:text-slate-900"
+              //             target="_blank"
+              //             rel="noopener noreferrer"
+              //           >
+              //             {part}
+              //           </a>
+              //         );
+              //       }
+              //       return part;
+              //     })}
+              //   </p>
+              // );
               // return (
               //   <p key={index} className="text-slate-700 leading-relaxed mb-6">
               //     {parts.map((part, i) => {

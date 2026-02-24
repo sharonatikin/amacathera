@@ -7,7 +7,7 @@ import { join } from 'path';
 import { existsSync } from 'fs';
 
 const SECRET_KEY = process.env.JWT_SECRET || 'your-secret-key';
-const UPLOAD_DIR = join(process.cwd(), 'public', 'images', 'news');
+const UPLOAD_DIR = join(process.cwd(), 'uploads', 'news');
 
 // Verify JWT token
 function verifyToken(token: string) {

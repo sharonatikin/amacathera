@@ -46,6 +46,7 @@ export async function POST(request: NextRequest) {
     await contact.save();
 
     // Send confirmation email to user
+    console.log(process.env.ADMIN_EMAIL);
     await sendEmail(
       email,
       'We Received Your Message - AmacaThera',

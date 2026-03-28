@@ -3,7 +3,7 @@ import nodemailer from 'nodemailer';
 function createTransporter() {
   return nodemailer.createTransport({
     host: 'smtp.hostinger.com',
-    port: 587,
+    port: 2525,
     secure: true,
     auth: {
       user: process.env.SMTP_USER,

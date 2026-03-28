@@ -4,7 +4,7 @@ function createTransporter() {
   return nodemailer.createTransport({
     host: 'smtp.hostinger.com',
     port: 2525,
-    secure: true,
+    secure: false,
     auth: {
       user: process.env.SMTP_USER,
       pass: process.env.SMTP_PASS,

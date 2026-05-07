@@ -26,7 +26,7 @@ const Publication = ({pub, index}:{pub: PublicationType,index: number}) => {
         <div className="flex-1 w-full">
           <div className="space-y-3 md:space-y-4">
             <p className="text-xs sm:text-sm font-semibold text-[#0f3a66] tracking-wide">
-              {pub.publicationDate} &bull; {pub.journal}
+              {pub.publicationDate.split('T')[0]} &bull; {pub.journal}
             </p>
             
             <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-slate-800 leading-tight">

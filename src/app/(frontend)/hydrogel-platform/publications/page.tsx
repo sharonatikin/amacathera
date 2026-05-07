@@ -41,7 +41,7 @@ const page = async () => {
 
   return (
     <div>
-      <BioEngineeringFounder />
+      {/* <BioEngineeringFounder /> */}
 
       {/* AmacaGel Platform */}
       {groupedPublications['AmacaGel Platform'] && (

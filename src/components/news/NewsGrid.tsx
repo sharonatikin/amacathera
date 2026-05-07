@@ -14,7 +14,7 @@ const NewsGrid = ({ newsData }: { newsData: INews[] }) => {
       <div className="max-w-7xl mx-auto px-6 py-12">
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {newsData.map((item, index) => (
-            <Link href={`/news/${item._id}`}  key={index} className="bg-white p-3 rounded-lg shadow-md overflow-hidden hover:shadow-2xl transition-shadow">
+            <Link href={`/news-and-events/news/${item._id}`}  key={index} className="bg-white p-3 rounded-lg shadow-md overflow-hidden hover:shadow-2xl transition-shadow">
               {/* Image */}
               <div className=" bg-gradient-to-br rounded-lg from-slate-300 to-slate-400 overflow-hidden">
 

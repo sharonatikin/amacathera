@@ -5,7 +5,7 @@ import React from 'react'
 
 const TeamCard = ({ member }:{member:{image:string,name:string,title:string,description:string,url:string}}) => {
   return (
-    <Link href={`/our-team/${member.url}`}  className="">
+    <Link href={`/about-us/our-team/${member.url}`}  className="">
       {/* Card Container */}
       <div className=" overflow-hidden flex flex-col items-center  flex-grow">
         {/* Image */}

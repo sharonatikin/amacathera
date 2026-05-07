@@ -157,7 +157,7 @@ export default function NewsSection({ newsData }: { newsData: INews[] }) {
                 {newsData[activeSlide].subHeading}
               </p>
               <div className="flex items-center justify-between gap-3 mt-2">
-                <Link href={`/news/${newsData[activeSlide]._id}`} className='bg-[#1e3a5f] hover:bg-[#2d5a8f] text-white px-6 py-3 rounded-lg font-semibold text-sm flex items-center gap-2 transition-colors cursor-pointer'>
+                <Link href={`/news-and-events/news/${newsData[activeSlide]._id}`} className='bg-[#1e3a5f] hover:bg-[#2d5a8f] text-white px-6 py-3 rounded-lg font-semibold text-sm flex items-center gap-2 transition-colors cursor-pointer'>
                   <span>Read More</span>
                   <ArrowRight className="w-4 h-4" />
                 </Link>

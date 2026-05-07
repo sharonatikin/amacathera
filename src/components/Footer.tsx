@@ -44,7 +44,7 @@ export default function Footer() {
             </div>
 
             {/* Navigation Links */}
-            <nav className="flex flex-wrap gap-x-4 sm:gap-x-6  mb-6">
+            <nav className="flex flex-wrap gap-x-4 sm:gap-x-6  mb-6 pr-10">
               {footerItems.map(
                 (item, index) => (
                   <div key={item}>

@@ -1,5 +1,40 @@
-export const navItems = ["Home", "News", "Our Team", "Publications", "Hydrogel Platform", "Pipeline", "Contact Us"];
-export const footerItems = ["Home", "News", "Our Team", "Publications", "Hydrogel Platform", "Pipeline", "Career", "Contact Us", "Sitemap"];
+export const navItems = [
+  { label: "Home", href: "/", subtabs: [] },
+  {
+    label: "News & Events",
+    href: "/news-and-events",
+    subtabs: [
+      { label: "Press Releases", href: "/news-and-events/press-releases" },
+      { label: "In the news", href: "/news-and-events/news" },
+      { label: "Events", href: "/news-and-events/events" },
+    ],
+  },
+  {
+    label: "About Us",
+    href: "/about-us",
+    subtabs: [
+      { label: "Our Team", href: "/about-us/our-team" },
+      { label: "Company", href: "/about-us/company" },
+      { label: "Board of Directors", href: "/about-us/board-of-directors" },
+      { label: "Investors", href: "/about-us/investors" },
+      { label: "Collaborations and Partnering", href: "/about-us/collaborations-and-partnering" },
+    ],
+  },
+  { 
+    label: "Hydrogel Platform", 
+    href: "/hydrogel-platform", 
+    subtabs: [
+      { label: "Our Platform", href: "/hydrogel-platform/our-platform" },
+      { label: "About AMT-143", href: "/hydrogel-platform/about-amt-143" },
+      { label: "Publications", href: "/hydrogel-platform/publications" }, // Kept as subtab
+      { label: "Frequently Asked Questions", href: "/hydrogel-platform/faq" },
+    ] 
+  },
+  { label: "Pipeline", href: "/pipeline", subtabs: [] },
+  { label: "Careers", href: "/careers", subtabs: [] },
+  { label: "Contact Us", href: "/contact-us", subtabs: [] },
+];
+export const footerItems = [ "Sitemap", "Home", "News & Events", "About Us", "Hydrogel Platform", "Pipeline", "Careers", "Contact Us",];
 export const teamMembers = [
   {
     name: "Dr. Molly Shoichet",

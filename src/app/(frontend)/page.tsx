@@ -14,14 +14,9 @@ export default function LandingPage() {
     <div className="min-h-screen w-full bg-gradient-to-br from-blue-50 via-slate-100 to-blue-100">
       <Banner/>
       <Hero />
-      <WhatWeDo/>
-      <ProblemSolution/>
-      <TechnologyHighlights/>
-      <FAQSection/>
-      <Partners/>
+      <section id="what-we-do"><WhatWeDo/></section>
+      <section id="pipeline"><Pipeline/></section>
       <GetInTouch/>
-      <Pipeline/>
-      <NewsSection/>
     </div>
   );
 }

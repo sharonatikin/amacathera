@@ -33,7 +33,7 @@ const ScienceTeam: React.FC = () => {
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
-          <h1 className="text-5xl font-bold text-slate-800">Science Team</h1>
+          <h1 className="text-5xl font-bold text-slate-800">The AmacaThera scientific team driving next-generation therapeutics</h1>
         </div>
 
         {/* Team Members Grid */}

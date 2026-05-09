@@ -4,9 +4,9 @@ export const navItems = [
     label: "News & Events",
     href: "/news-and-events",
     subtabs: [
-      { label: "Press Releases", href: "/news-and-events/press-releases" },
+      // { label: "Press Releases", href: "/news-and-events/press-releases" },
       { label: "In the news", href: "/news-and-events/news" },
-      { label: "Events", href: "/news-and-events/events" },
+      // { label: "Events", href: "/news-and-events/events" },
     ],
   },
   {
@@ -14,10 +14,10 @@ export const navItems = [
     href: "/about-us",
     subtabs: [
       { label: "Our Team", href: "/about-us/our-team" },
-      { label: "Company", href: "/about-us/company" },
-      { label: "Board of Directors", href: "/about-us/board-of-directors" },
-      { label: "Investors", href: "/about-us/investors" },
-      { label: "Collaborations and Partnering", href: "/about-us/collaborations-and-partnering" },
+      // { label: "Company", href: "/about-us/company" },
+      { label: "Board of Directors", href: "/about-us/our-team#board-of-directors" },
+      // { label: "Investors", href: "/about-us/investors" },
+      // { label: "Collaborations and Partnering", href: "/about-us/collaborations-and-partnering" },
     ],
   },
   { 

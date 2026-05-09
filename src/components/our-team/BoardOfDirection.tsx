@@ -6,7 +6,7 @@ import Image from 'next/image';
 
 const BoardOfDirectors: React.FC = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-100 to-slate-200 py-12 sm:py-16 px-4 sm:px-6 lg:px-4">
+    <section id="board-of-directors" className="min-h-screen bg-gradient-to-br from-slate-100 to-slate-200 py-12 sm:py-16 px-4 sm:px-6 lg:px-4">
       <div className="max-w-7xl mx-auto">
         {/* Mobile & Tablet Layout (< lg) */}
         <div className="lg:hidden space-y-8">
@@ -76,7 +76,7 @@ const BoardOfDirectors: React.FC = () => {
           }} />
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

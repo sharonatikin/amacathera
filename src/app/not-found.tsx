@@ -1,118 +1,135 @@
-// app/not-found.tsx
-'use client';
+'use client'
+import { ArrowRight, Home } from "lucide-react";
+import { useEffect, useState } from "react";
 
-import Link from 'next/link';
-import { useEffect, useState } from 'react';
+type Particle = { id: number; left: number; delay: number; duration: number; };
 
 export default function NotFound() {
-  const [mounted, setMounted] = useState(false);
+  const [particles, setParticles] = useState<Particle[]>([]);
 
   useEffect(() => {
-    setMounted(true);
+    // Generate animated particles for visual interest
+    const newParticles = Array.from({ length: 20 }).map((_, i) => ({
+      id: i,
+      left: Math.random() * 100,
+      delay: Math.random() * 0.5,
+      duration: 3 + Math.random() * 2,
+    }));
+    setParticles(newParticles);
   }, []);
 
   return (
-    <div className="min-h-screen w-full bg-gradient-to-br from-blue-50 via-slate-100 to-blue-100 flex items-center justify-center px-6">
-      
-      {/* Subtle background blobs */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute -top-32 -left-32 w-96 h-96 bg-blue-200/30 rounded-full blur-3xl" />
-        <div className="absolute -bottom-32 -right-32 w-96 h-96 bg-slate-200/40 rounded-full blur-3xl" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-blue-100/20 rounded-full blur-2xl" />
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-blue-50 flex flex-col items-center justify-center relative overflow-hidden px-4">
+      {/* Animated background particles */}
+      <div className="absolute inset-0 overflow-hidden">
+        {particles.map((particle) => (
+          <div
+            key={particle.id}
+            className="absolute w-1 h-1 bg-blue-400 rounded-full opacity-20"
+            style={{
+              left: `${particle.left}%`,
+              animation: `float ${particle.duration}s infinite ease-in-out`,
+              animationDelay: `${particle.delay}s`,
+            }}
+          />
+        ))}
       </div>
 
-      <div
-        className={`relative z-10 max-w-2xl w-full text-center transition-all duration-700 ${
-          mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
-        }`}
-      >
-        {/* Top Label */}
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/60 backdrop-blur-sm border border-blue-100 text-blue-700 text-xs font-semibold tracking-widest uppercase mb-8 shadow-sm">
-          <span className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse" />
-          Page Not Found
-        </div>
+      {/* Decorative circles */}
+      <div className="absolute top-10 left-10 w-32 h-32 bg-blue-200 rounded-full mix-blend-multiply filter blur-2xl opacity-20 animate-pulse" />
+      <div className="absolute bottom-10 right-10 w-40 h-40 bg-blue-300 rounded-full mix-blend-multiply filter blur-2xl opacity-20 animate-pulse" style={{ animationDelay: "2s" }} />
 
-        {/* 404 Large Text */}
-        <div className="relative mb-6">
-          <span className="text-[9rem] sm:text-[12rem] font-black text-blue-900/5 leading-none select-none absolute inset-0 flex items-center justify-center">
+      {/* Content */}
+      <div className="relative z-10 text-center max-w-2xl">
+        {/* 404 Number */}
+        <div className="mb-6">
+          <h1 className="text-8xl md:text-9xl font-bold bg-gradient-to-r from-blue-600 to-blue-900 bg-clip-text text-transparent mb-4">
             404
-          </span>
-          <div className="relative py-8">
-            {/* Molecule / Hydrogel SVG Icon */}
-            <svg
-              viewBox="0 0 120 120"
-              className="w-28 h-28 sm:w-36 sm:h-36 mx-auto mb-2"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              {/* Connecting lines */}
-              <line x1="60" y1="60" x2="20" y2="30" stroke="#93C5FD" strokeWidth="2" strokeDasharray="4 2" />
-              <line x1="60" y1="60" x2="100" y2="30" stroke="#93C5FD" strokeWidth="2" strokeDasharray="4 2" />
-              <line x1="60" y1="60" x2="20" y2="90" stroke="#93C5FD" strokeWidth="2" strokeDasharray="4 2" />
-              <line x1="60" y1="60" x2="100" y2="90" stroke="#93C5FD" strokeWidth="2" strokeDasharray="4 2" />
-              <line x1="60" y1="60" x2="60" y2="15" stroke="#BFDBFE" strokeWidth="2" strokeDasharray="4 2" />
-              <line x1="60" y1="60" x2="60" y2="105" stroke="#BFDBFE" strokeWidth="2" strokeDasharray="4 2" />
-              {/* Outer nodes */}
-              <circle cx="20" cy="30" r="7" fill="#DBEAFE" stroke="#3B82F6" strokeWidth="1.5" />
-              <circle cx="100" cy="30" r="7" fill="#DBEAFE" stroke="#3B82F6" strokeWidth="1.5" />
-              <circle cx="20" cy="90" r="7" fill="#DBEAFE" stroke="#3B82F6" strokeWidth="1.5" />
-              <circle cx="100" cy="90" r="7" fill="#DBEAFE" stroke="#3B82F6" strokeWidth="1.5" />
-              <circle cx="60" cy="15" r="5" fill="#EFF6FF" stroke="#93C5FD" strokeWidth="1.5" />
-              <circle cx="60" cy="105" r="5" fill="#EFF6FF" stroke="#93C5FD" strokeWidth="1.5" />
-              {/* Center node */}
-              <circle cx="60" cy="60" r="16" fill="#1E3A5F" />
-              <circle cx="60" cy="60" r="10" fill="#2563EB" />
-              <circle cx="60" cy="60" r="5" fill="white" opacity="0.9" />
-            </svg>
-          </div>
+          </h1>
+          <div className="h-1 w-24 mx-auto bg-gradient-to-r from-blue-600 to-blue-900 rounded-full" />
         </div>
 
-        {/* Heading */}
-        <h1 className="text-3xl sm:text-4xl font-bold text-blue-900 mb-3 leading-tight">
-          This page is in development
-        </h1>
+        {/* Headline */}
+        <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4 mt-8">
+          Page Not Found
+        </h2>
 
-        {/* Subtext */}
-        <p className="text-slate-500 text-base sm:text-lg leading-relaxed max-w-md mx-auto mb-10">
-          Just like our therapeutics, this feature is being carefully formulated. 
-          Check back soon — great things take time.
+        {/* Description */}
+        <p className="text-lg text-slate-600 mb-8 leading-relaxed">
+          We couldn't find the page you're looking for. It might have been moved, renamed, or no longer exists. Let us help you get back on track.
         </p>
 
-        {/* Progress bar */}
-        <div className="max-w-xs mx-auto mb-10">
-          <div className="flex justify-between text-xs text-slate-400 mb-1.5 font-medium">
-            <span>In Progress</span>
-            <span>Coming Soon</span>
-          </div>
-          <div className="h-1.5 w-full bg-blue-100 rounded-full overflow-hidden">
-            <div
-              className="h-full bg-gradient-to-r from-blue-600 to-blue-400 rounded-full transition-all duration-1000"
-              style={{ width: mounted ? '65%' : '0%' }}
-            />
+        {/* Suggested Links */}
+        <div className="mb-10 p-6 bg-white/60 backdrop-blur rounded-lg border border-blue-100">
+          <p className="text-sm text-slate-600 mb-4 font-semibold">Here are some helpful links:</p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <a
+              href="/"
+              className="flex items-center justify-center gap-2 px-4 py-2 bg-blue-50 hover:bg-blue-100 text-blue-900 rounded-lg transition font-medium text-sm"
+            >
+              <Home className="w-4 h-4" />
+              Home
+            </a>
+            <a
+              href="/about-us"
+              className="flex items-center justify-center gap-2 px-4 py-2 bg-blue-50 hover:bg-blue-100 text-blue-900 rounded-lg transition font-medium text-sm"
+            >
+              About Us
+            </a>
+            <a
+              href="/hydrogel-platform/our-platform"
+              className="flex items-center justify-center gap-2 px-4 py-2 bg-blue-50 hover:bg-blue-100 text-blue-900 rounded-lg transition font-medium text-sm"
+            >
+              Hydrogel Platform
+            </a>
+            <a
+              href="/pipeline"
+              className="flex items-center justify-center gap-2 px-4 py-2 bg-blue-50 hover:bg-blue-100 text-blue-900 rounded-lg transition font-medium text-sm"
+            >
+              Pipeline
+            </a>
           </div>
         </div>
 
-        {/* CTAs */}
-        <div className="flex flex-col sm:flex-row gap-3 justify-center">
-          <Link
+        {/* Primary CTA */}
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <a
             href="/"
-            className="px-6 py-3 bg-blue-900 text-white text-sm font-semibold rounded-xl hover:bg-blue-800 transition-colors duration-200 shadow-sm"
+            className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-900 text-white rounded-lg font-semibold hover:shadow-lg transition transform hover:scale-105"
           >
-            Back to Home
-          </Link>
-          <Link
+            Return to Home
+            <ArrowRight className="w-5 h-5" />
+          </a>
+          <a
             href="/contact-us"
-            className="px-6 py-3 bg-white/70 backdrop-blur-sm text-blue-900 text-sm font-semibold rounded-xl border border-blue-100 hover:bg-white transition-colors duration-200"
+            className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-blue-900 border-2 border-blue-900 rounded-lg font-semibold hover:bg-blue-50 transition"
           >
-            Contact Us
-          </Link>
+            Contact Support
+          </a>
         </div>
 
-        {/* Footer note */}
-        <p className="mt-12 text-xs text-slate-400 tracking-wide">
-          AmacaThera · Transforming Therapeutics
+        {/* Footer text */}
+        <p className="text-sm text-slate-500 mt-10">
+          If you believe this is an error, please{" "}
+          <a href="/contact-us" className="text-blue-600 hover:text-blue-900 font-semibold underline">
+            reach out to us
+          </a>
+          .
         </p>
       </div>
+
+      <style jsx>{`
+        @keyframes float {
+          0%, 100% {
+            transform: translateY(0px) translateX(0px);
+            opacity: 0.2;
+          }
+          50% {
+            transform: translateY(-20px) translateX(10px);
+            opacity: 0.5;
+          }
+        }
+      `}</style>
     </div>
   );
 }

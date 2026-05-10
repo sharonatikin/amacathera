@@ -13,11 +13,11 @@ export const navItems = [
     label: "About Us",
     href: "/about-us",
     subtabs: [
-      { label: "Our Team", href: "/about-us/our-team" },
-      // { label: "Company", href: "/about-us/company" },
-      { label: "Board of Directors", href: "/about-us/our-team#board-of-directors" },
-      // { label: "Investors", href: "/about-us/investors" },
-      // { label: "Collaborations and Partnering", href: "/about-us/collaborations-and-partnering" },
+      { label: "Company", href: "/about-us#company" },
+      { label: "Our Team", href: "/about-us#our-team" },
+      { label: "Board of Directors", href: "/about-us#board-of-directors" },
+      // { label: "Investors", href: "/about-us#investors" },
+      { label: "Collaborations and Partnering", href: "/about-us#collaborations-and-partnering" },
     ],
   },
   { 
@@ -43,6 +43,14 @@ export const teamMembers = [
     image: "/images/team/molly-shoichet.png",
     url:"molly-shoichet",
     colification:"PhD"
+  },
+  {
+    name: "Andrew Bishop",
+    title: "Chief Financial Officer",
+    description: "Andrew Bishop is responsible for the financial strategy and operations of AmacaThera. He brings extensive experience in finance and investment management to support the company's growth and development.",
+    image: "/images/team/andrew-bishop.png",
+    url:"andrew-bishop",
+    colification:"CFA"
   },
   {
     name: "Abhaya Khulbe",

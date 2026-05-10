@@ -1,6 +1,4 @@
 // lib/searchUtils.ts
-// Comprehensive search index for all pages and sections
-
 export interface SearchResult {
   id: string;
   title: string;
@@ -12,10 +10,10 @@ export interface SearchResult {
 }
 
 export const searchDatabase: SearchResult[] = [
-  // Home Page
+  // Home
   {
     id: 'home-hero',
-    title: 'Welcome to Amacathera',
+    title: 'Welcome to AmacaThera',
     description: 'Leading biotechnology company focused on innovative hydrogel solutions for pain relief',
     url: '/',
     category: 'Home',
@@ -31,172 +29,97 @@ export const searchDatabase: SearchResult[] = [
     section: 'Innovation',
   },
 
-  // About Us
+  // About Us — main
   {
-    id: 'about-company',
-    title: 'About Amacathera',
-    description: 'Company overview, mission, and vision for advancing healthcare',
-    url: '/about',
+    id: 'about-overview',
+    title: 'About Us',
+    description: 'AmacaThera at the forefront of transforming drug delivery through its hydrogel platform',
+    url: '/about-us',
     category: 'About Us',
-    keywords: ['about', 'company', 'mission', 'vision'],
-  },
-  {
-    id: 'about-history',
-    title: 'Our Story',
-    description: 'History and journey of Amacathera from inception to innovation leader',
-    url: '/about',
-    category: 'About Us',
-    keywords: ['history', 'story', 'founded', 'development'],
-    section: 'Our Story',
+    keywords: ['about', 'company', 'amacathera', 'overview'],
   },
 
-  // Our Team
+  // About Us → Company
   {
-    id: 'team-leadership',
-    title: 'Leadership Team',
-    description: 'Meet the experienced executives leading Amacathera',
-    url: '/our-team',
-    category: 'Company',
-    keywords: ['team', 'leadership', 'executives', 'management'],
+    id: 'about-company',
+    title: 'Company',
+    description: 'Headquartered in Toronto, AmacaThera emerged in 2016 as a spin-out from The Shoichet Lab',
+    url: '/about-us#company',
+    category: 'About Us',
+    keywords: ['company', 'toronto', 'shoichet', 'history', 'founded', '2016'],
+    section: 'Company',
+  },
+
+  // About Us → Our Team
+  {
+    id: 'about-team',
+    title: 'Our Team',
+    description: 'Leadership and scientific team bringing expertise in business, science, and engineering',
+    url: '/about-us#our-team',
+    category: 'About Us',
+    keywords: ['team', 'leadership', 'management', 'scientists', 'executives'],
+    section: 'Our Team',
   },
   {
-    id: 'team-board',
-    title: 'Board of Directors',
-    description: 'Board members bringing expertise and vision to the company',
-    url: '/our-team',
-    category: 'Company',
-    keywords: ['board', 'directors', 'governance', 'advisors'],
-    section: 'Board of Directors',
+    id: 'about-team-senior',
+    title: 'Senior Management Team',
+    description: 'Meet the executive team including Co-Founders Dr. Mike Cooke and Dr. Molly Shoichet',
+    url: '/about-us#our-team',
+    category: 'About Us',
+    keywords: ['senior', 'management', 'ceo', 'cso', 'cooke', 'shoichet', 'executives'],
+    section: 'Senior Management Team',
   },
   {
-    id: 'team-science',
+    id: 'about-team-scientific',
     title: 'Scientific Team',
-    description: 'Renowned scientists and researchers driving innovation',
-    url: '/our-team',
-    category: 'Company',
-    keywords: ['science', 'research', 'scientists', 'experts'],
+    description: 'Renowned scientists and researchers driving next-generation therapeutics',
+    url: '/about-us#our-team',
+    category: 'About Us',
+    keywords: ['science', 'research', 'scientists', 'biomaterials', 'formulations'],
     section: 'Scientific Team',
   },
 
-  // Hydrogel Platform
+  // About Us → Board of Directors
   {
-    id: 'hydrogel-overview',
-    title: 'Hydrogel Platform',
-    description: 'Our proprietary hydrogel technology platform for pain management',
-    url: '/hydrogel-platform',
-    category: 'Technology',
-    keywords: ['hydrogel', 'platform', 'technology', 'innovation'],
-  },
-  {
-    id: 'hydrogel-properties',
-    title: 'Platform Properties',
-    description: 'Key characteristics and advantages of our hydrogel solution',
-    url: '/hydrogel-platform',
-    category: 'Technology',
-    keywords: ['properties', 'characteristics', 'benefits', 'advantages'],
-    section: 'Platform Properties',
-  },
-  {
-    id: 'hydrogel-applications',
-    title: 'Applications',
-    description: 'Clinical and therapeutic applications of our hydrogel platform',
-    url: '/hydrogel-platform',
-    category: 'Technology',
-    keywords: ['applications', 'clinical', 'therapeutic', 'treatment'],
-    section: 'Applications',
-  },
-  {
-    id: 'hydrogel-faq',
-    title: 'Hydrogel FAQ',
-    description: 'Frequently asked questions about our hydrogel platform',
-    url: '/hydrogel-platform/freequently-asked-questions',
-    category: 'Technology',
-    keywords: ['faq', 'questions', 'answers', 'hydrogel'],
-    section: 'Frequently Asked Questions',
+    id: 'about-board',
+    title: 'Board of Directors',
+    description: 'Seasoned board providing strategic oversight to advance hydrogel drug delivery',
+    url: '/about-us#board-of-directors',
+    category: 'About Us',
+    keywords: ['board', 'directors', 'governance', 'oversight', 'strategic'],
+    section: 'Board of Directors',
   },
 
-  // AMT (Product)
+  // About Us → Investors
   {
-    id: 'amt-overview',
-    title: 'AMT-143',
-    description: 'Our breakthrough pain relief product based on hydrogel technology',
-    url: '/AMT',
-    category: 'Product',
-    keywords: ['amt', 'amt-143', 'product', 'pain relief'],
-  },
-  {
-    id: 'amt-benefits',
-    title: 'AMT-143 Benefits',
-    description: 'Key benefits and efficacy of AMT-143 treatment',
-    url: '/AMT',
-    category: 'Product',
-    keywords: ['benefits', 'efficacy', 'treatment', 'relief'],
-    section: 'Benefits',
-  },
-  {
-    id: 'amt-clinical',
-    title: 'Clinical Data',
-    description: 'Clinical trial results and efficacy data for AMT-143',
-    url: '/AMT',
-    category: 'Product',
-    keywords: ['clinical', 'trial', 'data', 'efficacy'],
-    section: 'Clinical Data',
-  },
-  {
-    id: 'amt-information',
-    title: 'AMT-143 Information',
-    description: 'Detailed information about AMT-143 composition and mechanism',
-    url: '/AMT',
-    category: 'Product',
-    keywords: ['information', 'composition', 'mechanism', 'details'],
-    section: 'Information',
+    id: 'about-investors',
+    title: 'Investors',
+    description: 'AmacaThera is backed by committed investors including Lumira Ventures, BioCapital, MaRS IAF and CCRM',
+    url: '/about-us#investors',
+    category: 'About Us',
+    keywords: ['investors', 'lumira', 'biocapital', 'mars', 'ccrm', 'funding', 'venture'],
+    section: 'Investors',
   },
 
-  // Pipeline
+  // About Us → Collaborations and Partnering
   {
-    id: 'pipeline-overview',
-    title: 'Development Pipeline',
-    description: 'Current and upcoming products in our development pipeline',
-    url: '/pipeline',
-    category: 'Pipeline',
-    keywords: ['pipeline', 'development', 'products', 'future'],
-  },
-  {
-    id: 'pipeline-stage1',
-    title: 'Pre-Clinical Development',
-    description: 'Early-stage research and pre-clinical studies',
-    url: '/pipeline',
-    category: 'Pipeline',
-    keywords: ['pre-clinical', 'research', 'studies', 'development'],
-    section: 'Pre-Clinical',
-  },
-  {
-    id: 'pipeline-stage2',
-    title: 'Clinical Trials',
-    description: 'Ongoing and completed clinical trial programs',
-    url: '/pipeline',
-    category: 'Pipeline',
-    keywords: ['clinical trials', 'phase', 'fda', 'testing'],
-    section: 'Clinical Trials',
-  },
-  {
-    id: 'pipeline-stage3',
-    title: 'Regulatory Review',
-    description: 'Products in regulatory review and approval process',
-    url: '/pipeline',
-    category: 'Pipeline',
-    keywords: ['regulatory', 'approval', 'fda', 'review'],
-    section: 'Regulatory Review',
+    id: 'about-collaborations',
+    title: 'Collaborations and Partnering',
+    description: 'Partnering with pharmaceutical companies to enhance drug candidates using our hydrogel platform',
+    url: '/about-us#collaborations-and-partnering',
+    category: 'About Us',
+    keywords: ['collaborations', 'partnering', 'pharma', 'partnerships', 'enquiries', 'info@amacathera.com'],
+    section: 'Collaborations and Partnering',
   },
 
-  // News & Events
+  // News
   {
     id: 'news-overview',
-    title: 'News & Events',
+    title: 'News',
     description: 'Latest news, press releases, and company announcements',
     url: '/news',
     category: 'News',
-    keywords: ['news', 'events', 'announcements', 'updates'],
+    keywords: ['news', 'events', 'announcements', 'updates', 'press'],
   },
   {
     id: 'news-pressrelease',
@@ -210,7 +133,7 @@ export const searchDatabase: SearchResult[] = [
   {
     id: 'news-inthenews',
     title: 'In the News',
-    description: 'Coverage of Amacathera in news media and publications',
+    description: 'Coverage of AmacaThera in news media and publications',
     url: '/news',
     category: 'News',
     keywords: ['media coverage', 'press', 'article', 'publication'],
@@ -226,21 +149,58 @@ export const searchDatabase: SearchResult[] = [
     section: 'Events',
   },
 
-  // Publications
+  // Hydrogel Platform (Technology)
+  {
+    id: 'hydrogel-overview',
+    title: 'Hydrogel Platform',
+    description: 'Our proprietary hydrogel technology platform for drug delivery',
+    url: '/hydrogel-platform',
+    category: 'Technology',
+    keywords: ['hydrogel', 'platform', 'technology', 'innovation', 'drug delivery'],
+  },
+  {
+    id: 'hydrogel-properties',
+    title: 'Platform Properties',
+    description: 'Key characteristics and advantages of our hydrogel solution',
+    url: '/hydrogel-platform',
+    category: 'Technology',
+    keywords: ['properties', 'characteristics', 'benefits', 'advantages', 'localized', 'sustained'],
+    section: 'Platform Properties',
+  },
+  {
+    id: 'hydrogel-applications',
+    title: 'Applications',
+    description: 'Clinical and therapeutic applications of our hydrogel platform',
+    url: '/hydrogel-platform',
+    category: 'Technology',
+    keywords: ['applications', 'clinical', 'therapeutic', 'treatment'],
+    section: 'Applications',
+  },
+  {
+    id: 'hydrogel-faq',
+    title: 'Hydrogel FAQ',
+    description: 'Frequently asked questions about our hydrogel platform',
+    url: '/hydrogel-platform/frequently-asked-questions',
+    category: 'Technology',
+    keywords: ['faq', 'questions', 'answers', 'hydrogel'],
+    section: 'Frequently Asked Questions',
+  },
+
+  // Publications (now under Technology)
   {
     id: 'publications-overview',
     title: 'Publications',
-    description: 'Scientific publications and research papers',
+    description: 'Scientific publications and research papers from AmacaThera',
     url: '/publications',
-    category: 'Research',
-    keywords: ['publications', 'research', 'papers', 'scientific'],
+    category: 'Technology',
+    keywords: ['publications', 'research', 'papers', 'scientific', 'technology'],
   },
   {
     id: 'publications-peerreviewed',
     title: 'Peer-Reviewed Publications',
     description: 'Publications in peer-reviewed scientific journals',
     url: '/publications',
-    category: 'Research',
+    category: 'Technology',
     keywords: ['peer-reviewed', 'journal', 'research', 'scientific'],
     section: 'Peer-Reviewed',
   },
@@ -249,64 +209,64 @@ export const searchDatabase: SearchResult[] = [
     title: 'Conference Presentations',
     description: 'Presentations at scientific conferences and symposiums',
     url: '/publications',
-    category: 'Research',
+    category: 'Technology',
     keywords: ['conference', 'presentation', 'symposium', 'abstract'],
     section: 'Presentations',
   },
 
-  // Careers
+  // Pipeline
   {
-    id: 'careers-overview',
-    title: 'Join Our Team',
-    description: 'Career opportunities and employment at Amacathera',
-    url: '/career',
-    category: 'Careers',
-    keywords: ['careers', 'jobs', 'employment', 'opportunities'],
+    id: 'pipeline-overview',
+    title: 'Pipeline',
+    description: 'Current and upcoming products in our development pipeline',
+    url: '/pipeline',
+    category: 'Pipeline',
+    keywords: ['pipeline', 'development', 'products', 'future', 'amt-143'],
   },
   {
-    id: 'careers-positions',
-    title: 'Open Positions',
-    description: 'Current job openings and available positions',
-    url: '/career',
-    category: 'Careers',
-    keywords: ['positions', 'jobs', 'openings', 'employment'],
-    section: 'Open Positions',
+    id: 'pipeline-preclinical',
+    title: 'Pre-Clinical Development',
+    description: 'Early-stage research and pre-clinical studies',
+    url: '/pipeline',
+    category: 'Pipeline',
+    keywords: ['pre-clinical', 'research', 'studies', 'development'],
+    section: 'Pre-Clinical',
   },
   {
-    id: 'careers-culture',
-    title: 'Company Culture',
-    description: 'Our values, culture, and work environment',
-    url: '/career',
-    category: 'Careers',
-    keywords: ['culture', 'values', 'environment', 'team'],
-    section: 'Culture',
+    id: 'pipeline-clinical',
+    title: 'Clinical Trials',
+    description: 'Ongoing and completed clinical trial programs',
+    url: '/pipeline',
+    category: 'Pipeline',
+    keywords: ['clinical trials', 'phase', 'fda', 'testing'],
+    section: 'Clinical Trials',
   },
   {
-    id: 'careers-benefits',
-    title: 'Benefits & Compensation',
-    description: 'Competitive benefits and compensation packages',
-    url: '/career',
-    category: 'Careers',
-    keywords: ['benefits', 'compensation', 'salary', 'healthcare'],
-    section: 'Benefits',
+    id: 'pipeline-regulatory',
+    title: 'Regulatory Review',
+    description: 'Products in regulatory review and approval process',
+    url: '/pipeline',
+    category: 'Pipeline',
+    keywords: ['regulatory', 'approval', 'fda', 'review'],
+    section: 'Regulatory Review',
   },
 
-  // Contact
+  // Contact Us
   {
     id: 'contact-overview',
     title: 'Contact Us',
-    description: 'Get in touch with Amacathera team',
+    description: 'Get in touch with the AmacaThera team',
     url: '/contact-us',
     category: 'Contact',
-    keywords: ['contact', 'email', 'phone', 'address'],
+    keywords: ['contact', 'email', 'phone', 'address', 'info@amacathera.com'],
   },
   {
     id: 'contact-headquarters',
     title: 'Headquarters',
-    description: 'Main office location and contact information',
+    description: 'Main office location in Toronto, Canada',
     url: '/contact-us',
     category: 'Contact',
-    keywords: ['headquarters', 'office', 'location', 'address'],
+    keywords: ['headquarters', 'office', 'location', 'address', 'toronto'],
     section: 'Headquarters',
   },
   {
@@ -325,28 +285,22 @@ export function searchPages(query: string): SearchResult[] {
   if (!query.trim()) return [];
 
   const lowerQuery = query.toLowerCase();
+
   const results = searchDatabase
     .map((item) => {
       let score = 0;
 
-      // Exact title match (highest priority)
       if (item.title.toLowerCase() === lowerQuery) score += 100;
-      // Title contains query
       else if (item.title.toLowerCase().includes(lowerQuery)) score += 50;
 
-      // Description contains query
       if (item.description.toLowerCase().includes(lowerQuery)) score += 30;
 
-      // Keywords match
       item.keywords.forEach((keyword) => {
         if (keyword === lowerQuery) score += 40;
         else if (keyword.includes(lowerQuery)) score += 20;
       });
 
-      // Category match
       if (item.category.toLowerCase().includes(lowerQuery)) score += 15;
-
-      // Section match
       if (item.section?.toLowerCase().includes(lowerQuery)) score += 10;
 
       return { ...item, score };

@@ -13,7 +13,7 @@ interface TeamMember {
 const seniorTeam: TeamMember[] = [
   { name: "Dr. Mike Cooke", role: "Co-Founder & CEO", image: "/images/team/mikecooke.png", url: "mike-cooke" },
   { name: "Dr. Molly Shoichet", role: "Co-Founder & Chief Science Officer", image: "/images/team/mollyshoichet.png", url: "molly-shoichet" },
-  { name: "Andrew Bishop", role: "Chief Financial Officer", image: "/images/team/andrew.jpg", url: "andrew-bishop" },
+  { name: "Andrew Bishop", role: "Chief Financial Officer", image: "/images/team/andrew.jpg",  },
   { name: "Abhaya Khulbe CFA", role: "Chief of Staff & Materials Engineer", image: "/images/team/abhayakhulbe.png", url: "abhaya-khulbe" },
 ];
 
@@ -36,6 +36,9 @@ const scientificTeam: TeamMember[] = [
     image: "/images/team/elainereguera.png",
     url: "elaine-reguera",
   },
+  { name: "Lee Ann Girgotti", role: "Scientist", image: "", url: "" },
+  { name: "Neil Jurkiewiecz", role: "Scientist", image: "", url: "" },
+  { name: "Nazli Hassnepou", role: "Scientist", image: "", url: "" }
 ];
 
 const getInitial = (name: string) =>
@@ -43,9 +46,9 @@ const getInitial = (name: string) =>
 
 const TeamCard = ({ member }: { member: TeamMember }) => {
   const content = (
-    <>
+    <div className="flex flex-col items-center">
       {/* Avatar Box */}
-      <div className="w-80 aspect-square rounded-xl bg-[#0d2a4e] flex items-center justify-center mb-3 sm:mb-4 overflow-hidden">
+      <div className="w-70 aspect-square rounded-xl bg-[#0d2a4e] flex flex-1 items-center justify-center mb-3 sm:mb-4 overflow-hidden">
         {member.image ? (
           <img
             src={member.image}
@@ -65,7 +68,7 @@ const TeamCard = ({ member }: { member: TeamMember }) => {
       <p className="text-xs sm:text-sm text-slate-500 text-center mt-0.5 leading-snug">
         {member.role}
       </p>
-    </>
+    </div>
   );
 
   return member.url ? (
@@ -120,7 +123,7 @@ const OurTeam = () => {
         <p className="text-slate-400 text-sm sm:text-base font-light mb-6 sm:mb-8">
           The AmacaThera scientific team driving next-generation therapeutics
         </p>
-        <div className="flex flex-wrap justify-around gap-4 sm:gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 justify-center gap-4 sm:gap-6">
           {scientificTeam.map((member) => (
             <TeamCard key={member.name} member={member} />
           ))}

@@ -10,8 +10,11 @@ interface BoardMember {
 
 const boardMembers: BoardMember[] = [
   { name: "Gael Mourant" },
-  { name: "Peter van der Velden", role: "Partner, Lumira Ventures" },
+  { name: "Peter van der Velden",  },
   { name: "Dr. Eyal S Ron" },
+  { name: "Dr. Molly Shoichet", image: "/images/team/mollyshoichet.png" },
+  { name: "Dr. Mike Cooke", image: "/images/team/mikecooke.png" },
+  { name: "Gillian Stacey" }
 ];
 
 const getInitial = (name: string) => {
@@ -73,7 +76,7 @@ const BoardOfDirectors = () => {
       </div>
 
       {/* Board Cards */}
-      <div className="flex flex-col sm:flex-row gap-4 sm:gap-5">
+      <div className=" grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
         {boardMembers.map((member) => (
           <BoardCard key={member.name} member={member} />
         ))}

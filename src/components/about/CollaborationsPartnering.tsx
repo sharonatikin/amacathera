@@ -1,20 +1,152 @@
+'use client';
 // components/about/CollaborationsPartnering.tsx
-import React from 'react';
 import { Mail } from 'lucide-react';
+import Partners from '../Partners';
+import { useEffect, useRef } from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import Image from 'next/image';
 
-interface Partner {
-  name: string;
-  logo?: string;
-}
+gsap.registerPlugin(ScrollTrigger);
 
-const partners: Partner[] = [
-  { name: "Pharma Partner 1" },
-  { name: "Pharma Partner 2" },
-  { name: "Pharma Partner 3" },
-  { name: "Pharma Partner 4" },
-];
+
 
 const CollaborationsPartnering = () => {
+  const titleRef = useRef<HTMLHeadingElement>(null);
+  const subtitleRef = useRef<HTMLParagraphElement>(null);
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const scrollContentRef = useRef<HTMLDivElement>(null);
+  
+  const images = [
+    "/logos/Ontario Bio.png",
+    "/logos/Toronto.png",
+    "/logos/UTEST.png",
+    "/logos/Venture Labs.png",
+    "/logos/CREATIVE.png",
+    "/logos/pacira.png"
+  ];
+  
+  useEffect(() => {
+    // Title animation
+    if (titleRef.current) {
+      gsap.fromTo(
+        titleRef.current,
+        { opacity: 0, y: 40 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: titleRef.current,
+            start: "top 80%",
+            toggleActions: "play reverse play reverse",
+          },
+        }
+      );
+    }
+  
+    // Subtitle animation
+    if (subtitleRef.current) {
+      gsap.fromTo(
+        subtitleRef.current,
+        { opacity: 0, y: 30 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          delay: 0.2,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: subtitleRef.current,
+            start: "top 80%",
+            toggleActions: "play reverse play reverse",
+          },
+        }
+      );
+    }
+  
+    // Scroll container fade in
+    if (scrollContainerRef.current) {
+      gsap.fromTo(
+        scrollContainerRef.current,
+        { opacity: 0, scale: 0.95 },
+        {
+          opacity: 1,
+          scale: 1,
+          duration: 0.8,
+          delay: 0.3,
+          ease: "back.out",
+          scrollTrigger: {
+            trigger: scrollContainerRef.current,
+            start: "top 75%",
+            toggleActions: "play reverse play reverse",
+          },
+        }
+      );
+  
+      // Parallax effect on scroll
+      gsap.to(scrollContainerRef.current, {
+        y: -30,
+        scrollTrigger: {
+          trigger: scrollContainerRef.current,
+          start: "top center",
+          end: "bottom center",
+          scrub: 1,
+          markers: false,
+        },
+      });
+    }
+  
+    // Infinite scroll animation with GSAP
+    const scrollContent = scrollContentRef.current;
+    if (scrollContent) {
+      const scrollWidth = scrollContent.scrollWidth / 2; // Half because we duplicated the content
+      
+      const scrollAnimation = gsap.to(scrollContent, {
+        x: -scrollWidth,
+        duration: 20,
+        ease: "none",
+        repeat: -1,
+      });
+  
+      // Pause on hover
+      const handleMouseEnter = () => {
+        scrollAnimation.pause();
+      };
+  
+      const handleMouseLeave = () => {
+        scrollAnimation.resume();
+      };
+  
+      // Pause on touch for mobile
+      const handleTouchStart = () => {
+        scrollAnimation.pause();
+      };
+  
+      const handleTouchEnd = () => {
+        scrollAnimation.resume();
+      };
+  
+      scrollContent.addEventListener("mouseenter", handleMouseEnter);
+      scrollContent.addEventListener("mouseleave", handleMouseLeave);
+      scrollContent.addEventListener("touchstart", handleTouchStart);
+      scrollContent.addEventListener("touchend", handleTouchEnd);
+  
+      // Cleanup event listeners
+      return () => {
+        scrollContent.removeEventListener("mouseenter", handleMouseEnter);
+        scrollContent.removeEventListener("mouseleave", handleMouseLeave);
+        scrollContent.removeEventListener("touchstart", handleTouchStart);
+        scrollContent.removeEventListener("touchend", handleTouchEnd);
+        ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+      };
+    }
+  
+    return () => {
+      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+    };
+  }, []);
   return (
     <section id='collaborations-and-partnering' className="w-full bg-[#0d2a4e] px-6 sm:px-10 md:px-16 lg:px-20 py-16 sm:py-20">
 
@@ -47,34 +179,22 @@ const CollaborationsPartnering = () => {
       </div>
 
       {/* Partner Cards */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-5 mb-4 sm:mb-5">
-        {partners.map((partner) => (
+      <div ref={scrollContentRef} className="flex flex gap-12 md:gap-16 w-max overflow-hidden py-4">
+        {[...images,...images].map((partner, index) => (
           <div
-            key={partner.name}
-            className="bg-white/5 border border-white/10 rounded-2xl px-6 py-8 flex items-center justify-center min-h-[100px]"
+            key={index}
+            className="flex-shrink-0 bg-amber-50 border border-white/10 rounded-2xl flex items-center justify-center h-24 md:h-28 w-40 md:w-56 px-4 transition-all duration-300 hover:scale-110 hover:brightness-110"
           >
-            {partner.logo ? (
               <img
-                src={partner.logo}
-                alt={partner.name}
+              alt={`Partner ${(index % images.length) + 1}`}
+                src={partner}
                 className="max-h-10 object-contain"
               />
-            ) : (
-              <span className="text-sm text-white/50 font-light text-center leading-snug">
-                {partner.name}
-              </span>
-            )}
           </div>
         ))}
       </div>
-
-      {/* Partner logos note */}
-      <p className="text-center text-white/40 text-sm italic mb-8 sm:mb-10">
-        Partner logos will be added soon
-      </p>
-
       {/* Contact Card */}
-      <div className="w-full rounded-2xl border border-white/10 bg-white/5 px-6 sm:px-10 py-8 sm:py-10 flex flex-col items-center gap-5">
+      <div className="w-full rounded-2xl mt-10 border border-white/10 bg-white/5 px-6 sm:px-10 py-8 sm:py-10 flex flex-col items-center gap-5">
         <p className="text-white/70 text-sm sm:text-base font-light text-center">
           For partnership enquiries and opportunities with AmacaThera, reach out to us at
         </p>

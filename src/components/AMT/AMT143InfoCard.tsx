@@ -61,13 +61,10 @@ const AMT143InfoCard = () => {
 
       {/* ── DESKTOP VIEW (unchanged) ── */}
       <div className="hidden lg:block" style={{ position: 'relative', width: '100%', height: '100vh' }}>
-        <Image
+        <img
           src='/images/amtinfo-bg.png'
           alt="Background"
-          layout="fill"
-          objectFit="cover"
-          quality={100}
-          priority
+          className="absolute inset-0 w-full h-full object-cover"
         />
         <div className="relative z-10 px-50 mt-25">
           <div className="mb-8 relative z-10">

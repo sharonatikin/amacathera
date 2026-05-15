@@ -6,18 +6,18 @@ const HeroSection = () => {
   const stages = ['discovery', 'preClinical', 'phase1'] as const
   return (
     <>
-      <div className="relative min-h-[200vh] md:min-h-screen w-screen overflow-hidden">
+      <div className="relative mt-30 md:mt-0 min-h-[230vh] md:min-h-screen w-screen overflow-hidden">
         <img
           src="/images/pipeline-bg.png"
           alt="Hero"
           className="w-full min-w-200 md:block hidden h-full object-cover"
         />
-        <img
+        {/* <img
           src="/images/pipeline-mb-bg.png"
           alt="Hero"
           className="w-full pt-18 md:hidden h-full object-cover"
-        />
-        <div className='md:top-30 md:left-50 top-30 left-10 absolute'>
+        /> */}
+        <div className='md:top-30 md:left-50 top-30 left-10 ml-5 md:ml-0 md:absolute'>
 
           <h1 className='font-extrabold text-[#003d6b] text-6xl lg:text-[17vw]'>Pipeline</h1>
         </div>

@@ -1,60 +1,53 @@
-import Image from 'next/image';
 import React from 'react';
+import Image from 'next/image';
 
-const PainReliefHero: React.FC = () => {
+const WhyFortyEightHours: React.FC = () => {
   return (
-    <div className="relative min-h-screen  items-center w-full h-screen overflow-hidden bg-gradient-to-t from-blue-60 via-white to-slate-100">
-      {/* Background Image */}
-      <div className="md:hidden flex items-center justify-center px-6 py-6">
-        <div className="max-w-lg">
-          <h1 className="text-4xl font-bold text-[#003260] leading-tight">
-            Why <span className="font-extrabold">48 hours</span> is a magic number for pain relief
-          </h1>
-      <div className="md:block absolute inset-0  bg-gradient-to-t via-white/80 via-70%  to-transparent" />
-        </div>
-      </div>
-      <Image
-        src="/images/painrelief-bg.png"
-        alt="Pain Relief Background Desktop"
-        width={1920}
-        height={1080}
-        className="inset-0 hidden md:block w-full h-full object-cover"
-      />
-      <Image
-        src="/images/amt-img-mb.png"
-        alt="Pain Relief Background Mobile"
-        width={1080}
-        height={1920}
-        className="inset-0 md:hidden w-full h-full object-cover"
-      />
+    <div className="w-full bg-white px-8 sm:px-12 md:px-16 lg:px-20 py-16 sm:py-20 flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
 
-      {/* White gradient overlay from left to right */}
-      <div className="md:block hidden absolute inset-0 bg-gradient-to-r  from-white/20 via-white/40 to-white  to-transparent" />
-      <div className="md:block hidden absolute inset-0 bg-gradient-to-t  from-white/80 via-transparent to-white/80  to-transparent" />
+      {/* LEFT CONTENT */}
+      <div className="w-full lg:w-1/2 flex flex-col justify-center">
 
-      {/* Content Container */}
-      <div className="absolute inset-0 flex items-center justify-end">
-        {/* Left spacing - image area */}
-        <div className="w-1/2 h-full" />
+        {/* Heading */}
+        <h2 className="text-4xl sm:text-5xl font-bold text-[#0d2a4e] leading-tight mb-10">
+          Why 48 hours is a magic number for pain relief
+        </h2>
 
-        {/* Right content area */}
-        <div className="w-1/2 h-full flex flex-col items-start justify-center px-12 lg:px-16">
-          {/* White shadow box effect behind text */}
-          <div className="relative">
-            {/* Subtle white shadow/glow effect */}
-            <div className="absolute -inset-6 bg-white/40 rounded-lg blur-2xl" />
-
-            {/* Heading text */}
-            <h1 className="relative hidden md:block text-5xl lg:text-6xl font-bold text-[#003260] leading-tight max-w-xl">
-              Why <span className="font-extrabold">48 hours</span> is a magic number for pain relief
-            </h1>
-          </div>
+        {/* Paragraphs */}
+        <div className="space-y-8">
+          <p className="text-sm sm:text-base text-slate-700 leading-relaxed">
+            During the development of AMT-143, we engaged extensively with numerous surgeons to gain insights
+            into their clinical routines and to better understand patient experiences following surgery. Surgeons
+            consistently highlighted that patients typically endure the most intense pain during the initial
+            post-operative period. By offering an opioid-free pain management solution at this critical juncture,
+            AMT-143 has the potential to not only improve patient comfort but also significantly reduce the risk
+            of opioid dependency, thereby supporting improved surgical outcomes.
+          </p>
+          <p className="text-sm sm:text-base text-slate-700 leading-relaxed">
+            To address this clinical need, AMT-143 has been carefully engineered to provide sustained release of
+            its analgesic agent over a targeted three-day period. Preclinical evaluations indicate that, as the
+            hydrogel formulation gradually acclimatizes to body temperature, the encapsulated drug is steadily
+            released and absorbed, ensuring prolonged and effective pain relief throughout the most challenging
+            phase of recovery.
+          </p>
         </div>
       </div>
 
-      {/* Mobile responsive adjustment */}
+      {/* RIGHT IMAGE — circle with navy border */}
+      <div className="w-full lg:w-1/2 flex items-center justify-center flex-shrink-0">
+        <div className="relative w-72 h-72 sm:w-96 sm:h-96 lg:w-[480px] lg:h-[480px] rounded-full border-[6px] border-[#0d2a4e] overflow-hidden flex-shrink-0">
+          <Image
+            src="/images/amt2-bg.png"
+            alt="Patient experiencing post-operative pain"
+            fill
+            className="object-cover object-center"
+            priority
+          />
+        </div>
+      </div>
+
     </div>
   );
 };
 
-export default PainReliefHero;
+export default WhyFortyEightHours;

@@ -24,19 +24,19 @@ const InpatientSurgerySection: React.FC = () => {
       <div className="w-full lg:w-1/2 flex flex-col justify-center">
 
         {/* Heading */}
-        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0d2a4e] leading-tight mb-10">
+        <h2 className="text-center text-sm sm:text-4xl lg:text-5xl font-bold text-[#0d2a4e] leading-tight mb-10">
           Each year, 51 million Americans have inpatient surgery, with opioids still widely used for acute post-operative pain relief
         </h2>
 
         {/* Paragraphs */}
         <div className="space-y-8">
-          <p className="text-sm sm:text-base text-slate-700 leading-relaxed">
+          <p className="text-xs text-center sm:text-base text-slate-700 leading-relaxed">
             Each year, around 51 million Americans undergo inpatient surgery, with opioids remaining the
             predominant choice for managing acute post-operative pain. The financial burden associated with
             prescription opioid overdoses, abuse, and dependency surpasses $78.5 billion annually, primarily
             due to healthcare expenses, substance abuse treatment, and lost productivity.
           </p>
-          <p className="text-sm sm:text-base text-slate-700 leading-relaxed">
+          <p className="text-xs text-center sm:text-base text-slate-700 leading-relaxed">
             AMT-143 is uniquely positioned to bridge this critical gap in pain management. At present, the
             greatest challenge in this market is the lack of a single-dose analgesic that can reliably provide
             more than 48 hours of effective post-surgical pain relief.

@@ -8,14 +8,15 @@ const AMT143InfoCard = () => {
 
         {/* Top image section with brand tag overlay */}
         <div className="relative w-full h-72 sm:h-80">
-          <Image
+          {/* <Image
             src='/images/amtinfo-bg.jpeg'
             alt="AMT-143 Background"
             fill
             className="object-cover object-right"
             quality={100}
             priority
-          />
+          /> */}
+          <img src="/images/amt-fullbg.png" className="object-cover object-right" alt="AMT-143 Background" />
           {/* Brand tag top-left */}
           <div className="absolute top-4 left-4 z-10">
             <span className="inline-block bg-white border border-[#0d2a4e] text-[#0d2a4e] text-[10px] font-semibold tracking-[0.25em] uppercase px-3 py-1.5">
@@ -61,7 +62,7 @@ const AMT143InfoCard = () => {
       {/* ── DESKTOP VIEW (unchanged) ── */}
       <div className="hidden lg:block" style={{ position: 'relative', width: '100%', height: '100vh' }}>
         <Image
-          src='/images/amt-fullbg.png'
+          src='/images/amtinfo-bg.png'
           alt="Background"
           layout="fill"
           objectFit="cover"

@@ -1,46 +1,46 @@
-import React from 'react';
-import { Syringe, CheckCircle, Activity } from 'lucide-react';
-import Image from 'next/image';
+import Image from 'next/image';// Path from your component to the image in 'public'
 
-const AMT143InfoCard: React.FC = () => {
+const AMT143InfoCard = () => {
   return (
-    <div className="min-h-screen b p-8 flex items-center justify-center">
-      <div className=" w-full">
-        <div className=" overflow-hidden">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-            {/* Right Image Section */}
-            <div className="relative  flex items-center justify-center ">
-              <Image
-                src="/images/amtpage-bg.png"
-                alt="AMT-143 Illustration"
-                width={1200}
-                height={800}
-                className="lg:max-w-7xl w-full h-auto"
-              />
-            </div>
-            {/* Left Content Section */}
-            <div className="p-12 lg:p-16 lg:col-start-1 lg:row-start-1 flex flex-col justify-center bg-gradient-to-br ">
-              <div className="space-y-6">
-                <h1 className="text-3xl lg:text-3xl font-bold text-slate-900 leading-tight">
-                  Bringing AMT-143 to market would benefit patients, doctors and other healthcare stakeholders who are concerned about the impact of addictive medications.
-                </h1>
-                
-                <div className="space-y-4 text-slate-700">
-                  <p className="text-lg leading-relaxed">
-                    Without altering the way surgeons currently practice, AMT-143 is locally injected via syringe at the time of surgery, and has been calibrated to provide sustained post-operative pain control to enable patients to get through to recovery.
-                  </p>
-                  
-                  <div className="flex items-start gap-3 bg-emerald-50 p-4 rounded-xl border border-emerald-100">
-                    <CheckCircle className="w-6 h-6 text-emerald-600 flex-shrink-0 mt-1" />
-                    <p className="text-base text-slate-800">
-                      In July 2020, AmacaThera received approval from Health Canada to proceed into Phase 1 Clinical Trials for AMT-143.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
+    <div style={{ position: 'relative', width: '100%', height: '100vh' }}>
+      <Image
+        src='/images/amt-fullbg.png' // Path to your image in the 'public' folder
+        alt="Background"
+        layout="fill" // Ensures the image fills the parent container
+        objectFit="cover" // Controls how the image scales and crops
+        quality={100} // Adjust image quality (0-100)
+        priority // Preloads this important image
+      />
+      <div className='relative z-10 px-50 mt-25' >     
+        <div className="mb-8 relative z-10">
+          <span className="inline-block border border-[#0d2a4e] text-[#0d2a4e] text-[10px] sm:text-xs font-semibold tracking-[0.25em] uppercase px-3 py-1.5">
+            AMACA THERA
+          </span>
+        </div>
 
-          </div>
+        {/* Heading */}
+        <h2 className="text-xl sm:text-xl md:text-2xl font-bold text-[#0d2a4e] leading-snug max-w-xl mb-8 relative z-10">
+          The introduction of AMT-143 to the market will offer significant benefits to patients, clinicians, and the wider healthcare community seeking alternatives to addictive medications
+        </h2>
+
+        {/* Body paragraphs */}
+        <div className="space-y-5 max-w-lg relative z-10">
+          <p className="text-xs sm:text-base text-slate-600 leading-relaxed">
+            AMT-143 (AmacaGel) is an innovative, long-acting, non-opioid anesthetic designed for post-operative
+            pain management. Utilizing AmacaThera&apos;s advanced, tunable hydrogel drug delivery platform, AMT-143
+            delivers a sustained, localized release of ropivacaine directly to the surgical site.
+          </p>
+          <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
+            This approach enables effective pain relief without the need to change established surgical practices.
+            AMT-143 is administered via local injection with a pre-filled syringe during surgery. The formulation is
+            specifically optimized to maintain pain control throughout the critical post-operative period,
+            supporting patient comfort and facilitating a smoother recovery.
+          </p>
+          <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
+            AMT-143 has undergone clinical evaluation in a Phase 1 trial, demonstrating a sustained release of
+            ropivacaine for up to 14 days. The program is now progressing towards Phase 2 clinical development in
+            partnership with Pacira BioSciences, with the next phase anticipated to begin in 2026.
+          </p>
         </div>
       </div>
     </div>

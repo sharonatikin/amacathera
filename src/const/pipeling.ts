@@ -59,19 +59,19 @@ export const pipelineData = [
 
 export const pipelineContent = [
   {
-    image: 'icon5.png',
+    image: ['icon9.png','icon9-dark.png'] ,
     description: 'High dose, localized depot for days to weeks therapeutic delivery',
     title: 'Fixed Dose',
     bg: '[#0f3a66]'
   },
   {
-    image: 'human.png',
+    image: ['icon11.png','icon11-dark.png'] ,
     description: 'From post-surgical pain to oncology and beyond — we tackle locations conventional delivery struggles to reach.',
     title: 'Fixed Dose Combo',
-    bg: 'white'
+    bg: '[#0f3a66]'
   },
   {
-    image: 'icon6.png',
+    image: ['icon10.png','icon10-dark.png'],
     description: 'Moving rapidly from bench to bedside: CMC-manufactured human safety data, multi-modal payloads.',
     title: 'Smart Materials',
     bg: '[#0f3a66]'

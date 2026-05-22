@@ -6,7 +6,7 @@ const HeroSection = () => {
   const stages = ['discovery', 'preClinical', 'phase1'] as const
   return (
     <>
-      <div className="relative mt-30 md:mt-0 min-h-[230vh] md:min-h-screen w-screen overflow-hidden">
+      <div className="relative mt-30 md:mt-0 min-h-[180vh] max-h-[180vh] md:min-h-screen md:max-h-[150vh] lg:max-h-[220vh] w-screen overflow-hidden">
         <img
           src="/images/pipeline-bg.png"
           alt="Hero"
@@ -17,15 +17,15 @@ const HeroSection = () => {
           alt="Hero"
           className="w-full pt-18 md:hidden h-full object-cover"
         /> */}
-        <div className='md:top-30 md:left-50 top-30 left-10 ml-5 md:ml-0 md:absolute'>
+        <div className='md:top-30  md:left-50 top-30 left-10 ml-10 md:ml-0 md:absolute'>
 
           <h1 className='font-extrabold text-[#003d6b] text-6xl lg:text-[17vw]'>Pipeline</h1>
         </div>
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-slate-100 via-white/80"></div>
+        <div className="absolute inset-x-0 bottom-0 h-300 bg-gradient-to-b from-transparent to-slate-100 via-white/80"></div>
         {/* Hero Section */}
-        <div className="md:top-130  md:max-w-2xl  md:left-1/2 md:-translate-x-1/2 absolute w-full flex items-center justify-center px-6 py-20 ">
+        <div className="md:top-80 lg:top-130  md:max-w-2xl  md:left-1/2 md:-translate-x-1/2 absolute w-full flex items-center justify-center px-6 py-20 ">
 
-          <div className=" max-w-105 md:max-w-[50vw]">
+          <div className=" max-w-130 md:border-none border border-4 rounded-2xl p-2   md:max-w-[60vw]">
             
             <div className="grid grid-cols-6  py-4 text-[#003d6b]">
               <div className=" col-span-3 font-bold text-sm text-start lg:text-base ">

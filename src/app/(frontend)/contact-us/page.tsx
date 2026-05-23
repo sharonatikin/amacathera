@@ -65,7 +65,8 @@ const ContactSection: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen relative overflow-hidden">
+    <>
+    <div className="min-h-screen relative ">
       {/* Background Image - Using Next.js Image Component */}
       <Image
         src="/images/contact-bg.png"
@@ -167,6 +168,55 @@ const ContactSection: React.FC = () => {
         </div>
       </div>
     </div>
+      <div className=" border m-5 md:m-20  shadow-2xl rounded-2xl overflow-hidden flex flex-col sm:flex-row items-stretch min-h-[220px]">
+      {/* Image */}
+      <div className="relative m-4 hidden md:block  sm:w-[45%] w-full h-56 sm:h-auto  rounded-2xl overflow-hidden flex-shrink-0">
+        <Image
+          src="/images/contact-img.png"
+          alt="Media Enquiries"
+          fill
+          className="lg:object-cover "
+        />
+      </div>
+
+      {/* Content */}
+      <div className="flex flex-col justify-center lg:ml-20  gap-4 px-6 sm:px-8 py-8 flex-1">
+        <h2 className="text-2xl font-bold text-[#1a3f6f]">Media Enquiries</h2>
+
+        <div className="flex flex-col gap-0.5">
+          <p className="text-sm text-gray-500">Optimum Strategic Communications</p>
+          <p className="text-sm text-gray-500">The Spice Building</p>
+          <p className="text-sm text-gray-500">8 Devonshire Square</p>
+          <p className="text-sm text-gray-500">London EC2M 4PL</p>
+        </div>
+
+        <div className="flex items-center gap-3 mt-1">
+          <div className="md:w-9 md:h-9 w-5 h-5 rounded-full border-[1.5px] border-[#1a3f6f] flex items-center justify-center flex-shrink-0">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="w-4 h-4 text-[#1a3f6f]"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth={1.8}
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+              />
+            </svg>
+          </div>
+          <a
+            href="mailto:amacathera@optimumcomms.com"
+            className="md:text-sm text-xs text-[#1a3f6f] underline underline-offset-2"
+          >
+            amacathera@optimumcomms.com
+          </a>
+        </div>
+      </div>
+    </div>
+    </>
   );
 };
 

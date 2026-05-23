@@ -1,7 +1,7 @@
 import { Syringe, Beaker, ArrowRight, Sparkles } from 'lucide-react';
 import PlatformCard from '../ui/PlatformCard';
 
-export default function HydrogelPlatform({content, title}:{content: {image:string,description:string,title:string,bg:string}[], title?:string}) {
+export default function HydrogelPlatform({content, title}:{content: {image:string[],description:string,title:string,bg:string}[], title?:string}) {
 
   return (
     <div className="w-full min-h-screen bg-gradient-to-b from-white to-gray-50 px-6 py-20">

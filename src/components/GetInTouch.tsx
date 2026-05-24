@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function GetInTouch() {
   return (
-    <div className="max-w-7xl gap-4 m-4 lg:my-16 mx-10 flex lg:flex-row flex-col lg:items-center lg:justify-between">
+    <div className="max-w-7xl   gap-4 p-4 lg:py-16  px-10 flex lg:flex-row flex-col lg:items-center lg:justify-between">
       <p className="text-[#1e3a5f] text-lg max-w-2xl">
         AmacaThera seeks to partner with like minded companies to co-develop new, exciting products that provide on-time, on-target therapeutic solutions.
       </p>

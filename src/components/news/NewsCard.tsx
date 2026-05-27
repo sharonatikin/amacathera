@@ -36,7 +36,7 @@ const NewsCard= ({item}:{item: INews}) => {
               <circle cx="12" cy="12" r="10" />
               <path d="M12 6v6l4 2" />
             </svg>
-            <span>{item.date.toDateString().split('T')[0]}</span>
+            <span>{new Date(item.date).toDateString().split('T')[0]}</span>
           </div>
 
           <div className="flex items-center gap-2">

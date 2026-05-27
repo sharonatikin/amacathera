@@ -1,9 +1,11 @@
 import React from 'react';
 import Image from 'next/image';
+import { INews } from '@/types/news';
+import Link from 'next/link';
 
 
 
-const NewsCard= ({item}) => {
+const NewsCard= ({item}:{item: INews}) => {
   return (
     <div className="flex flex-col sm:flex-row items-center border border-slate-300 rounded-md bg-white p-6 shadow-sm max-w-[680px] w-full gap-6 font-sans">
       {/* Left Aspect Ratio Image Container */}
@@ -34,7 +36,7 @@ const NewsCard= ({item}) => {
               <circle cx="12" cy="12" r="10" />
               <path d="M12 6v6l4 2" />
             </svg>
-            <span>{item.date.split('T')[0]}</span>
+            <span>{item.date.toDateString().split('T')[0]}</span>
           </div>
 
           <div className="flex items-center gap-2">
@@ -66,12 +68,11 @@ const NewsCard= ({item}) => {
 
         {/* Action Button */}
         <div className="mt-auto">
-          <button
-            onClick={item.onReadMore}
+          <Link href={`/news-and-events/news/${item._id}`}
             className="bg-[#003366] hover:bg-[#002244] text-white text-[15px] font-semibold py-3 px-7 rounded transition-colors duration-200"
           >
             Read More
-          </button>
+          </Link>
         </div>
       </div>
     </div>

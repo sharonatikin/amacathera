@@ -2,10 +2,13 @@ import AmacaGelPlatform from '@/components/technology/AmacaGelPlatform'
 import AmacaGelProperties from '@/components/technology/AmacaGelProperties'
 import AMT143Section from '@/components/technology/AMTSection'
 import HydrogelPlatform from '@/components/technology/HydrogelPlatform'
+import HydrogelSolution from '@/components/technology/HydrogelSolution'
 import ResearchSection from '@/components/technology/ResearchSection'
 import ShowcaseSection from '@/components/technology/ShowcaseSection'
 import TechnologySection from '@/components/technology/TechnologySection'
 import TestimonialSection from '@/components/technology/TestimonialSection'
+import Versatility from '@/components/technology/Versatility'
+import WhyChoose from '@/components/technology/Whychoose'
 import React from 'react'
 
 const page = () => {
@@ -33,12 +36,15 @@ const page = () => {
     <div>
       <TechnologySection/>
       <ShowcaseSection/>
+      <HydrogelSolution />
       <ResearchSection/>
-      <HydrogelPlatform content={content} title='A Unique Hydrogel Platform'/>
+      <Versatility/>
+      <WhyChoose />
+      {/* <HydrogelPlatform content={content} title='A Unique Hydrogel Platform'/>
       <AmacaGelPlatform/>
       <AmacaGelProperties/>
       <AMT143Section/>
-      <TestimonialSection/>
+      <TestimonialSection/> */}
     </div>
   )
 }

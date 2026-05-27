@@ -62,7 +62,7 @@ const NewsCard= ({item}:{item: INews}) => {
         <hr className="border-slate-200 my-4" />
 
         {/* Title */}
-        <h3 className="text-[#003366] text-[22px] font-bold leading-snug tracking-tight mb-6">
+        <h3 className="text-[#003366] text-[16px] font-bold leading-snug tracking-tight mb-6">
           {item.mainHeading}
         </h3>
 

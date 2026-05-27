@@ -5,9 +5,9 @@ export default function AMTShowSection() {
       <div className="md:max-w-7xl max-9xl mx-auto">
         {/* Video Section */}
         <div className="">
-          <div className="flex md:hidden items-center justify-center mb-8">
+          {/* <div className="flex md:hidden items-center justify-center mb-8">
             <div className="bg-blue-500 text-white  py-4 px-6 rounded-full shadow-md">Watch our videos</div>
-          </div>
+          </div> */}
           <div className="flex justify-center">
             <div className="w-full  md:max-w-6xl aspect-video md:rounded-3xl shadow-2xl overflow-hidden">
               <iframe

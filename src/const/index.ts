@@ -107,6 +107,22 @@ export const teamMembers = [
     image: "/images/team/elaine-reguera.png",
     url:"elaine-reguera",
     colification:"PhD"
+  },
+  {
+    name: "Dr. Eyal S Ron",
+    title: "Board Member",
+    description: "Dr. Eyal S. Ron is a seasoned life sciences entrepreneur, board member, advisor, and mentor with more than 30 years of experience in drug delivery, medical devices, diagnostics, women’s health, and healthcare innovation. He has founded and served on the boards of multiple drug delivery and life sciences companies, helping guide them from early concept through product development, financing, partnerships, and growth. He is especially passionate about mentoring CEOs, founders, and startup entrepreneurs as they turn strong science into focused strategies, fundable companies, and products that can make a real impact. Known for his direct, hands-on, and founder-friendly style, Eyal brings practical operating experience, strategic judgment, and a strong commitment to helping leadership teams make better decisions and build lasting value.",
+    image: "/images/team/ey.png",
+    url: "eyal-ron",
+    colification: "PhD"
+  },
+  {
+    name: "Gillian Stacey",
+    title: "Board Member",
+    description: "Gillian Stacey is a corporate lawyer with over 30 years of experience advising public and private corporations on mergers and acquisitions, corporate governance, contracts, technology, and privacy law. She spent her career as a senior partner at Davies Ward Phillips & Vineberg LLP, one of Canada's premier law firms, where she counselled clients on highly complex transactions and regulatory matters across a broad range of industries including biotechnology. Gillian holds an LLB from Western University and an LLM from the University of Cambridge. She brings deep expertise in governance, strategic oversight, and the legal dimensions of corporate growth — experience particularly valuable as AmacaThera advances its hydrogel drug delivery platform toward commercialization.",
+    url:"gillian-stacey",
+    image: '/images/team/gillian.png',
+    colification: "LLB, LLM"
   }
 ]
 

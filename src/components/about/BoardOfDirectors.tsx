@@ -1,20 +1,22 @@
 // components/about/BoardOfDirectors.tsx
 import React from 'react';
 import { TrendingUp } from 'lucide-react';
+import Link from 'next/link';
 
 interface BoardMember {
   name: string;
   role?: string;
   image?: string;
+  url?: string;
 }
 
 const boardMembers: BoardMember[] = [
   { name: "Gael Mourant" },
   { name: "Peter van der Velden",  },
-  { name: "Dr. Eyal S Ron" },
-  { name: "Dr. Molly Shoichet", image: "/images/team/mollyshoichet.png" },
-  { name: "Dr. Mike Cooke", image: "/images/team/mikecooke.png" },
-  { name: "Gillian Stacey" }
+  { name: "Dr. Eyal S Ron", image: "/images/team/ey.png", url: "eyal-ron" },
+  { name: "Dr. Molly Shoichet", image: "/images/team/mollyshoichet.png", url: "molly-shoichet" },
+  { name: "Dr. Mike Cooke", image: "/images/team/mikecooke.png", url: "mike-cooke" },
+  { name: "Gillian Stacey", image: "/images/team/gillian.png", url: "gillian-stacey" },
 ];
 
 const getInitial = (name: string) => {
@@ -22,8 +24,8 @@ const getInitial = (name: string) => {
   return cleaned.charAt(0).toUpperCase();
 };
 
-const BoardCard = ({ member }: { member: BoardMember }) => (
-  <div className="flex-1 min-w-0 bg-slate-50/80 border border-slate-100 rounded-2xl px-6 py-8 flex flex-col items-center gap-4">
+const BoardCard = ({ member }: { member: BoardMember }) => {
+  const content = <div className="flex-1 min-w-0 bg-slate-50/80 border border-slate-100 rounded-2xl px-6 py-8 flex flex-col items-center gap-4">
     {/* Avatar Circle */}
     <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-[#0d2a4e] flex items-center justify-center flex-shrink-0">
       {member.image ? (
@@ -51,7 +53,14 @@ const BoardCard = ({ member }: { member: BoardMember }) => (
       )}
     </div>
   </div>
-);
+    return member.url ? (
+    <Link href={`/about-us/our-team/${member.url}`} className="flex flex-col">
+      {content}
+    </Link>
+  ) : (
+    <div className="flex flex-col">{content}</div>
+  );
+};
 
 const BoardOfDirectors = () => {
   return (

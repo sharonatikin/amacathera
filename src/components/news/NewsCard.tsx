@@ -6,6 +6,7 @@ import Link from 'next/link';
 
 
 const NewsCard= ({item}:{item: INews}) => {
+  console.log(item.date)
   return (
     <div className="flex flex-col sm:flex-row items-center border border-slate-300 rounded-md bg-white p-6 shadow-sm max-w-[680px] w-full gap-6 font-sans">
       {/* Left Aspect Ratio Image Container */}
@@ -36,7 +37,7 @@ const NewsCard= ({item}:{item: INews}) => {
               <circle cx="12" cy="12" r="10" />
               <path d="M12 6v6l4 2" />
             </svg>
-            <span>{new Date(item.date).toDateString().split('T')[0]}</span>
+            <span>{new Date(item.date).toLocaleDateString(undefined, {year: 'numeric',month: "short", day:'numeric'})}</span>
           </div>
 
           <div className="flex items-center gap-2">

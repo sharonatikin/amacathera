@@ -9,7 +9,7 @@ const ProfileDetail: React.FC = () => {
   const member = teamMembers.find(m => m.url === urlSegment);
 
   return (
-    <div className="min-h-screen bg-slate-100">
+    <div className="min-h-screen mt-[7%] bg-slate-100">
       {/* Hero Section */}
       <div className="relative bg-gradient-to-r from-[#003260] overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">

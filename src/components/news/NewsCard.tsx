@@ -37,7 +37,13 @@ const NewsCard= ({item}:{item: INews}) => {
               <circle cx="12" cy="12" r="10" />
               <path d="M12 6v6l4 2" />
             </svg>
-            <span>{new Date(item.date).toLocaleDateString(undefined, {year: 'numeric',month: "short", day:'numeric'})}</span>
+            <span>{(() => {
+    const d = new Date(item.date);
+    const day = d.getDate();
+    const month = d.toLocaleDateString('en-US', { month: 'short' });
+    const year = d.getFullYear();
+    return `${day} ${month}, ${year}`;
+  })()}</span>
           </div>
 
           <div className="flex items-center gap-2">

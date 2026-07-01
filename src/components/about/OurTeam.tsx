@@ -36,7 +36,7 @@ const scientificTeam: TeamMember[] = [
     image: "/images/team/elainereguera.png",
     url: "elaine-reguera",
   },
-  { name: "Lee Ann Girgotti", role: "Scientist", image: "", url: "" },
+  { name: "Lee Ann Girotti", role: "Scientist", image: "", url: "" },
   { name: "Neil Jurkiewiecz", role: "Scientist", image: "", url: "" },
   { name: "Nazli Hassnepou", role: "Scientist", image: "", url: "" }
 ];

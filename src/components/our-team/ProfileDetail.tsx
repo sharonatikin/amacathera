@@ -7,7 +7,7 @@ const ProfileDetail: React.FC = () => {
   const path = usePathname();
   const urlSegment = path.split('/').pop();
   const member = teamMembers.find(m => m.url === urlSegment);
-
+console.log(member)
   return (
     <div className="min-h-screen mt-[7%] bg-slate-100">
       {/* Hero Section */}

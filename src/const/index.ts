@@ -44,6 +44,14 @@ export const teamMembers = [
     url:"molly-shoichet",
     colification:"PhD"
   },
+{
+  name: "P. Gael Mourant",
+  title: "Director",
+  description: "Gael Mourant brings over four decades of experience in financing, managing, investing in, and growing companies across a broad range of industries. Throughout her career, she has held executive leadership positions as CEO, CFO, and COO, while also serving as a trusted advisor and board member for numerous organizations. Her expertise spans lending, merchant banking, and debt and equity markets across Canada, the United States, the United Kingdom, Europe, and Japan. She has successfully supported capital raising initiatives in the private equity, venture capital, and investment banking sectors for both public and private corporations. Gael provides deep expertise in company building, strategic planning, operational and financial management, corporate governance, and organizational leadership. She holds an Honours Bachelor of Commerce from Laurentian University, an Alternative Dispute Resolution (ADR) Certificate from the University of Windsor Faculty of Law, and a Certificate from the MIT–Harvard Project on Negotiation. Her extensive leadership experience and strategic perspective continue to support organizations through growth, transformation, and long-term value creation.",
+ 
+  url: "gael-mourant",
+  colification: "Hon. B.Com, ADR Certificate"
+},
   {
     name: "Andrew Bishop",
     title: "Chief Financial Officer",

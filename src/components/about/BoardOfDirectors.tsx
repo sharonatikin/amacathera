@@ -11,7 +11,7 @@ interface BoardMember {
 }
 
 const boardMembers: BoardMember[] = [
-  { name: "Gael Mourant" },
+  { name: "Gael Mourant" , url: 'gael-mourant'},
   { name: "Peter van der Velden",  },
   { name: "Dr. Eyal S Ron", image: "/images/team/ey.png", url: "eyal-ron" },
   { name: "Dr. Molly Shoichet", image: "/images/team/mollyshoichet.png", url: "molly-shoichet" },

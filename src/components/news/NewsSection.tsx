@@ -115,7 +115,7 @@ export default function NewsSection({ newsData }: { newsData: INews[] }) {
     redirect('/');
   }
 
-  console.log(newsData[activeSlide], typeof newsData[activeSlide].date);
+  console.log(newsData[activeSlide], typeof newsData[activeSlide]);
 
   return (
     <div className="h-screen backdrop-blur-xs bg-white/10 w-full relative overflow-hidden">

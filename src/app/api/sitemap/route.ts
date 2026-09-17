@@ -34,21 +34,23 @@ export async function GET() {
     await connectDB();
 
     // Fetch dynamic content
-    const newsArticles = await News.find().select('_id updatedAt').lean();
+const newsArticles = await News.find({ isPublished: true })
+  .select('_id slug updatedAt')
+  .lean();
     const publications = await Publication.find().select('_id updatedAt').lean();
 
     // Build sitemap entries
     const dynamicEntries: SitemapEntry[] = [];
 
     // Add news articles
-    newsArticles.forEach((article: any) => {
-      dynamicEntries.push({
-        url: `/news/${article._id}`,
-        lastmod: new Date(article.updatedAt).toISOString().split('T')[0],
-        changefreq: 'monthly',
-        priority: '0.7',
-      });
-    });
+newsArticles.forEach((article: any) => {
+  dynamicEntries.push({
+    url: `/news-and-events/news/${article.slug || article._id}`,
+    lastmod: new Date(article.updatedAt).toISOString().split('T')[0],
+    changefreq: 'monthly',
+    priority: '0.7',
+  });
+});
 
     // Add publications
     publications.forEach((pub: any) => {

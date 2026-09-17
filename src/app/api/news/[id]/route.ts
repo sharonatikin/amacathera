@@ -5,45 +5,33 @@ import mongoose from 'mongoose';
 import { writeFile, mkdir, unlink } from 'fs/promises';
 import { join } from 'path';
 import { existsSync } from 'fs';
+import { slugify } from '@/lib/slugify';
 
+// in api/news/[id]/route.ts GET method:
 export async function GET(
   request: NextRequest,
-  { params }: { params: Promise<{ id: string }> } // Note: params is now a Promise
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
     await connectDB();
-    
-    // Unwrap the params Promise
-    const unwrappedParams = await params;
-    const newsId = unwrappedParams.id;
-    
-    
-    // Validate ObjectId
-    if (!mongoose.Types.ObjectId.isValid(newsId)) {
-      return NextResponse.json(
-        { success: false, error: 'Invalid news ID' },
-        { status: 400 }
-      );
-    }
-    
-    const news = await News.findById(newsId)
-      .select('-uploadedBy')
-      .lean();
-    
+    const { id } = await params;
+
+    // Check if ID is a valid MongoDB ObjectId; if not, query by slug
+    const query = mongoose.Types.ObjectId.isValid(id)
+      ? { $or: [{ _id: id }, { slug: id }] }
+      : { slug: id };
+
+    const news = await News.findOne(query).select('-uploadedBy').lean();
+
     if (!news) {
       return NextResponse.json(
         { success: false, error: 'News not found' },
         { status: 404 }
       );
     }
-    
-    return NextResponse.json({
-      success: true,
-      data: news
-    }, { status: 200 });
-    
+
+    return NextResponse.json({ success: true, data: news }, { status: 200 });
   } catch (error) {
-    console.error('Error fetching news:', error);
     return NextResponse.json(
       { success: false, error: 'Failed to fetch news' },
       { status: 500 }
@@ -193,6 +181,16 @@ export async function PATCH(
     if (isPublished !== null && isPublished !== undefined) {
       updateData.isPublished = isPublished == 'true' ? true : false;
     }
+
+let baseSlug = slugify(mainHeading);
+let uniqueSlug = baseSlug;
+let counter = 1
+
+while (await News.exists({ slug: uniqueSlug })) {
+  uniqueSlug = `${baseSlug}-${counter++}`;
+}
+
+updateData.slug = uniqueSlug; 
 
     // Handle image file upload
     if (uploadImage && uploadImage.size > 0) {

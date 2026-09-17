@@ -14,6 +14,7 @@ const newsSchema = new mongoose.Schema(
       trim: true,
       maxlength: [500, 'Sub heading cannot exceed 500 characters']
     },
+    slug: { type: String, unique: true, index: true, sparse: true },
     date: {
       type: Date,
       required: [true, 'Date is required']

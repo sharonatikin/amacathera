@@ -75,11 +75,12 @@ const NewsCard= ({item}:{item: INews}) => {
 
         {/* Action Button */}
         <div className="mt-auto">
-          <Link href={`/news-and-events/news/${item._id}`}
-            className="bg-[#003366] hover:bg-[#002244] text-white text-[15px] font-semibold py-3 px-7 rounded transition-colors duration-200"
-          >
-            Read More
-          </Link>
+<Link 
+  href={`/news-and-events/news/${item.slug || item._id}`}
+  className="bg-[#003366] hover:bg-[#002244] text-white text-[15px] font-semibold py-3 px-7 rounded transition-colors duration-200"
+>
+  Read More
+</Link>
         </div>
       </div>
     </div>

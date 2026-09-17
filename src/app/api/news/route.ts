@@ -5,6 +5,7 @@ import News from '@/lib/models/News';
 import { writeFile, mkdir } from 'fs/promises';
 import { join } from 'path';
 import { existsSync } from 'fs';
+import { slugify } from '@/lib/slugify';
 
 const SECRET_KEY = process.env.JWT_SECRET || 'your-secret-key';
 const UPLOAD_DIR = join(process.cwd(), 'uploads', 'news');
@@ -100,6 +101,14 @@ export async function POST(request: NextRequest) {
       );
     }
     
+let baseSlug = slugify(mainHeading);
+let uniqueSlug = baseSlug;
+let counter = 1;
+
+while (await News.exists({ slug: uniqueSlug })) {
+  uniqueSlug = `${baseSlug}-${counter++}`;
+}
+
     // Handle image file upload
     let imageUrl = null;
     let fileName = null;
@@ -140,6 +149,7 @@ export async function POST(request: NextRequest) {
     const news = new News({
       mainHeading: mainHeading.trim(),
       subHeading: subHeading.trim(),
+      slug: uniqueSlug,
       date: new Date(date),
       pressReleaseLink: pressReleaseLink.trim() || null,
       imageUrl,

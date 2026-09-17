@@ -5,6 +5,7 @@ export interface INews extends Document {
   mainHeading: string;
   subHeading: string;
   date: Date;
+  slug: string;
   pressReleaseLink?: string;
   imageUrl?: string;
   fileName?: string;
